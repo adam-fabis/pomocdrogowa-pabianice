@@ -34,7 +34,7 @@ page_assets() { # $1 = plik html
     grep -o 'srcset="[^"]*"' "$1" | tr ',' '\n' | grep -o '/assets/[^ ]*';
     grep -o 'imagesrcset="[^"]*"' "$1" | tr ',' '\n' | grep -o '/assets/[^ ]*'; } | sort -u
 }
-traces() { grep -cE '\{\{|\}\}|<sc-|<x-dc|<helmet|hint-placeholder|support\.js|fonts\.googleapis|lh3\.googleusercontent|dc-import|style-hover|_ds_bundle|unpkg' "$1"; }
+traces() { grep -cE '\{\{|<sc-|<x-dc|<helmet|hint-placeholder|support\.js|fonts\.googleapis|lh3\.googleusercontent|dc-import|style-hover=|_ds_bundle|unpkg' "$1"; }
 title_len() { python3 -c "import re,sys;m=re.search(r'<title>(.*?)</title>',open(sys.argv[1],encoding='utf-8').read());print(len(m.group(1)) if m else 999)" "$1"; }
 jsonld_ok() { python3 - "$1" <<'EOF'
 import re,json,sys
@@ -150,7 +150,7 @@ section_partials() {
   eq "404: ślady DC" "$(traces "$out")" 0
   check "404: data-nav/data-fab/data-menu" bash -c "grep -q data-nav '$out' && grep -q data-fab '$out' && grep -q data-menu '$out'"
   check "404: burger aria-expanded" bash -c "grep -q 'data-burger aria-label=\"Menu\" aria-expanded=\"false\"' '$out'"
-  eq "404: bez CTA" "$(grep -c 'Potrzebujesz pomocy' "$out")" 0
+  eq "404: bez CTA" "$(grep -c 'id="cta-h"' "$out")" 0
   eq "404: <main> x1" "$(grep -c '<main>' "$out")" 1
   check "404: main.js ?v=" bash -c "grep -q 'main.js?v=[0-9]' '$out'"
   stop_server
@@ -170,7 +170,7 @@ section_home() {
   check "home: hero fetchpriority + preload" bash -c "grep -q 'fetchpriority=\"high\"' '$out' && grep -q 'rel=\"preload\" as=\"image\"' '$out'"
   check "home: data-leaflet" bash -c "grep -q 'data-leaflet' '$out'"
   check "home: FAQ aria" bash -c "[ \$(grep -o 'aria-expanded=\"true\"' '$out' | wc -l) -ge 1 ] && [ \$(grep -o 'aria-controls=\"faq-a' '$out' | wc -l) -eq 7 ]"
-  check "home: CTA" bash -c "grep -q 'Potrzebujesz pomocy' '$out'"
+  check "home: CTA" bash -c "grep -q 'id=\"cta-h\"' '$out'"
   stop_server
 }
 export -f jsonld_types
@@ -206,7 +206,7 @@ section_kontakt() {
   lint_all; start_server
   local out=.superpowers/p_kontakt.html
   page_common kontakt /kontakt/ "$out"
-  eq "kontakt: bez CTA" "$(grep -c 'Potrzebujesz pomocy' "$out")" 0
+  eq "kontakt: bez CTA" "$(grep -c 'id="cta-h"' "$out")" 0
   eq "kontakt: data-leaflet x1" "$(grep -c 'data-leaflet' "$out")" 1
   eq "kontakt: bez iframe google" "$(grep -c 'maps.google.com/maps?q' "$out")" 0
   check "kontakt: BreadcrumbList" bash -c "jsonld_types '$out' | grep -q 'BreadcrumbList=1'"

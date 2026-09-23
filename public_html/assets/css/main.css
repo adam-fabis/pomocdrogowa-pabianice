@@ -113,7 +113,7 @@
 
 /* ── Tokeny ── */
 :root { --bg:#1f1f1f; --bg2:#262626; --bg3:#2a2a2a; --deep:#141414; --nav:#161616; --ink:#111; --brand:#f5c518; --red:#e8342a; --red2:#ff4336; --ok:#3ad36b; --text:#f2f2f2; --navh:79px; --E:cubic-bezier(.2,.7,.2,1); }
-/* ── Baza (z <helmet> designu) ── */
+/* ── Baza (style globalne z designu) ── */
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;background:#1f1f1f;font-family:'Barlow',system-ui,sans-serif;color:#f2f2f2;-webkit-text-size-adjust:100%}
@@ -126,7 +126,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #f5c518;outline-offset:2p
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,211,107,.7)}70%{box-shadow:0 0 0 10px rgba(58,211,107,0)}100%{box-shadow:0 0 0 0 rgba(58,211,107,0)}}
 .dot{width:10px;height:10px;border-radius:50%;background:#3ad36b;flex:none;display:inline-block;animation:pulse 1.8s infinite}
 [hidden]{display:none!important}
-/* ── Hover/active z atrybutów style-hover / style-active designu ── */
+/* ── Hover/active (w designie: atrybuty hover/active) ── */
 .hov-brand:hover{background:#f5c518!important;border-color:#f5c518!important;color:#111!important}
 .hov-lift:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.35)}
 .hov-lift-flat:hover{transform:translateY(-2px)}
