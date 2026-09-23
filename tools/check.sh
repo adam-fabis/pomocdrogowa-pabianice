@@ -208,7 +208,7 @@ section_kontakt() {
   local out=.superpowers/p_kontakt.html
   page_common kontakt /kontakt/ "$out"
   eq "kontakt: bez CTA" "$(grep -c 'id="cta-h"' "$out")" 0
-  eq "kontakt: data-leaflet x1" "$(grep -c 'data-leaflet' "$out")" 1
+  eq "kontakt: data-leaflet x1" "$(grep -c '<div data-leaflet' "$out")" 1
   eq "kontakt: bez iframe google" "$(grep -c 'maps.google.com/maps?q' "$out")" 0
   check "kontakt: BreadcrumbList" bash -c "jsonld_types '$out' | grep -q 'BreadcrumbList=1'"
   check "kontakt: Wyznacz trasę" bash -c "grep -q 'maps/dir/' '$out'"

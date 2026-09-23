@@ -224,4 +224,4 @@ body.lb-open{overflow:hidden}
 .pd-label::before{display:none}
 .pd-hq{background:none;border:none}
 .pd-hq i{display:block;width:100%;height:100%;background:#f5c518;border:3px solid #111;box-sizing:border-box;box-shadow:0 0 0 6px rgba(245,197,24,.35)}
-.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#111;color:#f2f2f2;border-radius:0}
+[data-leaflet] .leaflet-popup-content-wrapper,[data-leaflet] .leaflet-popup-tip{background:#111;color:#f2f2f2;border-radius:0}
