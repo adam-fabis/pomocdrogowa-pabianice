@@ -3,3 +3,4 @@
 zrodla/
 __pycache__/
 *.pyc
+.superpowers/
