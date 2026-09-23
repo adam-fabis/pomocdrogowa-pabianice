@@ -23,6 +23,7 @@ stop_server() { [ -n "$SERVER_PID" ] && kill "$SERVER_PID" 2>/dev/null; SERVER_P
 trap stop_server EXIT
 code() { curl -s -o /dev/null -w '%{http_code}' "$@"; }
 fetch() { curl -s "$@"; }
+export -f fetch code
 assets_exist() { # stdin: ścieżki /assets/...
   local missing=0 p
   while read -r p; do [ -z "$p" ] && continue; [ -f "public_html$p" ] || { echo "    BRAK $p"; missing=$((missing+1)); }; done
@@ -88,6 +89,7 @@ for k,d in v.items():
     for w in d['widths']:
         for e in ('avif','webp'): assert os.path.exists(f'public_html/assets/img/{k}-{w}.{e}'), f'{k}-{w}.{e}'"
   check "alts.json ma 14 wpisów" python3 -c "import json; assert len(json.load(open('tools/alts.json')))==14"
+  check "roles.json ma 23 role" python3 -c "import json; assert len(json.load(open('public_html/assets/img/roles.json')))==23"
   check "manifest.json: 14 items, role hero x4" python3 -c "
 import json; m=json.load(open('tools/manifest.json'))['items']
 assert len(m)==14; assert sum(1 for i in m if any(r.endswith('-hero') for r in i['roles']))==4"

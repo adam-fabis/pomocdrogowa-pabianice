@@ -1,0 +1,76 @@
+# Pomoc Drogowa Pabianice — Apache/LiteSpeed (produkcja SEOhost). Staging na nginx nie czyta tego pliku:
+# tam routing robi dispatcher w index.php (try_files -> /index.php).
+AddDefaultCharset utf-8
+DirectoryIndex index.php
+AddType image/avif .avif
+AddType image/webp .webp
+AddType font/woff2 .woff2
+
+<IfModule LiteSpeed>
+  CacheLookup off
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # https + www — tylko dla domeny produkcyjnej (na innych hostach bez zmian, bez pętli)
+  RewriteCond %{HTTP_HOST} ^(www\.)?pomocdrogowa-pabianice\.pl$ [NC]
+  RewriteCond %{HTTPS} !=on [OR]
+  RewriteCond %{HTTP_HOST} !^www\. [NC]
+  RewriteRule ^(.*)$ https://www.pomocdrogowa-pabianice.pl/$1 [R=301,L]
+
+  # partiale tylko przez include; pliki ukryte 403 (poza .well-known dla SSL)
+  RewriteRule ^partials/ - [F,L]
+  RewriteRule (^|/)\.(?!well-known(/|$)) - [F,L]
+
+  # robots / sitemap generowane w PHP (wg hosta)
+  RewriteRule ^robots\.txt$ robots.php [L]
+  RewriteRule ^sitemap\.xml$ sitemap.php [L]
+
+  # stare adresy .php i wersje bez ukośnika -> 301 na ładne URL-e
+  RewriteCond %{THE_REQUEST} \s/index\.php[?\s]
+  RewriteRule ^index\.php$ / [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/(oferta|galeria|kontakt)\.php[?\s]
+  RewriteRule ^(oferta|galeria|kontakt)\.php$ /$1/ [R=301,L]
+  RewriteRule ^(oferta|galeria|kontakt)$ /$1/ [R=301,L]
+
+  # ładne URL-e -> pliki PHP
+  RewriteRule ^(oferta|galeria|kontakt)/$ $1.php [L]
+
+  # wszystko inne, co nie jest plikiem/katalogiem -> index.php (dispatcher zwróci 404)
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^ index.php [L]
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/javascript image/svg+xml application/json text/xml application/xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType image/avif "access plus 30 days"
+  ExpiresByType image/webp "access plus 30 days"
+  ExpiresByType font/woff2 "access plus 365 days"
+  # JS/CSS wersjonowane ?v=<mtime> — bezpieczny długi cache
+  <FilesMatch "\.(js|css)$">
+    ExpiresDefault "access plus 1 year"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+  <FilesMatch "\.(js|css)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.php$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+  # HSTS tylko dla domeny produkcyjnej (bez includeSubDomains — poczta/panel klienta bez wymuszenia)
+  Header always set Strict-Transport-Security "max-age=31536000" "expr=%{HTTP_HOST} =~ /pomocdrogowa-pabianice\.pl$/"
+</IfModule>
