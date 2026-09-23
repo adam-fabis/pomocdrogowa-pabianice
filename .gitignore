@@ -1,0 +1,5 @@
+.DS_Store
+*.zip
+zrodla/
+__pycache__/
+*.pyc
