@@ -1,0 +1,84 @@
+# Aktywny po dodaniu sekretów FTP_SERVER / FTP_USERNAME / FTP_PASSWORD w GitHub → Settings → Environments → production.
+# Do tego czasu push na main nic nie wgrywa (job padnie na braku sekretów — to oczekiwane).
+name: Deploy na produkcję
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public_html/**'
+      - '.github/workflows/deploy.yml'
+  workflow_dispatch:
+
+# Nigdy dwa wgrania naraz — kolejny czeka, aż poprzedni skończy.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://www.pomocdrogowa-pabianice.pl/
+    steps:
+      - uses: actions/checkout@v4
+
+      # Wgrywa tylko zmienione pliki: stan trzyma w .ftp-deploy-sync-state.json na serwerze.
+      # Pierwsze uruchomienie wgrywa całe public_html/ (~190 MB).
+      # SEOhost losowo zrywa połączenie danych (ECONNRESET), więc są 3 próby.
+      # UWAGA: serwer FTP odrzuca każdy zapis w katalogu lib/ (550) — nie trzymać tam plików.
+      - name: Wgraj public_html/ przez FTPS (próba 1)
+        id: ftp1
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          # Certyfikat FTP SEOhost (*.seohost.pl) wygasł 2026-01-20 — bez weryfikacji, ale nadal szyfrowane.
+          # Usunąć po odnowieniu certyfikatu przez SEOhost.
+          security: loose
+          local-dir: ./public_html/
+          # Konto FTP jest zamknięte w public_html domeny, więc jego katalog główny = docroot.
+          server-dir: ./
+
+      - name: Wgraj public_html/ przez FTPS (próba 2)
+        id: ftp2
+        if: steps.ftp1.outcome == 'failure'
+        continue-on-error: true
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          security: loose
+          local-dir: ./public_html/
+          server-dir: ./
+
+      - name: Wgraj public_html/ przez FTPS (próba 3)
+        id: ftp3
+        if: steps.ftp2.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          security: loose
+          local-dir: ./public_html/
+          server-dir: ./
+
+      # LiteSpeed potrafi podać starą wersję z cache; head.php wysyła X-LiteSpeed-Purge przy wejściu.
+      - name: Sprawdź, czy strona odpowiada
+        run: |
+          # LiteSpeed SEOhost bywa ostry z limitem (429), więc kilka prób z przerwą.
+          for i in 1 2 3 4 5; do
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://www.pomocdrogowa-pabianice.pl/?deploy=${GITHUB_SHA}")
+            echo "próba $i: HTTP $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 20
+          done
+          exit 1

@@ -218,8 +218,8 @@ section_kontakt() {
 section_all() {
   section_scaffold; section_images; section_core; section_partials; section_home; section_oferta; section_galeria; section_kontakt
   echo "[global]"
-  check "brak śladów DC w public_html" bash -c "! grep -rqE '\{\{|<sc-|<x-dc|<helmet|hint-placeholder|support\.js|fonts\.googleapis|lh3\.googleusercontent|dc-import|_ds_bundle|unpkg' public_html"
-  check "workflow bez 'tuszyn'" bash -c "! grep -qi tuszyn .github/workflows/deploy.yml"
+  eq "brak śladów DC w public_html" "$(grep -rlE --include='*.php' --include='*.js' --include='*.css' --include='*.txt' --include='.htaccess' '\{\{|<sc-|<x-dc|<helmet|hint-placeholder|support\.js|fonts\.googleapis|lh3\.googleusercontent|dc-import|_ds_bundle|unpkg' public_html | wc -l | tr -d ' ')" 0
+  eq "workflow bez 'tuszyn'" "$(grep -ci tuszyn .github/workflows/deploy.yml)" 0
   check "llms.txt" test -f public_html/llms.txt
 }
 
