@@ -139,6 +139,7 @@ page_common() { # $1 label, $2 url path, $3 out file
   check "$1: wszystkie /assets istnieją" bash -c "page_assets '$out' | assets_exist"
   check "$1: main.js z ?v=" bash -c "grep -q 'main.js?v=[0-9]' '$out'"
   eq "$1: <main> x1" "$(grep -c '<main>' "$out")" 1
+  eq "$1: bez PHP Warning/Notice/Fatal" "$(grep -cE '<b>(Warning|Notice|Fatal error|Deprecated)</b>' "$out")" 0
 }
 export -f page_assets assets_exist
 
@@ -181,7 +182,7 @@ section_oferta() {
   local out=.superpowers/p_oferta.html
   page_common oferta /oferta/ "$out"
   eq "oferta: 8 article" "$(grep -c '<article id=' "$out")" 8
-  eq "oferta: 4 is-rev" "$(grep -c 'is-rev' "$out")" 4
+  eq "oferta: 4 is-rev" "$(grep -c 'class="svc-row is-rev"' "$out")" 4
   check "oferta: BreadcrumbList" bash -c "jsonld_types '$out' | grep -q 'BreadcrumbList=1'"
   check "oferta: kotwice PRZEJDŹ DO" bash -c "for i in holowanie naprawa akumulator opony paliwo kolizja transport oc; do grep -q \"href=\\\"#\$i\\\"\" '$out' || exit 1; done"
   stop_server

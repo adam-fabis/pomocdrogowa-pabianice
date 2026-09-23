@@ -1,5 +1,5 @@
 <?php
-define('PD_APP', true); // strażnik: partials/*.php działają tylko przez include
+define('PD_APP', true); // strażnik: partials/*.php działają tylko przez include (podstrony: if (!defined) — mogą być require'owane stąd)
 // Dispatcher: na nginx (staging) wszystkie nieistniejące ścieżki trafiają tu przez try_files;
 // na Apache .htaccess mapuje ładne URL-e bezpośrednio, więc ten blok widzi tylko "/".
 $reqPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';

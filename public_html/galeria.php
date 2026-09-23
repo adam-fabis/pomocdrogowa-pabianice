@@ -1,3 +1,3 @@
 <?php
-define('PD_APP', true);
+if (!defined('PD_APP')) { define('PD_APP', true); } // bezpośrednio (Apache) lub przez dispatcher w index.php (nginx)
 echo "stub galeria (Task 6-8)";
