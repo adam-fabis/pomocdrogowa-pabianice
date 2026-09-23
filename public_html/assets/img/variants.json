@@ -1,0 +1,268 @@
+{
+ "awaryjna-wymiana-kola-na-miejscu-pabianice": {
+  "h": 608,
+  "w": 1080,
+  "widths": [
+   480,
+   800,
+   1080
+  ]
+ },
+ "czarny-suv-na-lawecie-pomoc-drogowa-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   480,
+   800,
+   810
+  ]
+ },
+ "czerwone-auto-na-lawecie-osiedle-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   480,
+   800,
+   810
+  ]
+ },
+ "hero/holowanie-sedana-laweta-noca-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   810
+  ]
+ },
+ "hero/laweta-z-malym-autem-na-poboczu-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   810
+  ]
+ },
+ "hero/laweta-z-samochodem-droga-ekspresowa-pomoc-drogowa-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   810
+  ]
+ },
+ "hero/zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice": {
+  "h": 787,
+  "w": 1080,
+  "widths": [
+   960,
+   1080
+  ]
+ },
+ "holowanie-auta-po-awarii-z-osiedla-pabianice": {
+  "h": 608,
+  "w": 1080,
+  "widths": [
+   480,
+   800,
+   1080
+  ]
+ },
+ "holowanie-sedana-laweta-noca-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   480,
+   800,
+   810
+  ]
+ },
+ "laweta-transport-auta-droga-ekspresowa-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   480,
+   800,
+   810
+  ]
+ },
+ "laweta-z-autem-na-parkingu-pomoc-drogowa-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   480,
+   800,
+   810
+  ]
+ },
+ "laweta-z-malym-autem-na-poboczu-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   480,
+   800,
+   810
+  ]
+ },
+ "laweta-z-przyczepa-transport-ulica-pabianice": {
+  "h": 608,
+  "w": 1080,
+  "widths": [
+   480,
+   800,
+   1080
+  ]
+ },
+ "laweta-z-samochodem-droga-ekspresowa-pomoc-drogowa-pabianice": {
+  "h": 1080,
+  "w": 810,
+  "widths": [
+   480,
+   800,
+   810
+  ]
+ },
+ "mobilny-serwis-samochodowy-van-pabianice": {
+  "h": 552,
+  "w": 1080,
+  "widths": [
+   480,
+   800,
+   1080
+  ]
+ },
+ "thumbs/awaryjna-wymiana-kola-na-miejscu-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/czarny-suv-na-lawecie-pomoc-drogowa-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/czerwone-auto-na-lawecie-osiedle-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/holowanie-auta-po-awarii-z-osiedla-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/holowanie-sedana-laweta-noca-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/laweta-transport-auta-droga-ekspresowa-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/laweta-z-autem-na-parkingu-pomoc-drogowa-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/laweta-z-malym-autem-na-poboczu-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/laweta-z-przyczepa-transport-ulica-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/laweta-z-samochodem-droga-ekspresowa-pomoc-drogowa-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/mobilny-serwis-samochodowy-van-pabianice": {
+  "h": 409,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/transport-quada-na-lawecie-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/zaladunek-auta-na-lawete-noca-pabianice": {
+  "h": 800,
+  "w": 600,
+  "widths": [
+   400,
+   600
+  ]
+ },
+ "thumbs/zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice": {
+  "h": 583,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "transport-quada-na-lawecie-pabianice": {
+  "h": 608,
+  "w": 1080,
+  "widths": [
+   480,
+   800,
+   1080
+  ]
+ },
+ "zaladunek-auta-na-lawete-noca-pabianice": {
+  "h": 960,
+  "w": 720,
+  "widths": [
+   480,
+   720
+  ]
+ },
+ "zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice": {
+  "h": 787,
+  "w": 1080,
+  "widths": [
+   480,
+   800,
+   1080
+  ]
+ }
+}

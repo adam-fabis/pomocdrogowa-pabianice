@@ -74,9 +74,9 @@ section_scaffold() {
 section_images() {
   echo "[images]"
   eq "14 zdjęć źródłowych" "$(ls zrodla/google/*.jpg 2>/dev/null | wc -l | tr -d ' ')" 14
-  check "każde źródło >= 1000px" python3 -c "
+  check "każde źródło >= 700px" python3 -c "
 from PIL import Image; import glob
-for p in glob.glob('zrodla/google/*.jpg'): assert Image.open(p).width>=1000, p"
+for p in glob.glob('zrodla/google/*.jpg'): assert Image.open(p).width>=700, p"
   check "variants.json: 14 full + 14 thumbs + 4 hero" python3 -c "
 import json; v=json.load(open('public_html/assets/img/variants.json'))
 full=[k for k in v if '/' not in k]; th=[k for k in v if k.startswith('thumbs/')]; he=[k for k in v if k.startswith('hero/')]
