@@ -21,6 +21,11 @@ $HQ = [51.6607527, 19.3441975];
 $path = $path ?? '/';
 $canonical = $BASE . ltrim($path, '/');
 $preloadHero = $preloadHero ?? true;
+// nginx (staging) wykonuje /oferta.php bezpośrednio — przekieruj na ładny URL (na Apache robi to .htaccess; po rewrite REQUEST_URI = /oferta/)
+$pdReq = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+if (isset($page) && in_array($page, ['home', 'oferta', 'galeria', 'kontakt'], true) && preg_match('#\.php$#', $pdReq) && !headers_sent()) {
+    header('Location: ' . $path, true, 301); exit;
+}
 if (!$IS_PROD && !headers_sent()) { header('X-Robots-Tag: noindex, nofollow'); }
 if (!headers_sent()) { header('X-LiteSpeed-Purge: *'); } // LiteSpeed (SEOhost): nie podawać starej wersji z cache
 

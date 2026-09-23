@@ -40,7 +40,7 @@ include __DIR__ . '/partials/header.php';
 - `config.php`: stałe (`$PHONE`, `$PHONE_HREF`, `$PHONE_SHORT`, `$ADDR1/2`, `$GMAPS_PLACE`, `$GREVIEWS`, `$FB`, `$HQ`),
   `$IS_PROD` (host === `www.pomocdrogowa-pabianice.pl`), `$BASE`, `$canonical`, nagłówek `X-Robots-Tag` gdy nie produkcja,
   `pd_picture($key, $alt, $imgStyle, $sizes='100vw', $eager=false, $extra='')`, `pd_slug($rola)`.
-- `head.php`: meta, canonical (zawsze produkcja), `noindex` gdy `!$IS_PROD`, preload hero (AVIF srcset) + 2 fontów,
+- `head.php`: inline `<script>` dodaje klasę `js` na `<html>` (bez JS: FAQ rozwinięte, wszystkie kafelki galerii widoczne, przycisk „więcej” ukryty); meta, canonical (zawsze produkcja), `noindex` gdy `!$IS_PROD`, preload hero (AVIF srcset) + 2 fontów,
   CSS inline (`readfile main.css`), JSON-LD `AutomotiveBusiness`, `Service`, `BreadcrumbList` (podstrony), `FAQPage` (home).
   Otwiera `<body>` i główny `<div>`.
 - `header.php` otwiera `<main>`; `cta.php` zamyka `</main>` i renderuje CTA (chyba że `$noCta`); `footer.php` zamyka dokument
@@ -68,7 +68,7 @@ include __DIR__ . '/partials/header.php';
 - Apache (produkcja): `.htaccess` — `/oferta/` → `oferta.php`, `.php`/bez ukośnika → 301, `robots.txt`/`sitemap.xml` → PHP,
   https+www tylko dla hosta `pomocdrogowa-pabianice.pl`, HSTS warunkowy, cache, nagłówki.
 - nginx (staging): `try_files` → `index.php`, który ma dispatcher po `REQUEST_URI` (`/oferta/`, `/robots.txt`, `/sitemap.xml`,
-  301 dla `/oferta`, `/oferta.php`; reszta → `404.php`). Uwaga: `location ~ \.php$` na nginx wykona `/oferta.php` bezpośrednio (200).
+  301 dla `/oferta`; reszta → `404.php`). `/oferta.php` wykonany bezpośrednio przez nginx dostaje 301 z `config.php`.
 - Noindex automatyczny: każdy host ≠ produkcja dostaje meta `noindex`, nagłówek `X-Robots-Tag`, `robots.txt: Disallow: /`.
 
 ## JS

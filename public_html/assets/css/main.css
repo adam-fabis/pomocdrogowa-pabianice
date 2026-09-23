@@ -187,10 +187,13 @@ body.menu-open{overflow:hidden}
 .faq-icon .v{width:2px;height:14px;margin-left:-1px;margin-top:-7px}
 .faq-btn.is-open .faq-icon i{background:#111}
 .faq-btn.is-open .faq-icon .v{transform:scaleY(0)}
-.faq-wrap{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s var(--E)}
-.faq-wrap.is-open{grid-template-rows:1fr}
-.faq-wrap p{margin:0;padding:0 48px 20px 0;font-size:16px;line-height:1.6;color:#bbb;opacity:0;transform:translateY(-8px);transition:opacity .3s 0s,transform .4s var(--E)}
-.faq-wrap.is-open p{opacity:1;transform:translateY(0);transition:opacity .3s .1s,transform .4s var(--E)}
+/* bez JS: wszystkie odpowiedzi widoczne; z JS (html.js) akordeon */
+.faq-wrap{display:grid;grid-template-rows:1fr;transition:grid-template-rows .4s var(--E)}
+.js .faq-wrap{grid-template-rows:0fr}
+.js .faq-wrap.is-open{grid-template-rows:1fr}
+.faq-wrap p{margin:0;padding:0 48px 20px 0;font-size:16px;line-height:1.6;color:#bbb;transition:opacity .3s 0s,transform .4s var(--E)}
+.js .faq-wrap p{opacity:0;transform:translateY(-8px)}
+.js .faq-wrap.is-open p{opacity:1;transform:translateY(0);transition:opacity .3s .1s,transform .4s var(--E)}
 /* ── Oferta (mob = <820px) ── */
 .svc-row{display:flex;flex-direction:row;gap:56px;align-items:center;scroll-margin-top:100px}
 .svc-row.is-rev{flex-direction:row-reverse}
@@ -199,11 +202,13 @@ body.menu-open{overflow:hidden}
 .gal-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);grid-auto-flow:dense;gap:6px}
 .gal-cell{all:unset;cursor:zoom-in;display:block;overflow:hidden;background:#2a2a2a;aspect-ratio:1;position:relative}
 .gal-cell.is-big{grid-column:span 2;grid-row:span 2}
+.js .gal-cell.gal-more{display:none} /* kafelki 11+ ukryte tylko z JS (przycisk "Zobacz więcej") */
+html:not(.js) [data-more-wrap]{display:none!important}
 .gal-cell img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s var(--E),opacity .3s}
 .gal-cell:hover img{transform:scale(1.05);opacity:.85}
 @media (max-width:699px){.gal-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.94);display:flex;align-items:center;justify-content:center;padding:72px 84px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
-.lb.is-open{opacity:1;visibility:visible}
+.lb.is-open{opacity:1;visibility:visible;transition:opacity .25s,visibility 0s}
 .lb img{max-width:100%;max-height:100%;object-fit:contain;border:3px solid #f5c518;transform:scale(.96);transition:transform .3s var(--E)}
 .lb.is-open img{transform:scale(1)}
 @media (max-width:699px){.lb{padding:64px 12px}}

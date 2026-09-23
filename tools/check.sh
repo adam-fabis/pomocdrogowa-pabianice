@@ -194,7 +194,9 @@ section_galeria() {
   local out=.superpowers/p_galeria.html
   page_common galeria /galeria/ "$out"
   eq "galeria: 14 data-shot" "$(grep -c 'data-shot=' "$out")" 14
-  eq "galeria: 4 hidden" "$(grep -c ' hidden>' "$out")" 4
+  eq "galeria: 4 gal-more" "$(grep -c 'class="gal-cell gal-more"' "$out")" 4
+  check "galeria: bez atrybutu hidden na kafelkach" bash -c "! grep -q 'data-shot=\"[0-9]*\"[^>]* hidden' '$out'"
+  check "html.js + FAQ/galeria bez JS w CSS" bash -c "grep -q \"classList.add('js')\" '$out' && grep -q '\.js \.faq-wrap' '$out' && grep -q 'html:not(.js) \[data-more-wrap\]' '$out'"
   eq "galeria: 2 is-big" "$(grep -c 'class="gal-cell is-big"' "$out")" 2
   eq "galeria: bez preload hero" "$(grep -c 'rel="preload" as="image"' "$out")" 0
   check "galeria: lightbox" bash -c "grep -q 'data-lightbox' '$out' && grep -q 'data-lbprev' '$out' && grep -q 'data-more' '$out'"

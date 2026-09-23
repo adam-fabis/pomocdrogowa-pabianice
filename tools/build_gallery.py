@@ -14,7 +14,7 @@ tiles = []
 for n, it in enumerate(gal):
     slug, alt = it['slug'], alts[str(it['idx'])]
     v = variants['thumbs/' + slug]; sizes = SIZES_BIG if n in BIG else SIZES
-    hidden = ' hidden' if n >= VISIBLE else ''; big = ' is-big' if n in BIG else ''
+    hidden = ''; big = (' is-big' if n in BIG else '') + (' gal-more' if n >= VISIBLE else '')
     lazy = '' if n < 4 else ' loading="lazy"'
     tiles.append(f'''      <button type="button" class="gal-cell{big}" data-shot="{n}" data-full="/assets/img/{slug}.jpg" aria-label="Powiększ zdjęcie: {html.escape(alt, quote=True)}"{hidden}>
         <picture style="display:contents"><source type="image/avif" srcset="{srcset(slug, v['widths'], 'avif')}" sizes="{sizes}"><source type="image/webp" srcset="{srcset(slug, v['widths'], 'webp')}" sizes="{sizes}"><img src="/assets/img/thumbs/{slug}.jpg" alt="{html.escape(alt, quote=True)}" width="{v['w']}" height="{v['h']}"{lazy} decoding="async"></picture>

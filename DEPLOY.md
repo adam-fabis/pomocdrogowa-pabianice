@@ -24,8 +24,8 @@ Skrypt: sprawdza helper na serwerze → jeśli slug `pomocdrogowa-pabianice` nie
 Kolejne deploye = ponowne uruchomienie (nadpisuje pliki). Wpis subdomeny `patecwariatec.byst.re` trzeba usunąć ręcznie
 w https://mikr.us/panel/?a=domain (API Mikrusa nie usuwa subdomen).
 
-Na nginx `.htaccess` nie działa — routing robi dispatcher w `index.php`. Różnica vs produkcja: `/oferta.php` na stagingu
-zwraca 200 (nginx wykonuje PHP bezpośrednio), na Apache 301 → `/oferta/`.
+Na nginx `.htaccess` nie działa — routing robi dispatcher w `index.php`; `/oferta.php` (nginx wykonuje PHP bezpośrednio)
+dostaje 301 → `/oferta/` z `partials/config.php`. Zachowanie identyczne z Apache.
 
 ## Produkcja — https://www.pomocdrogowa-pabianice.pl/
 

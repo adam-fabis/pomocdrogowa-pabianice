@@ -16,7 +16,8 @@
       img.setAttribute('alt', tile ? tile.getAttribute('alt') : 'Powiększone zdjęcie');
       img.style.display = 'block';
       pos.textContent = (open + 1) + ' / ' + total;
-      lb.focus();
+      // .lb jest visibility:hidden do końca klatki — focus() zadziała dopiero po przemalowaniu
+      requestAnimationFrame(function () { requestAnimationFrame(function () { var c = lb.querySelector('[data-lbclose]'); if (c) c.focus(); else lb.focus(); }); });
     } else {
       img.style.display = 'none'; img.setAttribute('src', ''); img.setAttribute('alt', ''); pos.textContent = '';
       if (trigger) { trigger.focus(); trigger = null; }
@@ -26,7 +27,7 @@
   document.addEventListener('click', function (e) {
     var t = e.target; if (!t || !t.closest) return;
     if (t.closest('[data-more]')) {
-      shots.forEach(function (s) { s.removeAttribute('hidden'); });
+      shots.forEach(function (s) { s.classList.remove('gal-more'); });
       var w = document.querySelector('[data-more-wrap]'); if (w) w.setAttribute('hidden', '');
       return;
     }
@@ -39,6 +40,12 @@
   });
   document.addEventListener('keydown', function (e) {
     if (open < 0) return;
+    if (e.key === 'Tab') { // focus trap: Tab krąży po przyciskach lightboxa
+      var f = lb.querySelectorAll('button'), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && (document.activeElement === first || !lb.contains(document.activeElement))) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (document.activeElement === last || !lb.contains(document.activeElement))) { e.preventDefault(); first.focus(); }
+      return;
+    }
     if (e.key === 'Escape') { open = -1; render(); }
     else if (e.key === 'ArrowLeft') step(-1);
     else if (e.key === 'ArrowRight') step(1);

@@ -56,6 +56,7 @@ $e = fn($s) => htmlspecialchars($s, ENT_QUOTES);
 <html lang="pl">
 <head>
 <meta charset="utf-8">
+<script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo $e($title); ?></title>
 <?php if (!$IS_PROD): ?>
