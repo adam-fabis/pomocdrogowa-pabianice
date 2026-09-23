@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#1f1f1f;font-family:'Barlow',system-ui,sans-serif;color:#f2f2f2}a{color:#f5c518;text-decoration:none}a:hover{color:#fff}*{box-sizing:border-box}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,211,107,.7)}70%{box-shadow:0 0 0 10px rgba(58,211,107,0)}100%{box-shadow:0 0 0 0 rgba(58,211,107,0)}}</style>
+</helmet>
+<div style="min-height:100vh;background:#1f1f1f;overflow-x:clip">
+  <dc-import name="Naglowek" active="galeria" style="position:sticky;top:0;z-index:40;display:block" hint-size="100%,79px"></dc-import>
+
+  <section style="background:#141414;border-bottom:1px solid #333">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,8vw,72px) 20px clamp(36px,6vw,48px);display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap">
+      <div style="display:flex;flex-direction:column;gap:16px;max-width:640px">
+        <div style="font-size:14px;color:#aaa"><a href="Strona%20Glowna%201b%20v2.dc.html" style="color:#aaa">Strona główna</a> <span style="color:#666">/</span> <span style="color:#f5c518">Galeria</span></div>
+        <h1 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,7vw,80px);line-height:.95">Galeria realizacji</h1>
+        <p style="margin:0;font-size:18px;line-height:1.55;color:#ccc;text-wrap:pretty">Laweta w akcji — holowania, transporty i pomoc na trasie w Pabianicach i okolicy. Kliknij zdjęcie, żeby je powiększyć.</p>
+      </div>
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJpfx1cpE3GkcRsXM2X8BREYA" target="_blank" rel="noopener" style="border:2px solid #f5c518;color:#f5c518;font-weight:700;padding:12px 18px;font-size:15px;transition:background-color .2s,color .2s,transform .2s" style-hover="background:#f5c518;color:#111;transform:translateY(-2px)">Więcej zdjęć w wizytówce Google →</a>
+    </div>
+  </section>
+  <div style="height:16px;background:repeating-linear-gradient(135deg,#f5c518 0 22px,#111 22px 44px)"></div>
+
+  <section style="max-width:1200px;margin:0 auto;padding:clamp(32px,6vw,56px) 20px clamp(52px,9vw,80px)">
+    <div style="{{ grid }}">
+      <sc-for list="{{ photos }}" as="p" hint-placeholder-count="14">
+        <button onClick="{{ p.open }}" aria-label="Powiększ zdjęcie" style="{{ p.cell }}">
+          <img src="{{ p.thumb }}" alt="Realizacja — Pomoc Drogowa Łukasz Rogowski" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .3s" style-hover="transform:scale(1.05);opacity:.85">
+        </button>
+      </sc-for>
+    </div>
+    <sc-if value="{{ hasMore }}" hint-placeholder-val="{{ true }}">
+      <div style="display:flex;justify-content:center;margin-top:32px">
+        <button onClick="{{ showMore }}" style="all:unset;cursor:pointer;border:2px solid #f5c518;color:#f5c518;font-weight:800;font-size:17px;padding:14px 28px;transition:background-color .2s,color .2s,transform .2s cubic-bezier(.2,.7,.2,1)" style-hover="background:#f5c518;color:#111;transform:translateY(-2px)" style-active="transform:translateY(0) scale(.98)">{{ moreLabel }}</button>
+      </div>
+    </sc-if>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:#141414">
+    <img src="https://lh3.googleusercontent.com/p/AF1QipOws8D63tK6NA5h08hihNIxxIbEUF61ad3O0_n7=s1600" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25">
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(56px,10vw,88px) 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+      <div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518">DOSTĘPNI 24 GODZINY NA DOBĘ</div>
+      <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,6vw,72px);line-height:1">Potrzebujesz pomocy?</h2>
+      <p style="margin:0;font-size:18px;color:#ccc;max-width:560px">Zadzwoń o każdej porze dnia i nocy — dojedziemy tam, gdzie nas potrzebujesz.</p>
+      <a href="tel:+48517574330" style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(48px,8vw,88px);line-height:1;color:#fff;background:#111;padding:4px 28px 8px;border:5px solid #f5c518;margin-top:10px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s" style-hover="color:#f5c518;transform:translate(-3px,-3px);box-shadow:15px 15px 0 #f5c518" style-active="transform:translateY(0) scale(.98)">+48 517 574 330</a>
+    </div>
+  </section>
+
+  <dc-import name="Stopka" hint-size="100%,420px"></dc-import>
+
+  <div onClick="{{ close }}" style="{{ lbStyle }}">
+    <sc-if value="{{ lbOpen }}" hint-placeholder-val="{{ false }}"><img src="{{ lbSrc }}" alt="Powiększone zdjęcie" onClick="{{ stop }}" style="{{ lbImg }}"></sc-if>
+    <button onClick="{{ prev }}" aria-label="Poprzednie" style="all:unset;cursor:pointer;position:absolute;left:16px;top:50%;margin-top:-28px;width:56px;height:56px;background:#111;border:2px solid #f5c518;color:#f5c518;font-size:30px;display:flex;align-items:center;justify-content:center;transition:background-color .2s,color .2s" style-hover="background:#f5c518;color:#111">‹</button>
+    <button onClick="{{ next }}" aria-label="Następne" style="all:unset;cursor:pointer;position:absolute;right:16px;top:50%;margin-top:-28px;width:56px;height:56px;background:#111;border:2px solid #f5c518;color:#f5c518;font-size:30px;display:flex;align-items:center;justify-content:center;transition:background-color .2s,color .2s" style-hover="background:#f5c518;color:#111">›</button>
+    <button onClick="{{ close }}" aria-label="Zamknij" style="all:unset;cursor:pointer;position:absolute;right:16px;top:16px;width:48px;height:48px;background:#111;border:2px solid #555;color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;transition:border-color .2s" style-hover="border-color:#f5c518">×</button>
+    <div style="position:absolute;left:50%;bottom:20px;transform:translateX(-50%);background:#111;color:#ccc;font-size:14px;font-weight:700;padding:6px 12px">{{ lbPos }}</div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, lb: -1 };
+  ids = ['AF1QipMCuRG4erkL39pLL-v0rNfz0yXzroni7Qpzx6v6', 'AF1QipMv1TCeNhEn7CsgdXJ8HbEe-ug58zUUvaXUlpMC', 'AF1QipMzHpitGAQvdsdOpMms7mvUbVlFEQAZWRbQFfzp', 'AF1QipNxSBvqzk0MvD3v3z-K-M2_fPR08xxLUrvz5cv6', 'AF1QipN3rS421J-tXZyiCLpLVrnyjECo27osUiNnQ6lm', 'AF1QipOhg9yQtUQb0wI4jMKIpNABYi1o758Xv0dhyVUz', 'AF1QipO3xxEQ2QUWqHNvawCpDGmIp-zbr9nG7JyX4HBX', 'AF1QipMit_frYn13qotrJ1NEQ5AIg388AubGXEJEkQ8t', 'AF1QipOws8D63tK6NA5h08hihNIxxIbEUF61ad3O0_n7', 'AF1QipO6uXMIkJtD7I1DQ-P4ZBrFWaJNLWplPSPBNF18', 'AF1QipPNQ_Vl7A6VJy9VQYt0VJ4j0VskjFPRj8-YAYSF', 'AF1QipPK5EdP7Uxt1uwfHafz7lGTDpIy4ZodLjEe_Bj7', 'AF1QipMB2_dWtK4utmrc26AdqSzd-Q9oYM0msVSYuR5k', 'AF1QipOHdjErDhgeuPOzcloXnD7w3A34Mc2y4CaZGlrk'];
+  componentDidMount() {
+    this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR);
+    this.onK = e => { if (this.state.lb < 0) return; if (e.key === 'Escape') this.go(-1); if (e.key === 'ArrowRight') this.step(1); if (e.key === 'ArrowLeft') this.step(-1); };
+    window.addEventListener('keydown', this.onK);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); window.removeEventListener('keydown', this.onK); document.body.style.overflow = ''; }
+  go(i) { document.body.style.overflow = i >= 0 ? 'hidden' : ''; this.setState({ lb: i }); }
+  step(d) { const n = this.ids.length; this.setState(s => ({ lb: (s.lb + d + n) % n })); }
+  renderVals() {
+    const w = this.state.w, cols = w < 700 ? 2 : 4, lb = this.state.lb, on = lb >= 0;
+    const big = new Set([0, 7]);
+    return {
+      grid: { display: 'grid', gridTemplateColumns: `repeat(${cols},minmax(0,1fr))`, gridAutoRows: cols === 4 ? 'minmax(0,1fr)' : 'auto', gridAutoFlow: 'dense', gap: 6 },
+      hasMore: !this.state.more && this.ids.length > 10,
+      moreLabel: `Zobacz więcej zdjęć (${this.ids.length - 10})`,
+      showMore: () => this.setState({ more: true }),
+      photos: this.ids.slice(0, this.state.more ? this.ids.length : 10).map((id, i) => ({
+        thumb: `https://lh3.googleusercontent.com/p/${id}=s${big.has(i) ? 1000 : 600}`,
+        open: () => this.go(i),
+        cell: { all: 'unset', cursor: 'zoom-in', display: 'block', overflow: 'hidden', background: '#2a2a2a', aspectRatio: '1', gridColumn: big.has(i) ? 'span 2' : 'auto', gridRow: big.has(i) ? 'span 2' : 'auto' }
+      })),
+      lbStyle: { position: 'fixed', inset: 0, zIndex: 100, background: 'rgba(10,10,10,.94)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '72px 84px', opacity: on ? 1 : 0, visibility: on ? 'visible' : 'hidden', transition: 'opacity .25s, visibility .25s' },
+      lbImg: { maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', border: '3px solid #f5c518', transform: on ? 'scale(1)' : 'scale(.96)', transition: 'transform .3s cubic-bezier(.2,.7,.2,1)' },
+      lbSrc: on ? `https://lh3.googleusercontent.com/p/${this.ids[lb]}=s1600` : '',
+      lbOpen: on,
+      lbPos: on ? `${lb + 1} / ${this.ids.length}` : '',
+      close: () => this.go(-1),
+      stop: e => e.stopPropagation(),
+      prev: e => { e.stopPropagation(); this.step(-1); },
+      next: e => { e.stopPropagation(); this.step(1); }
+    };
+  }
+}
+</script>
+</body>
+</html>

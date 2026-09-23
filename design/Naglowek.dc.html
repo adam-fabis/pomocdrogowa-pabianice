@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#1f1f1f;font-family:'Barlow',system-ui,sans-serif;color:#f2f2f2}a{color:#f5c518;text-decoration:none}a:hover{color:#fff}*{box-sizing:border-box}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,211,107,.7)}70%{box-shadow:0 0 0 10px rgba(58,211,107,0)}100%{box-shadow:0 0 0 0 rgba(58,211,107,0)}}</style>
+</helmet>
+<header style="position:relative;background:#161616;border-bottom:3px solid #f5c518;font-family:'Barlow',system-ui,sans-serif;color:#f2f2f2">
+  <div style="max-width:1200px;margin:0 auto;padding:10px 20px;display:flex;align-items:center;justify-content:space-between;gap:16px">
+    <a href="Strona%20Glowna%201b%20v2.dc.html" style="display:flex;align-items:center;gap:10px;flex:none"><img src="uploads/unnamed 1.png" alt="Logo Pomoc Drogowa Łukasz Rogowski" style="width:56px;height:56px;object-fit:contain"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:22px;line-height:.95;color:#f5c518">POMOC DROGOWA<br><span style="font-family:'Barlow';font-weight:600;font-size:11px;letter-spacing:3px;color:#e8342a">ŁUKASZ ROGOWSKI</span></div></a>
+    <nav style="{{ navStyle }}">
+      <sc-for list="{{ links }}" as="l" hint-placeholder-count="4">
+        <a href="{{ l.href }}" style="{{ l.style }}">{{ l.label }}</a>
+      </sc-for>
+    </nav>
+    <a href="tel:+48517574330" style="{{ phoneStyle }}" style-hover="background:#ff4336;color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.35)" style-active="transform:translateY(0) scale(.98)">{{ dot }}{{ headPhone }}</a>
+    <button onClick="{{ toggleMenu }}" aria-label="Menu" style="{{ burgerStyle }}"><span style="{{ bar1 }}"></span><span style="{{ bar2 }}"></span><span style="{{ bar3 }}"></span></button>
+  </div>
+  <div style="{{ menuStyle }}">
+    <nav style="display:flex;flex-direction:column;padding:8px 20px">
+      <sc-for list="{{ links }}" as="m" hint-placeholder-count="4">
+        <a href="{{ m.href }}" onClick="{{ closeMenu }}" style="{{ m.mStyle }}">{{ m.label }}<span style="color:#f5c518;font-size:24px">→</span></a>
+      </sc-for>
+    </nav>
+    <div style="padding:20px;display:flex;flex-direction:column;gap:10px">
+      <div style="font-size:12px;letter-spacing:3px;font-weight:700;color:#999">CZYNNE 24/7 · PABIANICE I OKOLICE</div>
+      <a href="tel:+48517574330" style="background:#e8342a;color:#fff;font-family:'Barlow Condensed';font-weight:800;font-size:34px;padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:12px">{{ dot }}517 574 330</a>
+    </div>
+  </div>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;active&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;home&quot;,&quot;oferta&quot;,&quot;galeria&quot;,&quot;kontakt&quot;],&quot;default&quot;:&quot;home&quot;,&quot;tsType&quot;:&quot;'home'|'oferta'|'galeria'|'kontakt'&quot;}}">
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200, menu: false };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth, ...(window.innerWidth >= 900 ? { menu: false } : {}) }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); document.body.style.overflow = ''; }
+  setMenu(v) { document.body.style.overflow = v ? 'hidden' : ''; this.setState({ menu: v }); }
+  renderVals() {
+    const active = this.props.active ?? 'home';
+    const w = this.state.w, mob = w < 900, sm = w < 560, open = this.state.menu && mob;
+    const E = 'cubic-bezier(.2,.7,.2,1)';
+    const bar = { position: 'absolute', left: 9, width: 22, height: 2, background: '#f5c518', transition: 'transform .3s ' + E + ', opacity .2s' };
+    const links = [['home', 'Strona główna', 'Strona%20Glowna%201b%20v2.dc.html'], ['oferta', 'Oferta', 'Oferta.dc.html'], ['galeria', 'Galeria', 'Galeria.dc.html'], ['kontakt', 'Kontakt', 'Kontakt.dc.html']].map(([k, label, href]) => {
+      const on = k === active;
+      return {
+        label, href,
+        style: { color: on ? '#f5c518' : '#ddd', fontWeight: on ? 800 : 600, paddingBottom: 4, borderBottom: on ? '2px solid #f5c518' : '2px solid transparent', transition: 'color .2s, border-color .2s' },
+        mStyle: { fontFamily: "'Barlow Condensed'", fontWeight: 800, fontSize: 34, color: on ? '#f5c518' : '#f2f2f2', padding: '14px 0', borderBottom: '1px solid #333', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }
+      };
+    });
+    return {
+      links,
+      dot: React.createElement('span', { style: { width: 10, height: 10, borderRadius: '50%', background: '#3ad36b', flex: 'none', display: 'inline-block', animation: 'pulse 1.8s infinite' } }),
+      navStyle: { display: mob ? 'none' : 'flex', gap: 26, fontSize: 15, fontWeight: 600, whiteSpace: 'nowrap' },
+      headPhone: '+48 517 574 330',
+      phoneStyle: { background: '#e8342a', color: '#fff', fontWeight: 800, padding: '12px 20px', fontSize: 18, whiteSpace: 'nowrap', display: mob ? 'none' : 'flex', alignItems: 'center', gap: 10, flex: 'none', transition: 'background-color .2s, transform .2s cubic-bezier(.2,.7,.2,1), box-shadow .2s' },
+      burgerStyle: { all: 'unset', cursor: 'pointer', position: 'relative', width: 44, height: 44, flex: 'none', display: mob ? 'block' : 'none', border: '2px solid #444', boxSizing: 'border-box' },
+      bar1: { ...bar, top: 12, transform: open ? 'translateY(8px) rotate(45deg)' : 'none' },
+      bar2: { ...bar, top: 20, opacity: open ? 0 : 1 },
+      bar3: { ...bar, top: 28, transform: open ? 'translateY(-8px) rotate(-45deg)' : 'none' },
+      toggleMenu: () => this.setMenu(!this.state.menu),
+      closeMenu: () => this.setMenu(false),
+      menuStyle: { position: 'absolute', left: 0, right: 0, top: '100%', height: 'calc(100dvh - 79px)', overflowY: 'auto', background: '#161616', borderTop: '1px solid #333', display: mob ? 'block' : 'none', opacity: open ? 1 : 0, transform: open ? 'translateY(0)' : 'translateY(-12px)', visibility: open ? 'visible' : 'hidden', transition: 'opacity .25s, transform .35s ' + E + ', visibility .35s' }
+    };
+  }
+}
+</script>
+</body>
+</html>

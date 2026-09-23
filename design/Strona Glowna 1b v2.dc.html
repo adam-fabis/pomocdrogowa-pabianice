@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#1f1f1f;font-family:'Barlow',system-ui,sans-serif;color:#f2f2f2}a{color:#f5c518;text-decoration:none}a:hover{color:#fff}*{box-sizing:border-box}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,211,107,.7)}70%{box-shadow:0 0 0 10px rgba(58,211,107,0)}100%{box-shadow:0 0 0 0 rgba(58,211,107,0)}}</style>
+</helmet>
+<div style="min-height:100vh;background:#1f1f1f;overflow-x:clip">
+
+  <dc-import name="Naglowek" active="home" style="position:sticky;top:0;z-index:40;display:block" hint-size="100%,79px"></dc-import>
+
+  <section id="top" style="position:relative;overflow:hidden;background:#141414">
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMCuRG4erkL39pLL-v0rNfz0yXzroni7Qpzx6v6=s1600" alt="Laweta z samochodem na drodze ekspresowej" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5">
+    <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.55) 0%,rgba(20,20,20,.8) 100%)"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(52px,10vw,84px) 20px 48px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px">
+      <div style="font-size:14px;letter-spacing:4px;font-weight:700;color:#f5c518">CZYNNE 24/7 · PABIANICE I OKOLICE</div>
+      <h1 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(40px,6vw,68px);line-height:1;text-wrap:balance">Całodobowa pomoc drogowa<br>— Pabianice i okolice</h1>
+      <p style="margin:0;max-width:640px;font-size:18px;line-height:1.55;color:#ddd;text-wrap:pretty">Złapałeś gumę, auto nie odpala albo potrzebujesz lawety? Dojeżdżamy o każdej porze dnia i nocy — wiele usterek usuwamy na miejscu.</p>
+      <a href="tel:+48517574330" style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(56px,10vw,120px);line-height:1;color:#fff;background:#111;padding:4px 32px 8px;border:5px solid #f5c518;box-shadow:12px 12px 0 rgba(0,0,0,.6);margin:14px 0 6px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s" style-hover="color:#f5c518;transform:translate(-3px,-3px);box-shadow:15px 15px 0 #f5c518" style-active="transform:translateY(0) scale(.98)">517 574 330</a>
+      <a href="#zakres" style="color:#f5c518;font-weight:700;font-size:16px;text-decoration:underline">Zobacz zakres pomocy →</a>
+    </div>
+    <div style="position:relative;border-top:1px solid rgba(255,255,255,.15);background:rgba(17,17,17,.75)">
+      <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+        <div style="padding:22px 24px;border-right:1px solid rgba(255,255,255,.12)"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518;line-height:1">24/7</div><div style="font-size:14px;color:#bbb;margin-top:4px">Kontakt o każdej porze, także w święta</div></div>
+        <a href="{{ googleReviews }}" target="_blank" rel="noopener" style="padding:22px 24px;border-right:1px solid rgba(255,255,255,.12);display:block"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518;line-height:1">5.0 ★</div><div style="font-size:14px;color:#bbb;margin-top:4px;text-decoration:underline">82 opinie Google</div></a>
+        <div style="padding:22px 24px;border-right:1px solid rgba(255,255,255,.12)"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518;line-height:1">Na miejscu</div><div style="font-size:14px;color:#bbb;margin-top:4px">Mobilny serwis — często bez holowania</div></div>
+        <div style="padding:22px 24px"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518;line-height:1">Auto zastępcze</div><div style="font-size:14px;color:#bbb;margin-top:4px">Bezpłatnie z OC sprawcy</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div style="height:16px;background:repeating-linear-gradient(135deg,#f5c518 0 22px,#111 22px 44px)"></div>
+
+  <section id="o-firmie" style="max-width:1200px;margin:0 auto;padding:clamp(52px,9vw,80px) 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518">O FIRMIE</div>
+      <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Pomoc Drogowa<br>Łukasz Rogowski</h2>
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#ccc;text-wrap:pretty">Zapewniamy profesjonalną pomoc drogową 24h na terenie Pabianic i okolic — holowanie i transport pojazdów oraz awaryjną pomoc mechaniczną na drodze.</p>
+      <p style="margin:0;font-size:17px;line-height:1.6;color:#ccc;text-wrap:pretty">Dzięki mobilnemu serwisowi wiele usterek usuwamy na miejscu, bez konieczności holowania auta do warsztatu. Po kolizji pomagamy też w formalnościach.</p>
+      <a href="tel:+48517574330" style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518">Zadzwoń: 517 574 330 →</a>
+    </div>
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMv1TCeNhEn7CsgdXJ8HbEe-ug58zUUvaXUlpMC=s1200" alt="Żółta laweta Pomocy Drogowej Łukasz Rogowski" style="width:calc(100% - 12px);aspect-ratio:4/3;object-fit:cover;display:block;border:3px solid #333;box-shadow:12px 12px 0 #f5c518" loading="lazy">
+  </section>
+
+  <section id="obszar" style="background:#262626;border-top:1px solid #333;border-bottom:1px solid #333">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(52px,9vw,80px) 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:56px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:18px">
+        <div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518">OBSZAR DZIAŁANIA</div>
+        <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Dojeżdżamy tam,<br>gdzie nas potrzebujesz</h2>
+        <p style="margin:0;font-size:17px;line-height:1.6;color:#ccc">Bazujemy w Pabianicach. Pomagamy kierowcom na drogach lokalnych i na głównych trasach regionu.</p>
+        <div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999;margin-top:6px">REGULARNIE OBSŁUGUJEMY:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px">
+          <sc-for list="{{ towns }}" as="t" hint-placeholder-count="9">
+            <button onClick="{{ t.pick }}" style="{{ t.style }}">{{ t.name }}</button>
+          </sc-for>
+        </div>
+        <div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999;margin-top:6px">POMAGAMY TAKŻE NA TRASACH:</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">S8</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">S14</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">A1</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">DK71</span></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0">
+        <div style="position:relative;height:420px;border:3px solid #333;overflow:hidden;background:#2a2a2a">
+          <iframe title="Mapa obszaru działania" src="{{ mapSrc }}" style="width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05)" loading="lazy"></iframe>
+        </div>
+        <div style="background:#111;padding:14px 18px;font-size:15px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap"><span>Wybrana miejscowość: <b style="color:#f5c518">{{ town }}</b> — dojazd całodobowo</span><a href="tel:+48517574330" style="font-weight:800">517 574 330</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="zakres" style="max-width:1200px;margin:0 auto;padding:clamp(52px,9vw,80px) 20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:36px">
+      <div><div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518;margin-bottom:14px">ZAKRES POMOCY</div>
+      <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">W jakich sytuacjach pomagamy?</h2></div>
+      <a href="Oferta.dc.html" style="border:2px solid #f5c518;color:#f5c518;font-weight:800;padding:12px 20px;font-size:16px;transition:background-color .2s,color .2s,transform .2s" style-hover="background:#f5c518;color:#111;transform:translateY(-2px)">Pełna oferta →</a>
+    </div>
+    <div style="{{ svcGrid }}">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+        <div style="background:#2a2a2a;display:flex;flex-direction:column;color:#f2f2f2;border-bottom:4px solid #f5c518">
+          <div style="position:relative"><img src="{{ s.img }}" alt="{{ s.t }}" loading="lazy" style="width:100%;aspect-ratio:16/10;object-fit:cover;display:block"><div style="position:absolute;left:0;bottom:0;background:#f5c518;color:#111;font-family:'Barlow Condensed';font-weight:800;font-size:22px;padding:4px 12px;line-height:1.1">{{ s.n }}</div></div>
+          <div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px">
+          <div style="font-family:'Barlow Condensed';font-weight:800;font-size:26px;line-height:1.05">{{ s.t }}</div>
+          <div style="font-size:15px;color:#aaa;line-height:1.45">{{ s.d }}</div></div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section style="background:#f5c518;color:#111">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(52px,9vw,72px) 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipMit_frYn13qotrJ1NEQ5AIg388AubGXEJEkQ8t=s1200" alt="Transport samochodu lawetą" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:4px solid #111" loading="lazy">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font-size:13px;letter-spacing:3px;font-weight:800">BEZPŁATNIE · Z OC SPRAWCY</div>
+        <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Auto zastępcze<br>z OC sprawcy</h2>
+        <p style="margin:0;font-size:17px;line-height:1.6;text-wrap:pretty">Kolizja lub wypadek z winy innego kierowcy? Zapewniamy <b>bezpłatny samochód zastępczy</b> — nie ponosisz kosztów wynajmu, rozliczamy się bezpośrednio z ubezpieczycielem sprawcy.</p>
+        <a href="tel:+48517574330" style="align-self:flex-start;background:#111;color:#f5c518;font-weight:800;padding:14px 22px;font-size:17px;margin-top:6px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s" style-hover="color:#fff;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.35)" style-active="transform:translateY(0) scale(.98)">Zapytaj o auto zastępcze</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="opinie" style="max-width:1200px;margin:0 auto;padding:clamp(52px,9vw,80px) 20px">
+    <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:32px">
+      <div><div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518;margin-bottom:14px">OPINIE KLIENTÓW</div><h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Co mówią kierowcy</h2></div>
+      <a href="{{ googleReviews }}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:12px;border:2px solid #f5c518;padding:10px 16px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s" style-hover="background:#f5c518;color:#111;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.35)" style-active="transform:translateY(0) scale(.98)"><span style="font-family:'Barlow Condensed';font-weight:800;font-size:34px;line-height:1">5.0</span><span style="font-size:14px;line-height:1.3">★★★★★<br><span style="text-decoration:underline">82 opinie Google</span></span></a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
+      <sc-for list="{{ reviews }}" as="r" hint-placeholder-count="3">
+        <div style="background:#262626;border-top:4px solid #f5c518;padding:28px;display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;background:#f5c518;color:#111;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none">{{ r.i }}</div><div><div style="font-weight:700;font-size:17px">{{ r.a }}</div><div style="font-size:13px;color:#999">Google · <span style="color:#f5c518">★★★★★</span></div></div></div>
+          <p style="margin:0;font-size:16px;line-height:1.6;color:#e6e6e6;text-wrap:pretty">„{{ r.q }}”</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="faq" style="background:#262626;border-top:1px solid #333">
+    <div style="max-width:900px;margin:0 auto;padding:clamp(52px,9vw,80px) 20px">
+      <div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518;margin-bottom:14px">FAQ</div>
+      <h2 style="margin:0 0 28px;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Najczęstsze pytania</h2>
+      <sc-for list="{{ faq }}" as="f" hint-placeholder-count="7">
+        <div style="border-top:1px solid #444">
+          <button onClick="{{ f.toggle }}" style="{{ f.btn }}">{{ f.q }}<span style="{{ f.icon }}"><span style="{{ f.barH }}"></span><span style="{{ f.barV }}"></span></span></button>
+          <div style="{{ f.wrap }}"><div style="overflow:hidden;min-height:0"><p style="{{ f.body }}">{{ f.a }}</p></div></div>
+        </div>
+      </sc-for>
+      <div style="border-top:1px solid #444"></div>
+    </div>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:#141414">
+    <img src="https://lh3.googleusercontent.com/p/AF1QipOws8D63tK6NA5h08hihNIxxIbEUF61ad3O0_n7=s1600" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25">
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(56px,10vw,88px) 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+      <div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518">DOSTĘPNI 24 GODZINY NA DOBĘ</div>
+      <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,6vw,72px);line-height:1">Potrzebujesz pomocy?</h2>
+      <p style="margin:0;font-size:18px;color:#ccc;max-width:560px">Zadzwoń o każdej porze dnia i nocy — dojedziemy tam, gdzie nas potrzebujesz.</p>
+      <a href="tel:+48517574330" style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(48px,8vw,88px);line-height:1;color:#fff;background:#111;padding:4px 28px 8px;border:5px solid #f5c518;margin-top:10px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s" style-hover="color:#f5c518;transform:translate(-3px,-3px);box-shadow:15px 15px 0 #f5c518" style-active="transform:translateY(0) scale(.98)">+48 517 574 330</a>
+    </div>
+  </section>
+
+  <dc-import name="Stopka" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { open: 0, town: 'Pabianice', w: typeof window !== 'undefined' ? window.innerWidth : 1200, menu: false };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth, ...(window.innerWidth >= 900 ? { menu: false } : {}) }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); document.body.style.overflow = ''; }
+  setMenu(v) { document.body.style.overflow = v ? 'hidden' : ''; this.setState({ menu: v }); }
+  renderVals() {
+    const P = 'ChIJpfx1cpE3GkcRsXM2X8BREYA';
+    const G = (id, s = 1200) => `https://lh3.googleusercontent.com/p/${id}=s${s}`;
+    const img = ['AF1QipMv1TCeNhEn7CsgdXJ8HbEe-ug58zUUvaXUlpMC', 'AF1QipO3xxEQ2QUWqHNvawCpDGmIp-zbr9nG7JyX4HBX', 'AF1QipOws8D63tK6NA5h08hihNIxxIbEUF61ad3O0_n7', 'AF1QipO6uXMIkJtD7I1DQ-P4ZBrFWaJNLWplPSPBNF18', 'AF1QipMit_frYn13qotrJ1NEQ5AIg388AubGXEJEkQ8t', 'AF1QipMCuRG4erkL39pLL-v0rNfz0yXzroni7Qpzx6v6', 'AF1QipOhg9yQtUQb0wI4jMKIpNABYi1o758Xv0dhyVUz', 'AF1QipN3rS421J-tXZyiCLpLVrnyjECo27osUiNnQ6lm', 'AF1QipNxSBvqzk0MvD3v3z-K-M2_fPR08xxLUrvz5cv6', 'AF1QipMzHpitGAQvdsdOpMms7mvUbVlFEQAZWRbQFfzp', 'AF1QipO2OJs3V3904azU_RwtETVokgY3RQydTqUVBH2T', 'AF1QipMB2_dWtK4utmrc26AdqSzd-Q9oYM0msVSYuR5k', 'AF1QipOHdjErDhgeuPOzcloXnD7w3A34Mc2y4CaZGlrk'];
+    const svcData = [
+      ['Awaria samochodu', 'Usterka na drodze, parkingu lub posesji — naprawiamy na miejscu albo holujemy do warsztatu.', 6],
+      ['Kolizja lub wypadek', 'Zabezpieczamy i usuwamy pojazd, pomagamy w formalnościach.', 1],
+      ['Rozładowany akumulator', 'Auto nie odpala? Przyjedziemy z urządzeniem rozruchowym i uruchomimy silnik na miejscu.', 12],
+      ['Przebita opona', 'Awaryjna wymiana koła i serwis opon na miejscu — bez holowania do wulkanizacji.', 3],
+      ['Brak paliwa', 'Zabrakło paliwa w trasie? Przywieziemy tyle, żebyś spokojnie dojechał do stacji.', 11],
+      ['Holowanie i laweta', 'Bezpieczny transport lawetą do warsztatu lub domu.', 9],
+      ['Transport pojazdów', 'Przewóz aut osobowych i dostawczych, także na dalsze trasy.', 8],
+      ['Auto zastępcze z OC', 'Nie jesteś sprawcą? Auto zastępcze bezpłatnie, rozliczamy się z ubezpieczycielem.', 7]
+    ];
+    const services = svcData.map(([t, d, im], i) => {
+      const on = this.state.svc === i;
+      return {
+        t, d, img: G(img[im]), n: String(i + 1).padStart(2, '0'), arrow: on ? '→' : '',
+        pick: () => this.setState({ svc: i }),
+        style: { all: 'unset', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 14, padding: '16px 14px', borderBottom: '1px solid #444', fontWeight: 700, fontSize: 18, background: on ? '#262626' : 'transparent', boxShadow: on ? 'inset 4px 0 0 #f5c518' : 'none', color: on ? '#fff' : '#ccc' }
+      };
+    });
+    const reviews = [
+      { a: 'Jacek A', q: 'Przyjazd na miejsce zdarzenia ekspresowy, szybko i sprawnie. Bez nerwów, w dobrej atmosferze. Po zdarzeniu pomoc w załatwieniu koniecznych formalności. Jednym zdaniem — właściwy człowiek na właściwym miejscu. Uczciwy i bardzo pomocny.' },
+      { a: 'Jakub G', q: 'Profesjonalne podejście, szybki dojazd na miejsce i uprzejma obsługa sprawiły, że stresująca sytuacja stała się o wiele łatwiejsza do zniesienia. Wszystko załatwione sprawnie i bez zbędnych komplikacji.' },
+      { a: 'Mateusz G', q: 'W trudnym momencie mogłem liczyć na szybką i skuteczną pomoc. Laweta przyjechała szybko, a cała usługa przebiegła bez zarzutu. Miło spotkać ludzi, którzy naprawdę znają się na swojej pracy.' }
+    ];
+        const faqData = [
+      ['Czy pomoc drogowa działa całodobowo?', 'Tak. Dojeżdżamy 24 godziny na dobę, 7 dni w tygodniu — również w weekendy i święta. Wystarczy zadzwonić: +48 517 574 330.'],
+      ['Jaki obszar obsługujecie?', 'Pabianice i okolice: Łódź, Konstantynów Łódzki, Ksawerów, Rzgów, Dobroń, Łask, Zduńska Wola i inne. Pomagamy też na trasach S8, S14 i A1.'],
+      ['Jak szybko dojedziecie?', 'Czas dojazdu zależy od miejsca zdarzenia — podajemy go od razu w rozmowie. W Pabianicach i najbliższej okolicy zwykle to kilkadziesiąt minut.'],
+      ['Ile kosztuje auto zastępcze?', 'Jeśli sprawcą kolizji był ktoś inny, auto zastępcze jest dla Ciebie bezpłatne — rozliczamy się bezpośrednio z ubezpieczycielem sprawcy.'],
+      ['Czy da się naprawić auto na miejscu?', 'Często tak — wymiana koła, odpalenie auta czy dowóz paliwa odbywają się na miejscu. Gdy naprawa nie jest możliwa, holujemy lawetą.'],
+      ['Auto po awarii jedzie — czy potrzebuję lawety?', 'Nie zawsze, ale jazda z usterką może ją pogłębić. Zadzwoń — ocenimy, czy wystarczy pomoc na miejscu.'],
+      ['Co zrobić po kolizji?', 'Zadbaj o bezpieczeństwo, włącz światła awaryjne, ustaw trójkąt i zadzwoń do nas. Zajmiemy się pojazdem i pomożemy w formalnościach.']
+    ];
+    const townList = ['Pabianice', 'Łódź', 'Konstantynów Łódzki', 'Ksawerów', 'Rzgów', 'Dobroń', 'Łask', 'Zduńska Wola', 'Lutomiersk'];
+    const town = this.state.town;
+    const w = this.state.w, mob = w < 900, sm = w < 560, open = this.state.menu && mob;
+    const E = 'cubic-bezier(.2,.7,.2,1)';
+    const bar = { position: 'absolute', left: 9, width: 22, height: 2, background: '#f5c518', transition: 'transform .3s ' + E + ', opacity .2s' };
+    return {
+      navStyle: { display: mob ? 'none' : 'flex', gap: 22, fontSize: 15, fontWeight: 600, minWidth: 0, overflow: 'hidden', whiteSpace: 'nowrap' },
+      headPhone: sm ? 'Zadzwoń' : '+48 517 574 330',
+      burgerStyle: { all: 'unset', cursor: 'pointer', position: 'relative', width: 44, height: 44, flex: 'none', display: mob ? 'block' : 'none', border: '2px solid #444', boxSizing: 'border-box' },
+      bar1: { ...bar, top: 12, transform: open ? 'translateY(8px) rotate(45deg)' : 'none' },
+      bar2: { ...bar, top: 20, opacity: open ? 0 : 1 },
+      bar3: { ...bar, top: 28, transform: open ? 'translateY(-8px) rotate(-45deg)' : 'none' },
+      toggleMenu: () => this.setMenu(!this.state.menu),
+      closeMenu: () => this.setMenu(false),
+      menuStyle: { position: 'absolute', left: 0, right: 0, top: '100%', height: 'calc(100dvh - 79px)', overflowY: 'auto', background: '#161616', borderTop: '1px solid #333', display: mob ? 'block' : 'none', opacity: open ? 1 : 0, transform: open ? 'translateY(0)' : 'translateY(-12px)', visibility: open ? 'visible' : 'hidden', transition: 'opacity .25s, transform .35s ' + E + ', visibility .35s' },
+      menuLinks: [['#o-firmie', 'O firmie'], ['#obszar', 'Obszar działania'], ['#zakres', 'Zakres pomocy'], ['#opinie', 'Opinie'], ['#faq', 'FAQ'], ['#kontakt', 'Kontakt']].map(([href, label]) => ({ href, label })),
+      svcGrid: { display: 'grid', gridTemplateColumns: 'repeat(' + (sm ? 1 : w < 1000 ? 2 : 4) + ',minmax(0,1fr))', gap: 3 },
+      fabText: mob ? 'ZADZWOŃ 24H · 517 574 330' : '24H · 517 574 330',
+      fabStyle: mob
+        ? { position: 'fixed', left: 0, right: 0, bottom: 0, zIndex: 30, background: '#e8342a', color: '#fff', fontWeight: 800, fontSize: 18, padding: '16px 20px calc(16px + env(safe-area-inset-bottom))', display: open ? 'none' : 'flex', alignItems: 'center', justifyContent: 'center', gap: 12, whiteSpace: 'nowrap', borderTop: '2px solid #fff', boxShadow: '0 -8px 24px rgba(0,0,0,.45)' }
+        : { position: 'fixed', right: 20, bottom: 20, zIndex: 30, background: '#e8342a', color: '#fff', fontWeight: 800, fontSize: 20, padding: '16px 22px', boxShadow: '0 10px 28px rgba(0,0,0,.55)', display: 'flex', alignItems: 'center', gap: 12, whiteSpace: 'nowrap', border: '2px solid #fff', transition: 'background-color .2s, transform .2s, box-shadow .2s' },
+      dot: React.createElement('span', { style: { width: 10, height: 10, borderRadius: '50%', background: '#3ad36b', flex: 'none', display: 'inline-block', animation: 'pulse 1.8s infinite' } }),
+      googleReviews: `https://search.google.com/local/reviews?placeid=${P}`,
+      googleProfile: `https://www.google.com/maps/place/?q=place_id:${P}`,
+      towns: townList.map(name => {
+        const on = name === town;
+        return { name, pick: () => this.setState({ town: name }), style: { all: 'unset', cursor: 'pointer', padding: '7px 12px', fontSize: 14, fontWeight: on ? 800 : 500, background: on ? '#f5c518' : 'transparent', color: on ? '#111' : '#eee', border: on ? '1px solid #f5c518' : '1px solid #666', transition: 'background-color .2s, color .2s, border-color .2s, transform .2s', transform: on ? 'translateY(-1px)' : 'none' } };
+      }),
+      town,
+      mapSrc: `https://maps.google.com/maps?q=${encodeURIComponent(town + ', łódzkie')}&z=${town === 'Pabianice' ? 11 : 12}&output=embed`,
+      services, cur: services[this.state.svc], total: String(services.length).padStart(2, '0'),
+      reviews: reviews.map(x => ({ ...x, i: x.a[0] })),
+      faq: faqData.map(([q, a], i) => {
+        const on = this.state.open === i, ease = 'cubic-bezier(.2,.7,.2,1)';
+        return {
+          q, a, toggle: () => this.setState(s => ({ open: s.open === i ? -1 : i })),
+          btn: { all: 'unset', cursor: 'pointer', width: '100%', padding: '18px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 16, fontWeight: 700, fontSize: 18, color: on ? '#f5c518' : '#f2f2f2', transition: 'color .25s' },
+          icon: { position: 'relative', width: 34, height: 34, flex: 'none', background: on ? '#f5c518' : 'transparent', border: on ? '2px solid #f5c518' : '2px solid #555', transition: 'background-color .25s, border-color .25s' },
+          barH: { position: 'absolute', left: '50%', top: '50%', width: 14, height: 2, marginLeft: -7, marginTop: -1, background: on ? '#111' : '#f5c518', transition: 'background-color .25s' },
+          barV: { position: 'absolute', left: '50%', top: '50%', width: 2, height: 14, marginLeft: -1, marginTop: -7, background: on ? '#111' : '#f5c518', transform: on ? 'scaleY(0)' : 'scaleY(1)', transition: `transform .3s ${ease}, background-color .25s` },
+          wrap: { display: 'grid', gridTemplateRows: on ? '1fr' : '0fr', transition: `grid-template-rows .4s ${ease}` },
+          body: { margin: 0, padding: '0 48px 20px 0', fontSize: 16, lineHeight: 1.6, color: '#bbb', opacity: on ? 1 : 0, transform: on ? 'translateY(0)' : 'translateY(-8px)', transition: `opacity .3s ${on ? '.1s' : '0s'}, transform .4s ${ease}` }
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>body{margin:0;background:#1f1f1f;font-family:'Barlow',system-ui,sans-serif;color:#f2f2f2}a{color:#f5c518;text-decoration:none}a:hover{color:#fff}*{box-sizing:border-box}html{scroll-behavior:smooth}@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,211,107,.7)}70%{box-shadow:0 0 0 10px rgba(58,211,107,0)}100%{box-shadow:0 0 0 0 rgba(58,211,107,0)}}</style>
+</helmet>
+<div style="min-height:100vh;background:#1f1f1f;overflow-x:clip">
+  <dc-import name="Naglowek" active="oferta" style="position:sticky;top:0;z-index:40;display:block" hint-size="100%,79px"></dc-import>
+
+  <section style="position:relative;overflow:hidden;background:#141414">
+    <img src="https://lh3.googleusercontent.com/p/AF1QipMzHpitGAQvdsdOpMms7mvUbVlFEQAZWRbQFfzp=s1600" alt="Auto na lawecie" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4">
+    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,20,20,.92) 0%,rgba(20,20,20,.6) 60%,rgba(20,20,20,.35) 100%)"></div>
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(48px,8vw,80px) 20px;display:flex;flex-direction:column;gap:18px;align-items:flex-start">
+      <div style="font-size:14px;color:#aaa"><a href="Strona%20Glowna%201b%20v2.dc.html" style="color:#aaa">Strona główna</a> <span style="color:#666">/</span> <span style="color:#f5c518">Oferta</span></div>
+      <h1 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,7vw,80px);line-height:.95;text-wrap:balance">Oferta pomocy drogowej</h1>
+      <p style="margin:0;max-width:600px;font-size:18px;line-height:1.55;color:#ddd;text-wrap:pretty">Od holowania lawetą po naprawę na poboczu. Działamy całą dobę w Pabianicach, Łodzi i okolicy — zadzwoń, powiemy od razu, jak pomożemy.</p>
+      <a href="tel:+48517574330" style="background:#f5c518;color:#111;font-weight:800;font-size:20px;padding:16px 26px;margin-top:6px;transition:background-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s" style-hover="background:#ffd83a;color:#111;transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.35)" style-active="transform:translateY(0) scale(.98)">Zadzwoń: +48 517 574 330</a>
+    </div>
+  </section>
+  <div style="height:16px;background:repeating-linear-gradient(135deg,#f5c518 0 22px,#111 22px 44px)"></div>
+
+  <section style="background:#262626;border-bottom:1px solid #333">
+    <div style="max-width:1200px;margin:0 auto;padding:28px 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center">
+      <span style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999;margin-right:8px">PRZEJDŹ DO:</span>
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+        <a href="{{ s.anchor }}" style="border:1px solid #555;color:#eee;padding:7px 12px;font-size:14px;font-weight:600;transition:background-color .2s,color .2s,border-color .2s" style-hover="background:#f5c518;border-color:#f5c518;color:#111">{{ s.n }} {{ s.t }}</a>
+      </sc-for>
+    </div>
+  </section>
+
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(40px,7vw,72px) 20px;display:flex;flex-direction:column;gap:clamp(48px,8vw,88px)">
+    <sc-for list="{{ services }}" as="s" hint-placeholder-count="8">
+      <article id="{{ s.id }}" style="{{ s.row }}">
+        <div style="flex:1 1 0;min-width:0;position:relative">
+          <img src="{{ s.img }}" alt="{{ s.t }}" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:3px solid #333">
+          <div style="position:absolute;left:0;top:0;background:#f5c518;color:#111;font-family:'Barlow Condensed';font-weight:800;font-size:28px;padding:6px 14px;line-height:1">{{ s.n }}</div>
+        </div>
+        <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:16px">
+          <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(32px,5vw,46px);line-height:1">{{ s.t }}</h2>
+          <p style="margin:0;font-size:17px;line-height:1.6;color:#ccc;text-wrap:pretty">{{ s.d }}</p>
+          <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px">
+            <sc-for list="{{ s.b }}" as="x" hint-placeholder-count="3">
+              <li style="display:flex;gap:12px;align-items:flex-start;font-size:16px;line-height:1.45"><span style="width:10px;height:10px;background:#f5c518;flex:none;margin-top:6px"></span>{{ x }}</li>
+            </sc-for>
+          </ul>
+          <a href="tel:+48517574330" style="align-self:flex-start;border:2px solid #f5c518;color:#f5c518;font-weight:800;padding:12px 20px;font-size:16px;margin-top:6px;transition:background-color .2s,color .2s,transform .2s cubic-bezier(.2,.7,.2,1)" style-hover="background:#f5c518;color:#111;transform:translateY(-2px)" style-active="transform:translateY(0) scale(.98)">Potrzebuję tej pomocy →</a>
+        </div>
+      </article>
+    </sc-for>
+  </div>
+
+  <section style="background:#262626;border-top:1px solid #333;border-bottom:1px solid #333">
+    <div style="max-width:1200px;margin:0 auto;padding:clamp(52px,9vw,80px) 20px">
+      <div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518;margin-bottom:14px">JAK TO WYGLĄDA</div>
+      <h2 style="margin:0 0 36px;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Od telefonu do rozwiązania</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:3px">
+        <div style="background:#1f1f1f;padding:28px;display:flex;flex-direction:column;gap:12px;border-top:4px solid #f5c518"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:56px;line-height:1;color:#f5c518">1</div><div style="font-family:'Barlow Condensed';font-weight:800;font-size:26px">Dzwonisz</div><div style="font-size:15px;color:#aaa;line-height:1.5">Mówisz, gdzie stoisz i co się stało. Odbieramy o każdej porze.</div></div>
+        <div style="background:#1f1f1f;padding:28px;display:flex;flex-direction:column;gap:12px;border-top:4px solid #f5c518"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:56px;line-height:1;color:#f5c518">2</div><div style="font-family:'Barlow Condensed';font-weight:800;font-size:26px">Ustalamy szczegóły</div><div style="font-size:15px;color:#aaa;line-height:1.5">Podajemy czas dojazdu i omawiamy, czego się spodziewać.</div></div>
+        <div style="background:#1f1f1f;padding:28px;display:flex;flex-direction:column;gap:12px;border-top:4px solid #f5c518"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:56px;line-height:1;color:#f5c518">3</div><div style="font-family:'Barlow Condensed';font-weight:800;font-size:26px">Przyjeżdżamy</div><div style="font-size:15px;color:#aaa;line-height:1.5">Naprawiamy na miejscu albo bezpiecznie holujemy tam, gdzie wskażesz.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="position:relative;overflow:hidden;background:#141414">
+    <img src="https://lh3.googleusercontent.com/p/AF1QipOws8D63tK6NA5h08hihNIxxIbEUF61ad3O0_n7=s1600" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.25">
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(56px,10vw,88px) 20px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px">
+      <div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518">DOSTĘPNI 24 GODZINY NA DOBĘ</div>
+      <h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(44px,6vw,72px);line-height:1">Potrzebujesz pomocy?</h2>
+      <p style="margin:0;font-size:18px;color:#ccc;max-width:560px">Zadzwoń o każdej porze dnia i nocy — dojedziemy tam, gdzie nas potrzebujesz.</p>
+      <a href="tel:+48517574330" style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(48px,8vw,88px);line-height:1;color:#fff;background:#111;padding:4px 28px 8px;border:5px solid #f5c518;margin-top:10px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s" style-hover="color:#f5c518;transform:translate(-3px,-3px);box-shadow:15px 15px 0 #f5c518" style-active="transform:translateY(0) scale(.98)">+48 517 574 330</a>
+    </div>
+  </section>
+
+  <dc-import name="Stopka" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { w: typeof window !== 'undefined' ? window.innerWidth : 1200 };
+  componentDidMount() { this.onR = () => this.setState({ w: window.innerWidth }); window.addEventListener('resize', this.onR); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onR); }
+  renderVals() {
+    const G = id => `https://lh3.googleusercontent.com/p/${id}=s1200`;
+    const mob = this.state.w < 820;
+    const data = [
+      ['holowanie', 'Holowanie i laweta', 'Niesprawne auto przewozimy lawetą do warsztatu, domu lub na wskazany parking. Pojazd jest zabezpieczony na całą drogę.', ['Samochody osobowe i dostawcze', 'Auta po awarii, kolizji i wypadku', 'Trasy lokalne i dalsze'], 'AF1QipMzHpitGAQvdsdOpMms7mvUbVlFEQAZWRbQFfzp'],
+      ['naprawa', 'Naprawa na miejscu', 'Mobilny serwis przyjeżdża do Ciebie. Wiele usterek usuwamy od ręki — bez holowania i czekania na warsztat.', ['Diagnoza usterki na miejscu', 'Drobne naprawy mechaniczne i elektryczne', 'Holowanie, gdy naprawa na miejscu nie jest możliwa'], 'AF1QipOhg9yQtUQb0wI4jMKIpNABYi1o758Xv0dhyVUz'],
+      ['akumulator', 'Awaryjne odpalanie', 'Rozładowany akumulator to najczęstszy powód, dla którego auto nie odpala — szczególnie zimą. Przyjedziemy i uruchomimy silnik.', ['Rozruch z profesjonalnego urządzenia', 'Sprawdzenie akumulatora i ładowania', 'Parking, garaż, pobocze — dojedziemy'], 'AF1QipOHdjErDhgeuPOzcloXnD7w3A34Mc2y4CaZGlrk'],
+      ['opony', 'Wymiana koła i serwis opon', 'Przebita opona w trasie? Założymy koło zapasowe lub dojazdowe na miejscu, żebyś mógł bezpiecznie ruszyć dalej.', ['Awaryjna wymiana koła', 'Pomoc przy uszkodzonej feldze lub śrubach', 'Transport do wulkanizacji, jeśli potrzeba'], 'AF1QipO6uXMIkJtD7I1DQ-P4ZBrFWaJNLWplPSPBNF18'],
+      ['paliwo', 'Dowóz paliwa', 'Zabrakło paliwa na trasie lub w mieście? Przywieziemy tyle, żebyś spokojnie dojechał do najbliższej stacji.', ['Benzyna i olej napędowy', 'Dojazd na drogi lokalne i ekspresowe', 'O każdej porze dnia i nocy'], 'AF1QipMB2_dWtK4utmrc26AdqSzd-Q9oYM0msVSYuR5k'],
+      ['kolizja', 'Pomoc po kolizji i wypadku', 'Zabezpieczamy miejsce zdarzenia, usuwamy uszkodzony pojazd i pomagamy przejść przez formalności.', ['Usunięcie i transport uszkodzonego auta', 'Pomoc w formalnościach po zdarzeniu', 'Auto zastępcze z OC sprawcy'], 'AF1QipO3xxEQ2QUWqHNvawCpDGmIp-zbr9nG7JyX4HBX'],
+      ['transport', 'Transport pojazdów', 'Przewozimy nie tylko auta po awarii. Kupiłeś samochód w innym mieście albo chcesz przewieźć quada? Zajmiemy się tym.', ['Samochody kupione lub sprzedane', 'Quady i inne pojazdy', 'Trasy po całej Polsce'], 'AF1QipNxSBvqzk0MvD3v3z-K-M2_fPR08xxLUrvz5cv6'],
+      ['oc', 'Auto zastępcze z OC sprawcy', 'Jeśli kolizję spowodował ktoś inny, masz prawo do auta zastępczego na czas naprawy. Załatwimy to za Ciebie.', ['Bezpłatnie dla poszkodowanego', 'Rozliczenie bezpośrednio z ubezpieczycielem', 'Pomoc w zgłoszeniu szkody'], 'AF1QipN3rS421J-tXZyiCLpLVrnyjECo27osUiNnQ6lm']
+    ];
+    return {
+      services: data.map(([id, t, d, b, im], i) => ({
+        id, t, d, b, img: G(im), anchor: '#' + id, n: String(i + 1).padStart(2, '0'),
+        row: { display: 'flex', flexDirection: mob ? 'column' : (i % 2 ? 'row-reverse' : 'row'), gap: mob ? 24 : 56, alignItems: mob ? 'stretch' : 'center', scrollMarginTop: 100 }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>
