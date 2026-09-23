@@ -4,7 +4,10 @@
 indeksowane. Staging, podgląd lokalny i tymczasowy adres hostingu dostają `noindex` (meta + `X-Robots-Tag`) i
 `robots.txt: Disallow: /`. Niczego nie trzeba przełączać ręcznie przed wdrożeniem.
 
-## Staging — https://pomocdrogowa-pabianice.byst.re/
+## Staging — https://pomoc-pabianice.byst.re/
+
+Subdomena jest krótsza niż planowana `pomocdrogowa-pabianice.byst.re`: API Mikrusa odrzuca etykiety dłuższe niż ~20 znaków
+(`Niepoprawna nazwa domeny`). Slug stagingu na serwerze to nadal `pomocdrogowa-pabianice`.
 
 Serwer: Mikrus `tadek198.mikrus.xyz` (runbook `auto-deploy.md`, zaadaptowany do statycznego PHP: bez WordPressa i bazy).
 Klucz SSH `~/.ssh/wp-deploy-mikrus` (sekcja „Setup dla nowego użytkownika” w `auto-deploy.md`).
@@ -15,7 +18,7 @@ tools/deploy_staging.sh
 
 Skrypt: sprawdza helper na serwerze → jeśli slug `pomocdrogowa-pabianice` nie istnieje, bierze wolny port
 (gdy brak — usuwa staging `patecwariatec` z backupem `/srv/wp-deploy/backups/`) i tworzy stronę z subdomeną
-`pomocdrogowa-pabianice.byst.re` → pakuje `public_html/` (tar), wgrywa scp, rozpakowuje do `/srv/sites/pomocdrogowa-pabianice`
+`pomoc-pabianice.byst.re` → pakuje `public_html/` (tar), wgrywa scp, rozpakowuje do `/srv/sites/pomocdrogowa-pabianice`
 (uprawnienia `www-data`, 755/644) → sprawdza kody HTTP i nagłówek `x-robots-tag`.
 
 Kolejne deploye = ponowne uruchomienie (nadpisuje pliki). Wpis subdomeny `patecwariatec.byst.re` trzeba usunąć ręcznie

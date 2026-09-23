@@ -10,7 +10,7 @@ Galeria, Kontakt. Wierne przeniesienie projektu z Claude Design (projekt
 `3973b39a-1059-438e-9708-13af0dd730d3`). Optymalizacja pod SEO i szybkość
 (cel: Lighthouse 100 na mobile w kategoriach Performance/SEO/Best Practices).
 Hosting docelowy: SEOhost (Apache/LiteSpeed, FTPS). Staging: Mikrus (nginx +
-PHP-FPM) pod `https://pomocdrogowa-pabianice.byst.re`.
+PHP-FPM) pod `https://pomoc-pabianice.byst.re`.
 
 Wzorzec architektury: projekt `/Users/adamfabis/Desktop/Prywatne/tuszyn`
 (www.pomocdrogowa-tuszyn.pl). Przenosimy architekturę, procedury i narzędzia,
@@ -31,7 +31,7 @@ nie wygląd (Tuszyn jest jasny, Pabianice ciemne).
 | Facebook | `https://www.facebook.com/profile.php?id=61556520203279` |
 | obszar | Pabianice, Łódź, Konstantynów Łódzki, Ksawerów, Rzgów, Dobroń, Łask, Zduńska Wola, Lutomiersk; trasy S8, S14, A1, DK71 |
 | domena produkcyjna | `https://www.pomocdrogowa-pabianice.pl/` (apex 301 → www) |
-| staging | `https://pomocdrogowa-pabianice.byst.re/` |
+| staging | `https://pomoc-pabianice.byst.re/` |
 | repo | `https://github.com/adam-fabis/pomocdrogowa-pabianice` (branch `main`) |
 
 Teksty wszystkich sekcji, FAQ (7 pytań), 3 opinie, 8 usług: verbatim z plików
@@ -246,11 +246,11 @@ Jeden kod działa na Apache (produkcja) i nginx (staging):
 1. `remove patecwariatec --backup` (zwalnia port 40461; jednorazowo, tylko gdy `exists`).
    Użytkownik ręcznie usuwa wpis `patecwariatec.byst.re` z panelu Mikrusa (API nie ma
    endpointu).
-2. `create pomocdrogowa-pabianice <port z port-free> adamfabis96@gmail.com pomocdrogowa-pabianice.byst.re`
+2. `create pomocdrogowa-pabianice <port z port-free> adamfabis96@gmail.com pomoc-pabianice.byst.re`
    tylko gdy slug nie istnieje (helper tworzy nieużywaną bazę — akceptowalne).
 3. `tar czf` z `public_html/` (bez `.DS_Store`), `scp`, `ssh tar xzf -C /srv/sites/pomocdrogowa-pabianice`,
    `chown www-data`, uprawnienia 755/644. Bez `unpack-files` (wołałby `wp config set`) i bez `import-db`.
-4. Weryfikacja: `curl -sI https://pomocdrogowa-pabianice.byst.re/` → 200 + `X-Robots-Tag: noindex`;
+4. Weryfikacja: `curl -sI https://pomoc-pabianice.byst.re/` → 200 + `X-Robots-Tag: noindex`;
    `/oferta/` → 200; `/robots.txt` → `Disallow: /`.
 
 ### Produkcja (SEOhost)

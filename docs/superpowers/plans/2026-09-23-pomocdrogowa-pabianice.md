@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Zbudować 4-stronicową statyczną stronę PHP (dark design z Claude Design) dla Pomocy Drogowej Łukasz Rogowski, zoptymalizowaną pod SEO/Lighthouse, działającą identycznie na Apache (SEOhost) i nginx (staging Mikrus), i wgrać ją na staging `https://pomocdrogowa-pabianice.byst.re/`.
+**Goal:** Zbudować 4-stronicową statyczną stronę PHP (dark design z Claude Design) dla Pomocy Drogowej Łukasz Rogowski, zoptymalizowaną pod SEO/Lighthouse, działającą identycznie na Apache (SEOhost) i nginx (staging Mikrus), i wgrać ją na staging `https://pomoc-pabianice.byst.re/`.
 
 **Architecture:** Strony `public_html/*.php` składają się z partiali (`config/head/header/cta/footer`), sekcje przeniesione 1:1 z plików `design/*.dc.html` (inline style verbatim, RWD i hover w `main.css` przez atrybuty `data-*` i klasy). `index.php` zawiera dispatcher po `REQUEST_URI` (fallback dla nginx), `.htaccess` obsługuje Apache. Noindex/robots/sitemap decydowane po hoście (`config.php`). Obrazy z wizytówki Google przetwarzane skryptami Python do JPEG+AVIF/WebP.
 
@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Docroot = `public_html/`; na serwer idzie tylko ten katalog.
-- Produkcyjny host: `www.pomocdrogowa-pabianice.pl`; `$BASE = 'https://www.pomocdrogowa-pabianice.pl/'`; staging `https://pomocdrogowa-pabianice.byst.re/`.
+- Produkcyjny host: `www.pomocdrogowa-pabianice.pl`; `$BASE = 'https://www.pomocdrogowa-pabianice.pl/'`; staging `https://pomoc-pabianice.byst.re/`.
 - Telefon: `+48 517 574 330`, `href="tel:+48517574330"`. Adres: `ul. Stanisława Moniuszki 41, 95-200 Pabianice`. Place ID `ChIJpfx1cpE3GkcRsXM2X8BREYA`. Facebook `https://www.facebook.com/profile.php?id=61556520203279`.
 - Kolory designu: tło `#1f1f1f`, sekcje `#262626`/`#2a2a2a`/`#141414`/`#161616`/`#111`, akcent `#f5c518`, czerwień `#e8342a`, hover czerwieni `#ff4336`, zielona kropka `#3ad36b`, tekst `#f2f2f2`.
 - Fonty: `'Barlow'` 400/500/600/700, `'Barlow Condensed'` 600/700/800, self-hosted woff2 (latin + latin-ext), `font-display: swap`.
@@ -1481,7 +1481,7 @@ Expected: Performance ≥ 95, SEO 100, Best Practices 100, Accessibility ≥ 95 
 **Files:**
 - Create: `tools/deploy_staging.sh`
 
-**Interfaces:** Consumes runbook `auto-deploy.md` (SSH: `-i ~/.ssh/wp-deploy-mikrus -p 10198 root@tadek198.mikrus.xyz`, helper `/srv/wp-deploy/server-helper.sh`). Slug `pomocdrogowa-pabianice`, subdomena `pomocdrogowa-pabianice.byst.re`.
+**Interfaces:** Consumes runbook `auto-deploy.md` (SSH: `-i ~/.ssh/wp-deploy-mikrus -p 10198 root@tadek198.mikrus.xyz`, helper `/srv/wp-deploy/server-helper.sh`). Slug `pomocdrogowa-pabianice`, subdomena `pomoc-pabianice.byst.re`.
 
 - [ ] **Step 1: `tools/deploy_staging.sh`**
 
@@ -1490,7 +1490,7 @@ Expected: Performance ≥ 95, SEO 100, Best Practices 100, Accessibility ≥ 95 
 # Deploy statycznego PHP na staging Mikrus (runbook: auto-deploy.md, zaadaptowany: bez WordPressa, bez bazy).
 set -euo pipefail
 SLUG=pomocdrogowa-pabianice
-SUBDOMAIN=pomocdrogowa-pabianice.byst.re
+SUBDOMAIN=pomoc-pabianice.byst.re
 FREE_SLUG=${FREE_SLUG:-patecwariatec}   # staging do usunięcia, żeby zwolnić port (tylko gdy brak wolnych portów)
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 SSH="ssh -i $HOME/.ssh/wp-deploy-mikrus -p 10198 -o StrictHostKeyChecking=accept-new root@tadek198.mikrus.xyz"
@@ -1532,9 +1532,9 @@ echo "✓ Staging: $URL"
 - [ ] **Step 2: Uruchom**
 
 Run: `chmod +x tools/deploy_staging.sh && tools/deploy_staging.sh`
-Expected: usunięcie `patecwariatec` z `backup_path: /srv/wp-deploy/backups/patecwariatec-<ts>.tar.gz`, `create` zwraca JSON z `"url": "https://pomocdrogowa-pabianice.byst.re"`, kody: `/` 200, `/oferta/` 200, `/galeria/` 200, `/kontakt/` 200, `/robots.txt` 200, `/sitemap.xml` 200, `/nie-ma` 404; nagłówek `x-robots-tag: noindex, nofollow`. Jeśli `create` zgłosi `warning: subdomena … już istnieje` — kontynuuj. Jeśli strona zwraca 502: `$SSH "systemctl status php8.3-fpm; nginx -t; tail -20 /var/log/nginx/pomocdrogowa-pabianice.error.log"`.
+Expected: usunięcie `patecwariatec` z `backup_path: /srv/wp-deploy/backups/patecwariatec-<ts>.tar.gz`, `create` zwraca JSON z `"url": "https://pomoc-pabianice.byst.re"`, kody: `/` 200, `/oferta/` 200, `/galeria/` 200, `/kontakt/` 200, `/robots.txt` 200, `/sitemap.xml` 200, `/nie-ma` 404; nagłówek `x-robots-tag: noindex, nofollow`. Jeśli `create` zgłosi `warning: subdomena … już istnieje` — kontynuuj. Jeśli strona zwraca 502: `$SSH "systemctl status php8.3-fpm; nginx -t; tail -20 /var/log/nginx/pomocdrogowa-pabianice.error.log"`.
 
-Dodatkowo: `curl -s https://pomocdrogowa-pabianice.byst.re/robots.txt` → `Disallow: /`; `curl -s https://pomocdrogowa-pabianice.byst.re/ | grep -c noindex` → 1; `curl -sI https://pomocdrogowa-pabianice.byst.re/oferta.php | head -1` → 301 (nginx `location ~ \.php$` wykona `oferta.php` bezpośrednio z kodem 200 — to akceptowalne na stagingu; zanotuj w DEPLOY.md, że 301 z `.php` działa tylko na Apache).
+Dodatkowo: `curl -s https://pomoc-pabianice.byst.re/robots.txt` → `Disallow: /`; `curl -s https://pomoc-pabianice.byst.re/ | grep -c noindex` → 1; `curl -sI https://pomoc-pabianice.byst.re/oferta.php | head -1` → 301 (nginx `location ~ \.php$` wykona `oferta.php` bezpośrednio z kodem 200 — to akceptowalne na stagingu; zanotuj w DEPLOY.md, że 301 z `.php` działa tylko na Apache).
 
 - [ ] **Step 3: Commit + push**
 
