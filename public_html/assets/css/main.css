@@ -230,9 +230,14 @@ html:not(.js) [data-more-wrap]{display:none!important}
 @media (max-width:699px){.gal-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:auto}}
 .lb{position:fixed;inset:0;z-index:100;background:rgba(10,10,10,.94);display:flex;align-items:center;justify-content:center;padding:72px 84px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
 .lb.is-open{opacity:1;visibility:visible;transition:opacity .25s,visibility 0s}
-.lb img{max-width:100%;max-height:100%;object-fit:contain;border:3px solid #f5c518;transform:scale(.96);transition:transform .3s var(--E)}
+.lb img{max-width:calc(100vw - 168px);max-height:calc(100vh - 144px);max-height:calc(100dvh - 144px);width:auto;height:auto;object-fit:contain;border:3px solid #f5c518;transform:scale(.96);transition:transform .3s var(--E)}
 .lb.is-open img{transform:scale(1)}
-@media (max-width:699px){.lb{padding:64px 12px}}
+.lb-btn{all:unset;cursor:pointer;position:absolute;width:56px;height:56px;background:#111;border:2px solid #f5c518;color:#f5c518;display:flex;align-items:center;justify-content:center;box-sizing:border-box;transition:background-color .2s,color .2s}
+.lb-btn svg{display:block}
+.lb-prev{left:16px;top:50%;margin-top:-28px}
+.lb-next{right:16px;top:50%;margin-top:-28px}
+.lb-close{right:16px;top:16px;width:48px;height:48px;border-color:#555;color:#fff}
+@media (max-width:699px){.lb{padding:64px 12px}.lb img{max-width:calc(100vw - 24px);max-height:calc(100vh - 128px);max-height:calc(100dvh - 128px)}.lb-btn{width:44px;height:44px}.lb-prev{left:8px;margin-top:-22px}.lb-next{right:8px;margin-top:-22px}.lb-close{right:8px;top:8px;width:44px;height:44px}}
 body.lb-open{overflow:hidden}
 /* ── Mapy Leaflet (ciemny wygląd) ── */
 [data-leaflet]{background:#2a2a2a;position:relative;z-index:0;isolation:isolate} /* panele Leafleta (z-index 400-1000) zostają pod sticky nagłówkiem */

@@ -80,9 +80,9 @@ include __DIR__ . '/partials/header.php';
   <!-- LIGHTBOX -->
   <div class="lb" data-lightbox role="dialog" aria-modal="true" aria-label="Podgląd zdjęcia" tabindex="-1">
     <img data-lbimg src="" alt="" style="display:none">
-    <button type="button" data-lbprev aria-label="Poprzednie" class="hov-brand" style="all:unset;cursor:pointer;position:absolute;left:16px;top:50%;margin-top:-28px;width:56px;height:56px;background:#111;border:2px solid #f5c518;color:#f5c518;font-size:30px;display:flex;align-items:center;justify-content:center;transition:background-color .2s,color .2s">‹</button>
-    <button type="button" data-lbnext aria-label="Następne" class="hov-brand" style="all:unset;cursor:pointer;position:absolute;right:16px;top:50%;margin-top:-28px;width:56px;height:56px;background:#111;border:2px solid #f5c518;color:#f5c518;font-size:30px;display:flex;align-items:center;justify-content:center;transition:background-color .2s,color .2s">›</button>
-    <button type="button" data-lbclose aria-label="Zamknij" class="hov-border" style="all:unset;cursor:pointer;position:absolute;right:16px;top:16px;width:48px;height:48px;background:#111;border:2px solid #555;color:#fff;font-size:26px;display:flex;align-items:center;justify-content:center;transition:border-color .2s">×</button>
+    <button type="button" data-lbprev aria-label="Poprzednie" class="lb-btn lb-prev hov-brand"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <button type="button" data-lbnext aria-label="Następne" class="lb-btn lb-next hov-brand"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    <button type="button" data-lbclose aria-label="Zamknij" class="lb-btn lb-close hov-brand"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19"/></svg></button>
     <div data-lbpos style="position:absolute;left:50%;bottom:20px;transform:translateX(-50%);background:#111;color:#ccc;font-size:14px;font-weight:700;padding:6px 12px"></div>
   </div>
 <?php
