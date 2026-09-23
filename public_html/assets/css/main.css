@@ -174,6 +174,8 @@ body.menu-open{overflow:hidden}
   body.menu-open [data-fab],body.lb-open [data-fab]{display:none}
 }
 /* ── Strona główna ── */
+/* pasek statystyk w hero: nigdy 3+1 — poniżej 760px od razu 2x2 */
+@media (max-width:759px){[data-stats]{grid-template-columns:repeat(2,minmax(0,1fr))!important}[data-stats]>*:nth-child(2){border-right:0!important}}
 .chip{all:unset;cursor:pointer;padding:7px 12px;font-size:14px;font-weight:500;background:transparent;color:#eee;border:1px solid #666;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
 .chip.is-on{font-weight:800;background:#f5c518;color:#111;border-color:#f5c518;transform:translateY(-1px)}
 .svc-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:3px}

@@ -59,7 +59,7 @@ include __DIR__ . '/partials/header.php';
       <a href="#zakres" style="color:#f5c518;font-weight:700;font-size:16px;text-decoration:underline">Zobacz zakres pomocy →</a>
     </div>
     <div style="position:relative;border-top:1px solid rgba(255,255,255,.15);background:rgba(17,17,17,.75)">
-      <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
+      <div data-stats style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr))">
         <div style="padding:22px 24px;border-right:1px solid rgba(255,255,255,.12)"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518;line-height:1">24/7</div><div style="font-size:14px;color:#bbb;margin-top:4px">Kontakt o każdej porze, także w święta</div></div>
         <a href="<?php echo $GREVIEWS; ?>" target="_blank" rel="noopener" style="padding:22px 24px;border-right:1px solid rgba(255,255,255,.12);display:block"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518;line-height:1">5.0 ★</div><div style="font-size:14px;color:#bbb;margin-top:4px;text-decoration:underline">82 opinie Google</div></a>
         <div style="padding:22px 24px;border-right:1px solid rgba(255,255,255,.12)"><div style="font-family:'Barlow Condensed';font-weight:800;font-size:36px;color:#f5c518;line-height:1">Na miejscu</div><div style="font-size:14px;color:#bbb;margin-top:4px">Mobilny serwis — często bez holowania</div></div>
