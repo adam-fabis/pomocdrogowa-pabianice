@@ -1,5 +1,5 @@
 # Aktywny po dodaniu sekretów FTP_SERVER / FTP_USERNAME / FTP_PASSWORD w GitHub → Settings → Environments → production.
-# Do tego czasu push na main nic nie wgrywa (job padnie na braku sekretów — to oczekiwane).
+# Bez sekretów job kończy się bez błędu (krok "Sprawdź sekrety" pomija wgrywanie) — brak czerwonych runów i maili.
 name: Deploy na produkcję
 
 on:
@@ -22,14 +22,23 @@ jobs:
       name: production
       url: https://www.pomocdrogowa-pabianice.pl/
     steps:
+      - name: Sprawdź sekrety FTP
+        id: cfg
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          if [ -z "$FTP_SERVER" ]; then echo "Brak sekretów FTP — pomijam wgrywanie (patrz DEPLOY.md)"; echo "ready=false" >> "$GITHUB_OUTPUT"; else echo "ready=true" >> "$GITHUB_OUTPUT"; fi
+
       - uses: actions/checkout@v4
+        if: steps.cfg.outputs.ready == 'true'
 
       # Wgrywa tylko zmienione pliki: stan trzyma w .ftp-deploy-sync-state.json na serwerze.
-      # Pierwsze uruchomienie wgrywa całe public_html/ (~190 MB).
+      # Pierwsze uruchomienie wgrywa całe public_html/ (~12 MB).
       # SEOhost losowo zrywa połączenie danych (ECONNRESET), więc są 3 próby.
       # UWAGA: serwer FTP odrzuca każdy zapis w katalogu lib/ (550) — nie trzymać tam plików.
       - name: Wgraj public_html/ przez FTPS (próba 1)
         id: ftp1
+        if: steps.cfg.outputs.ready == 'true'
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -46,7 +55,7 @@ jobs:
 
       - name: Wgraj public_html/ przez FTPS (próba 2)
         id: ftp2
-        if: steps.ftp1.outcome == 'failure'
+        if: steps.cfg.outputs.ready == 'true' && steps.ftp1.outcome == 'failure'
         continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
@@ -60,7 +69,7 @@ jobs:
 
       - name: Wgraj public_html/ przez FTPS (próba 3)
         id: ftp3
-        if: steps.ftp2.outcome == 'failure'
+        if: steps.cfg.outputs.ready == 'true' && steps.ftp2.outcome == 'failure'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -71,8 +80,9 @@ jobs:
           local-dir: ./public_html/
           server-dir: ./
 
-      # LiteSpeed potrafi podać starą wersję z cache; head.php wysyła X-LiteSpeed-Purge przy wejściu.
+      # LiteSpeed potrafi podać starą wersję z cache; config.php wysyła X-LiteSpeed-Purge przy wejściu.
       - name: Sprawdź, czy strona odpowiada
+        if: steps.cfg.outputs.ready == 'true'
         run: |
           # LiteSpeed SEOhost bywa ostry z limitem (429), więc kilka prób z przerwą.
           for i in 1 2 3 4 5; do
