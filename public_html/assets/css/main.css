@@ -228,6 +228,7 @@ body.lb-open{overflow:hidden}
 .pd-pin.is-active i{background:#f5c518;box-shadow:0 0 0 5px rgba(58,211,107,.45)}
 [data-leaflet] .leaflet-tooltip.pd-label{background:none;border:0;box-shadow:none;padding:0;margin:0;font-family:'Barlow',system-ui,sans-serif;font-size:11px;font-weight:800;color:#f2f2f2;white-space:nowrap;text-shadow:0 0 3px #111,0 0 3px #111,0 0 3px #111}
 [data-leaflet] .leaflet-tooltip.pd-label::before{display:none}
+[data-leaflet] .leaflet-tooltip.pd-label.is-hidden{display:none}
 .pd-hq{background:none;border:none}
 .pd-hq i{display:block;width:100%;height:100%;background:#f5c518;border:3px solid #111;box-sizing:border-box;box-shadow:0 0 0 6px rgba(245,197,24,.35)}
 [data-leaflet] .leaflet-popup-content-wrapper,[data-leaflet] .leaflet-popup-tip{background:#111;color:#f2f2f2;border-radius:0}

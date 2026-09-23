@@ -24,6 +24,9 @@
     Object.keys(markers).forEach(function (n) {
       var el = markers[n].getElement && markers[n].getElement();
       if (el) el.classList.toggle('is-active', n === current);
+      var tip = markers[n].getTooltip && markers[n].getTooltip(); // etykieta tylko przy wybranej miejscowości
+      var tel = tip && tip.getElement && tip.getElement();
+      if (tel) tel.classList.toggle('is-hidden', n !== current);
     });
   }
   function selectTown(name) {
