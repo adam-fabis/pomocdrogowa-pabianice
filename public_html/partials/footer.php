@@ -15,7 +15,7 @@ $footItems = ['home' => ['Strona główna', '/'], 'oferta' => ['Oferta', '/ofert
       <a href="<?php echo $FB; ?>" target="_blank" rel="noopener" class="hov-white" style="color:#ccc;transition:color .2s">Facebook</a></div>
   </div>
   <div style="border-top:1px solid #2a2a2a"><div data-bottomrow><span>© <?php echo date('Y'); ?> Pomoc Drogowa Łukasz Rogowski · Pabianice</span><span>Projekt i wykonanie: <a href="https://pozycjonujewizytowke.pl/" target="_blank" rel="noopener" class="hov-text" style="color:#aaa;text-decoration:underline;transition:color .2s">pozycjonujewizytowke.pl</a></span></div></div>
-  <a href="<?php echo $PHONE_HREF; ?>" data-fab class="press" aria-label="Zadzwoń 24h: <?php echo $PHONE; ?>"><span class="dot"></span><span class="fab-desk">24H · <?php echo $PHONE_SHORT; ?></span><span class="fab-mob">ZADZWOŃ 24H · <?php echo $PHONE_SHORT; ?></span></a>
+  <a href="<?php echo $PHONE_HREF; ?>" data-fab class="press"><span class="dot"></span><span class="fab-desk">24H · <?php echo $PHONE_SHORT; ?></span><span class="fab-mob">ZADZWOŃ 24H · <?php echo $PHONE_SHORT; ?></span></a>
 </footer>
 </div>
 <?php $mainJs = __DIR__ . '/../assets/js/main.js'; ?>

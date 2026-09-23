@@ -1,6 +1,6 @@
 <?php
 // sitemap.xml generowany dynamicznie: adresy produkcyjne, lastmod z mtime plików stron.
-define('PD_APP', true);
+if (!defined('PD_APP')) { define('PD_APP', true); } // bezpośrednio (Apache) lub przez dispatcher w index.php (nginx)
 include __DIR__ . '/partials/config.php';
 header('Content-Type: application/xml; charset=utf-8');
 $pages = ['' => ['index.php', '1.0'], 'oferta/' => ['oferta.php', '0.8'], 'galeria/' => ['galeria.php', '0.6'], 'kontakt/' => ['kontakt.php', '0.8']];
