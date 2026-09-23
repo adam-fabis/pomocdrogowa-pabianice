@@ -120,6 +120,7 @@ body{margin:0;background:#1f1f1f;font-family:'Barlow',system-ui,sans-serif;color
 a{color:#f5c518;text-decoration:none}
 a:hover{color:#fff}
 img{max-width:100%}
+picture>img{height:auto} /* atrybut height (CLS) nie może blokować aspect-ratio; hero ma inline height:100% */
 button{font:inherit;color:inherit}
 a:focus-visible,button:focus-visible{outline:2px solid #f5c518;outline-offset:2px}
 ::selection{background:#f5c518;color:#111}
