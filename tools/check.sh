@@ -171,6 +171,7 @@ section_home() {
   check "home: hero fetchpriority + preload" bash -c "grep -q 'fetchpriority=\"high\"' '$out' && grep -q 'rel=\"preload\" as=\"image\"' '$out'"
   check "home: data-leaflet" bash -c "grep -q 'data-leaflet' '$out'"
   check "home: FAQ aria" bash -c "[ \$(grep -o 'aria-expanded=\"true\"' '$out' | wc -l) -ge 1 ] && [ \$(grep -o 'aria-controls=\"faq-a' '$out' | wc -l) -eq 7 ]"
+  check "home: slider opinii (3 karty, nav, dots)" bash -c "[ \$(grep -c 'data-slide=' '$out') -ge 3 ] && grep -q 'data-slider-nav' '$out' && grep -q 'data-dots' '$out'"
   check "home: CTA" bash -c "grep -q 'id=\"cta-h\"' '$out'"
   stop_server
 }

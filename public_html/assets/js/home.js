@@ -66,6 +66,41 @@
       io.observe(el);
     } else loadLeaflet(el);
   }
+
+  // ── Slider opinii ──
+  var slider = document.querySelector('[data-slider]');
+  if (slider) {
+    var track = slider.querySelector('[data-track]'), nav = slider.querySelector('[data-slider-nav]'), dotsEl = slider.querySelector('[data-dots]');
+    var prevB = slider.querySelector('[data-prev]'), nextB = slider.querySelector('[data-next]');
+    var slides = track.querySelectorAll('[data-slide]'), timer = null;
+    function perView() { var s = slides[0]; return s ? Math.max(1, Math.round(track.clientWidth / s.getBoundingClientRect().width)) : 1; }
+    function pages() { return Math.max(1, Math.ceil(slides.length / perView())); }
+    function page() { return Math.round(track.scrollLeft / track.clientWidth); }
+    function goTo(pg) { var n = pages(); pg = (pg + n) % n; track.scrollTo({ left: pg * track.clientWidth, behavior: 'smooth' }); }
+    function renderDots() {
+      var n = pages(), cur = page();
+      nav.hidden = n <= 1;
+      dotsEl.innerHTML = '';
+      for (var i = 0; i < n; i++) {
+        var d = document.createElement('button'); d.type = 'button'; d.className = 'rev-dot' + (i === cur ? ' is-on' : '');
+        d.setAttribute('role', 'tab'); d.setAttribute('aria-label', 'Strona ' + (i + 1) + ' z ' + n); d.setAttribute('aria-selected', i === cur ? 'true' : 'false');
+        d.setAttribute('data-goto', i); dotsEl.appendChild(d);
+      }
+    }
+    function restart() { if (timer) clearInterval(timer); timer = setInterval(function () { goTo(page() + 1); }, 7000); }
+    slider.addEventListener('click', function (e) {
+      var t = e.target.closest('[data-prev],[data-next],[data-goto]'); if (!t) return;
+      if (t.hasAttribute('data-goto')) goTo(Number(t.getAttribute('data-goto'))); else goTo(page() + (t.hasAttribute('data-next') ? 1 : -1));
+      restart();
+    });
+    var scrollT; track.addEventListener('scroll', function () { clearTimeout(scrollT); scrollT = setTimeout(renderDots, 80); }, { passive: true });
+    slider.addEventListener('mouseenter', function () { if (timer) clearInterval(timer); timer = null; });
+    slider.addEventListener('mouseleave', restart);
+    slider.addEventListener('focusin', function () { if (timer) clearInterval(timer); timer = null; });
+    window.addEventListener('resize', renderDots);
+    renderDots(); restart();
+  }
+
   document.addEventListener('click', function (e) {
     var t = e.target; if (!t || !t.closest) return;
     var chip = t.closest('[data-town]');

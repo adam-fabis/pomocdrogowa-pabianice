@@ -37,10 +37,10 @@ $services = [ // [tytuł, opis, rola zdjęcia]
   ['Transport pojazdów', 'Przewóz aut osobowych i dostawczych, także na dalsze trasy.', 'home-svc-7'],
   ['Auto zastępcze z OC', 'Nie jesteś sprawcą? Auto zastępcze bezpłatnie, rozliczamy się z ubezpieczycielem.', 'home-svc-8'],
 ];
-$reviews = [
-  ['Jacek A', 'Przyjazd na miejsce zdarzenia ekspresowy, szybko i sprawnie. Bez nerwów, w dobrej atmosferze. Po zdarzeniu pomoc w załatwieniu koniecznych formalności. Jednym zdaniem — właściwy człowiek na właściwym miejscu. Uczciwy i bardzo pomocny.'],
-  ['Jakub G', 'Profesjonalne podejście, szybki dojazd na miejsce i uprzejma obsługa sprawiły, że stresująca sytuacja stała się o wiele łatwiejsza do zniesienia. Wszystko załatwione sprawnie i bez zbędnych komplikacji.'],
-  ['Mateusz G', 'W trudnym momencie mogłem liczyć na szybką i skuteczną pomoc. Laweta przyjechała szybko, a cała usługa przebiegła bez zarzutu. Miło spotkać ludzi, którzy naprawdę znają się na swojej pracy.'],
+$reviews = [ // zweryfikowane z wizytówki Google (źródło: strona localo klienta); dopisuj kolejne na końcu
+  ['Jacek A', 'Serdecznie polecam usługi Pana Łukasza. Przyjazd na miejsce zdarzenia ekspresowy, szybko i sprawnie. Bez nerwów, w dobrej atmosferze. Po zdarzeniu pomoc w załatwieniu koniecznych formalności. Jednym zdaniem — właściwy człowiek na właściwym miejscu. Uczciwy i bardzo pomocny. W razie potrzeby śmiało polecam Pana Łukasza i jego usługi. 10/10'],
+  ['Jakub G', 'Korzystałem z usług tej firmy pomocy drogowej i jestem bardzo zadowolony! Profesjonalne podejście, szybki dojazd na miejsce i uprzejma obsługa sprawiły, że stresująca sytuacja stała się o wiele łatwiejsza do zniesienia. Panowie byli świetnie przygotowani, wszystko załatwili sprawnie i bez zbędnych komplikacji. Zdecydowanie polecam każdemu, kto szuka rzetelnej i uczciwej pomocy drogowej!'],
+  ['Paweł K', 'Bardzo polecam tę pomoc drogową! Szybki czas reakcji — zjawili się na miejscu w niecałe 30 minut od zgłoszenia. Profesjonalne podejście, sympatyczny kierowca, który od razu wiedział, co robić. Pomogli mi uruchomić samochód i dali kilka cennych wskazówek na przyszłość. Cena była rozsądna i adekwatna do usługi. Zdecydowanie warto mieć ich numer.'],
 ];
 include __DIR__ . '/partials/config.php';
 $ogImage = 'assets/img/hero/' . pd_slug('home-hero') . '.jpg';
@@ -145,13 +145,20 @@ include __DIR__ . '/partials/header.php';
       <div><div style="font-size:13px;letter-spacing:3px;font-weight:700;color:#f5c518;margin-bottom:14px">OPINIE KLIENTÓW</div><h2 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Co mówią kierowcy</h2></div>
       <a href="<?php echo $GREVIEWS; ?>" target="_blank" rel="noopener" class="hov-brand hov-lift press" style="display:flex;align-items:center;gap:12px;border:2px solid #f5c518;padding:10px 16px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s"><span style="font-family:'Barlow Condensed';font-weight:800;font-size:34px;line-height:1">5.0</span><span style="font-size:14px;line-height:1.3">★★★★★<br><span style="text-decoration:underline">82 opinie Google</span></span></a>
     </div>
-    <div data-reviews style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-      <?php foreach ($reviews as [$a, $q]): ?>
-      <div style="background:#262626;border-top:4px solid #f5c518;padding:28px;display:flex;flex-direction:column;gap:16px">
+    <div class="rev-slider" data-slider>
+      <div class="rev-track" data-track aria-live="polite">
+      <?php foreach ($reviews as $i => [$a, $q]): ?>
+      <article class="rev-card" data-slide="<?php echo $i; ?>" style="background:#262626;border-top:4px solid #f5c518;padding:28px;display:flex;flex-direction:column;gap:16px">
         <div style="display:flex;align-items:center;gap:14px"><div style="width:44px;height:44px;background:#f5c518;color:#111;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;flex:none"><?php echo mb_substr($a, 0, 1); ?></div><div><div style="font-weight:700;font-size:17px"><?php echo $a; ?></div><div style="font-size:13px;color:#999">Google · <span style="color:#f5c518">★★★★★</span></div></div></div>
         <blockquote style="margin:0"><p style="margin:0;font-size:16px;line-height:1.6;color:#e6e6e6;text-wrap:pretty">„<?php echo $q; ?>”</p></blockquote>
-      </div>
+      </article>
       <?php endforeach; ?>
+      </div>
+      <div class="rev-nav" data-slider-nav hidden>
+        <button type="button" class="rev-btn hov-brand" data-prev aria-label="Poprzednie opinie">‹</button>
+        <div class="rev-dots" data-dots role="tablist" aria-label="Strony opinii"></div>
+        <button type="button" class="rev-btn hov-brand" data-next aria-label="Następne opinie">›</button>
+      </div>
     </div>
   </section>
 

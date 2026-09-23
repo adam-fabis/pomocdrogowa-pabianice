@@ -201,6 +201,19 @@ body.menu-open{overflow:hidden}
 .faq-wrap p{margin:0;padding:0 48px 20px 0;font-size:16px;line-height:1.6;color:#bbb;transition:opacity .3s 0s,transform .4s var(--E)}
 .js .faq-wrap p{opacity:0;transform:translateY(-8px)}
 .js .faq-wrap.is-open p{opacity:1;transform:translateY(0);transition:opacity .3s .1s,transform .4s var(--E)}
+/* ── Slider opinii (scroll-snap; bez JS zwykłe przewijanie poziome) ── */
+.rev-slider{position:relative}
+.rev-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:4px}
+.rev-track::-webkit-scrollbar{display:none}
+.rev-card{flex:0 0 calc((100% - 40px) / 3);scroll-snap-align:start;min-width:0}
+@media (max-width:999px){.rev-card{flex-basis:calc((100% - 20px) / 2)}}
+@media (max-width:699px){.rev-card{flex-basis:100%}}
+.rev-nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:24px}
+.rev-btn{all:unset;cursor:pointer;width:44px;height:44px;background:#111;border:2px solid #f5c518;color:#f5c518;font-size:26px;line-height:1;display:flex;align-items:center;justify-content:center;transition:background-color .2s,color .2s}
+.rev-btn:disabled{opacity:.35;cursor:default}
+.rev-dots{display:flex;gap:8px}
+.rev-dot{all:unset;cursor:pointer;width:10px;height:10px;background:#555;transition:width .25s,background-color .25s}
+.rev-dot.is-on{width:28px;background:#f5c518}
 /* ── Oferta (mob = <820px) ── */
 .svc-row{display:flex;flex-direction:row;gap:56px;align-items:center;scroll-margin-top:100px}
 .svc-row.is-rev{flex-direction:row-reverse}
