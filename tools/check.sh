@@ -195,7 +195,7 @@ section_galeria() {
   page_common galeria /galeria/ "$out"
   eq "galeria: 14 data-shot" "$(grep -c 'data-shot=' "$out")" 14
   eq "galeria: 4 hidden" "$(grep -c ' hidden>' "$out")" 4
-  eq "galeria: 2 is-big" "$(grep -c 'is-big' "$out")" 2
+  eq "galeria: 2 is-big" "$(grep -c 'class="gal-cell is-big"' "$out")" 2
   eq "galeria: bez preload hero" "$(grep -c 'rel="preload" as="image"' "$out")" 0
   check "galeria: lightbox" bash -c "grep -q 'data-lightbox' '$out' && grep -q 'data-lbprev' '$out' && grep -q 'data-more' '$out'"
   check "galeria: BreadcrumbList" bash -c "jsonld_types '$out' | grep -q 'BreadcrumbList=1'"
