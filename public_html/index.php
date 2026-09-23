@@ -41,6 +41,13 @@ $reviews = [ // zweryfikowane z wizytówki Google (źródło: strona localo klie
   ['Jacek A', 'Serdecznie polecam usługi Pana Łukasza. Przyjazd na miejsce zdarzenia ekspresowy, szybko i sprawnie. Bez nerwów, w dobrej atmosferze. Po zdarzeniu pomoc w załatwieniu koniecznych formalności. Jednym zdaniem — właściwy człowiek na właściwym miejscu. Uczciwy i bardzo pomocny. W razie potrzeby śmiało polecam Pana Łukasza i jego usługi. 10/10'],
   ['Jakub G', 'Korzystałem z usług tej firmy pomocy drogowej i jestem bardzo zadowolony! Profesjonalne podejście, szybki dojazd na miejsce i uprzejma obsługa sprawiły, że stresująca sytuacja stała się o wiele łatwiejsza do zniesienia. Panowie byli świetnie przygotowani, wszystko załatwili sprawnie i bez zbędnych komplikacji. Zdecydowanie polecam każdemu, kto szuka rzetelnej i uczciwej pomocy drogowej!'],
   ['Paweł K', 'Bardzo polecam tę pomoc drogową! Szybki czas reakcji — zjawili się na miejscu w niecałe 30 minut od zgłoszenia. Profesjonalne podejście, sympatyczny kierowca, który od razu wiedział, co robić. Pomogli mi uruchomić samochód i dali kilka cennych wskazówek na przyszłość. Cena była rozsądna i adekwatna do usługi. Zdecydowanie warto mieć ich numer.'],
+  ['Sylwester Frąc', 'Szybka reakcja i pełen profesjonalizm. Auto odmówiło posłuszeństwa w centrum Pabianic, a pomoc była naprawdę ekspresowa. Wszystko sprawnie załatwione, bez zbędnego czekania. Polecam serdecznie, cena adekwatna do wykonanej usługi.'],
+  ['Izabela Młynarczyk', 'Miałam awarię auta i skorzystałam z pomocy tej firmy. Pełen profesjonalizm — szybki dojazd, miła obsługa, wszystko sprawnie i bez stresu. Kierowca bardzo pomocny i życzliwy. Auto zostało bezpiecznie przewiezione pod wskazany adres. Serdecznie polecam, rzetelna i godna zaufania firma!'],
+  ['Jowita Jędrzejek', 'Pan przyjechał chwilę po moim telefonie, niewiele później miałam sprawne auto. Serdecznie polecam!'],
+  ['Dusia De.', 'Szybko, sprawnie i bez żadnych problemów. Motocykl odebrany i bezpiecznie dowieziony pod dom. Bardzo dobry kontakt, konkretna obsługa i rozsądna cena. Zdecydowanie polecam!'],
+  ['Martyna M', 'Błyskawiczna pomoc, laweta była na miejscu w 20 minut, dodam że była to fachowa obsługa w stresującej dla mnie sytuacji. Pełen profesjonalizm. Cena taka, jak umówiliśmy się przez telefon, bez ukrytych opłat. Polecam w 100%'],
+  ['Adrianna L', 'Szybkie wyciągnięcie auta zakopanego w błocie. Polecam!'],
+  ['Natalia', 'Korzystałam z pomocy drogowej 24h w Pabianicach i jestem bardzo zadowolona. Szybki dojazd, bezpieczne holowanie i konkretna obsługa. W sytuacji awaryjnej można na nich liczyć.'],
 ];
 include __DIR__ . '/partials/config.php';
 $ogImage = 'assets/img/hero/' . pd_slug('home-hero') . '.jpg';
