@@ -27,7 +27,7 @@ include __DIR__ . '/partials/header.php';
 
   <!-- KARTY KONTAKTU -->
   <section aria-label="Dane kontaktowe" style="max-width:1200px;margin:0 auto;padding:clamp(40px,7vw,64px) 20px 0">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:3px">
+    <div data-cards4 style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:3px">
       <a href="<?php echo $PHONE_HREF; ?>" class="hov-dark" style="background:#2a2a2a;padding:28px;display:flex;flex-direction:column;gap:10px;border-top:4px solid #e8342a;color:#f2f2f2;transition:background-color .2s,transform .2s"><div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999">TELEFON 24/7</div><div style="font-family:'Barlow Condensed';font-weight:800;font-size:32px;color:#f5c518;line-height:1"><?php echo $PHONE; ?></div><div style="font-size:14px;color:#aaa">Kliknij, aby zadzwonić</div></a>
       <div style="background:#2a2a2a;padding:28px;display:flex;flex-direction:column;gap:10px;border-top:4px solid #f5c518"><div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999">ADRES</div><div style="font-family:'Barlow Condensed';font-weight:800;font-size:28px;line-height:1.05"><?php echo $ADDR1; ?></div><div style="font-size:15px;color:#ccc"><?php echo $ADDR2; ?></div></div>
       <div style="background:#2a2a2a;padding:28px;display:flex;flex-direction:column;gap:10px;border-top:4px solid #f5c518"><div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999">GODZINY</div><div style="font-family:'Barlow Condensed';font-weight:800;font-size:32px;color:#f5c518;line-height:1">Całą dobę</div><div style="font-size:15px;color:#ccc">Poniedziałek – Niedziela, również w święta</div></div>

@@ -174,6 +174,10 @@ body.menu-open{overflow:hidden}
   body.menu-open [data-fab],body.lb-open [data-fab]{display:none}
 }
 /* ── Strona główna ── */
+/* siatki auto-fit bez "sierot": 3 karty -> 1 kolumna (opinie, kroki oferty), 4 karty -> 2x2 -> 1 (kontakt) */
+@media (max-width:899px){[data-reviews],[data-steps]{grid-template-columns:1fr!important}}
+@media (max-width:1019px){[data-cards4]{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media (max-width:559px){[data-cards4]{grid-template-columns:1fr!important}}
 /* pasek statystyk w hero: nigdy 3+1 — poniżej 760px od razu 2x2 */
 @media (max-width:759px){[data-stats]{grid-template-columns:repeat(2,minmax(0,1fr))!important}[data-stats]>*:nth-child(2){border-right:0!important}}
 .chip{all:unset;cursor:pointer;padding:7px 12px;font-size:14px;font-weight:500;background:transparent;color:#eee;border:1px solid #666;transition:background-color .2s,color .2s,border-color .2s,transform .2s}
@@ -217,7 +221,7 @@ html:not(.js) [data-more-wrap]{display:none!important}
 @media (max-width:699px){.lb{padding:64px 12px}}
 body.lb-open{overflow:hidden}
 /* ── Mapy Leaflet (ciemny wygląd) ── */
-[data-leaflet]{background:#2a2a2a}
+[data-leaflet]{background:#2a2a2a;position:relative;z-index:0;isolation:isolate} /* panele Leafleta (z-index 400-1000) zostają pod sticky nagłówkiem */
 [data-leaflet] .leaflet-tile-pane{filter:grayscale(1) invert(.92) contrast(1.05) brightness(.9)}
 [data-leaflet].leaflet-container{background:#2a2a2a;font-family:'Barlow',system-ui,sans-serif}
 [data-leaflet] .leaflet-control-attribution{font-size:9px;background:rgba(17,17,17,.85);color:#aaa}
