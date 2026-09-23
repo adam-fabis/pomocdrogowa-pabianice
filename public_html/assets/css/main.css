@@ -143,6 +143,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #f5c518;outline-offset:2p
 /* ── Nagłówek (Naglowek.dc.html: mob = <900px) ── */
 [data-navlinks]{display:flex;gap:26px;font-size:15px;font-weight:600;white-space:nowrap}
 [data-navlinks] a{color:#ddd;font-weight:600;padding-bottom:4px;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+[data-navlinks] a:hover{color:#f5c518}
 [data-navlinks] a.is-on{color:#f5c518;font-weight:800;border-bottom-color:#f5c518}
 [data-navphone]{background:#e8342a;color:#fff;font-weight:800;padding:12px 20px;font-size:18px;white-space:nowrap;display:flex;align-items:center;gap:10px;flex:none;transition:background-color .2s,transform .2s var(--E),box-shadow .2s}
 [data-burger]{all:unset;cursor:pointer;position:relative;width:44px;height:44px;flex:none;display:none;border:2px solid #444;box-sizing:border-box}

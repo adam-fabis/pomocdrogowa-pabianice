@@ -10,9 +10,9 @@ $footItems = ['home' => ['Strona główna', '/'], 'oferta' => ['Oferta', '/ofert
     <div style="display:flex;flex-direction:column;gap:10px;font-size:15px"><div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999">GODZINY</div><div style="color:#f5c518;font-weight:800;font-size:22px">Czynne 24/7</div><div style="color:#ccc;line-height:1.5">Poniedziałek – Niedziela<br>całą dobę, również w święta</div></div>
     <div style="display:flex;flex-direction:column;gap:10px;font-size:15px"><div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999">NAWIGACJA</div>
       <?php foreach ($footItems as $k => [$label, $href]): ?>
-      <a href="<?php echo $page === $k ? '#top' : $href; ?>" class="hov-white" style="color:#ccc;transition:color .2s"><?php echo $label; ?></a>
+      <a href="<?php echo $page === $k ? '#top' : $href; ?>" class="hov-text" style="color:#ccc;transition:color .2s"><?php echo $label; ?></a>
       <?php endforeach; ?>
-      <a href="<?php echo $FB; ?>" target="_blank" rel="noopener" class="hov-white" style="color:#ccc;transition:color .2s">Facebook</a></div>
+      <a href="<?php echo $FB; ?>" target="_blank" rel="noopener" class="hov-text" style="color:#ccc;transition:color .2s">Facebook</a></div>
   </div>
   <div style="border-top:1px solid #2a2a2a"><div data-bottomrow><span>© <?php echo date('Y'); ?> Pomoc Drogowa Łukasz Rogowski · Pabianice</span><span>Projekt i wykonanie: <a href="https://pozycjonujewizytowke.pl/" target="_blank" rel="noopener" class="hov-text" style="color:#aaa;text-decoration:underline;transition:color .2s">pozycjonujewizytowke.pl</a></span></div></div>
   <a href="<?php echo $PHONE_HREF; ?>" data-fab class="press"><span class="dot"></span><span class="fab-desk">24H · <?php echo $PHONE_SHORT; ?></span><span class="fab-mob">ZADZWOŃ 24H · <?php echo $PHONE_SHORT; ?></span></a>
