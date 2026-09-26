@@ -1,17 +1,6 @@
 {
  "items": [
   {
-   "idx": 1,
-   "src": "zrodla/google/01-laweta-z-samochodem-droga-ekspresowa-pomoc-drogowa-pabianice.jpg",
-   "slug": "laweta-z-samochodem-droga-ekspresowa-pomoc-drogowa-pabianice",
-   "roles": [
-    "home-hero"
-   ],
-   "gallery_pos": 1,
-   "w": 810,
-   "h": 1080
-  },
-  {
    "idx": 2,
    "src": "zrodla/google/02-zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice.jpg",
    "slug": "zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice",
@@ -19,22 +8,9 @@
     "home-about",
     "kontakt-hero"
    ],
-   "gallery_pos": 2,
+   "gallery_pos": 5,
    "w": 1080,
    "h": 787
-  },
-  {
-   "idx": 3,
-   "src": "zrodla/google/03-holowanie-sedana-laweta-noca-pabianice.jpg",
-   "slug": "holowanie-sedana-laweta-noca-pabianice",
-   "roles": [
-    "oferta-hero",
-    "oferta-holowanie",
-    "home-svc-6"
-   ],
-   "gallery_pos": 3,
-   "w": 810,
-   "h": 1080
   },
   {
    "idx": 4,
@@ -44,31 +20,18 @@
     "oferta-transport",
     "home-svc-7"
    ],
-   "gallery_pos": 4,
+   "gallery_pos": 3,
    "w": 1080,
    "h": 608
-  },
-  {
-   "idx": 5,
-   "src": "zrodla/google/05-czarny-suv-na-lawecie-pomoc-drogowa-pabianice.jpg",
-   "slug": "czarny-suv-na-lawecie-pomoc-drogowa-pabianice",
-   "roles": [
-    "oferta-oc",
-    "home-svc-8"
-   ],
-   "gallery_pos": 5,
-   "w": 810,
-   "h": 1080
   },
   {
    "idx": 6,
    "src": "zrodla/google/06-holowanie-auta-po-awarii-z-osiedla-pabianice.jpg",
    "slug": "holowanie-auta-po-awarii-z-osiedla-pabianice",
    "roles": [
-    "oferta-akumulator",
-    "home-svc-1"
+    "oferta-akumulator"
    ],
-   "gallery_pos": 6,
+   "gallery_pos": 2,
    "w": 1080,
    "h": 608
   },
@@ -80,42 +43,16 @@
     "oferta-kolizja",
     "home-svc-2"
    ],
-   "gallery_pos": 7,
+   "gallery_pos": 8,
    "w": 720,
    "h": 960
-  },
-  {
-   "idx": 8,
-   "src": "zrodla/google/08-laweta-z-autem-na-parkingu-pomoc-drogowa-pabianice.jpg",
-   "slug": "laweta-z-autem-na-parkingu-pomoc-drogowa-pabianice",
-   "roles": [
-    "home-oc"
-   ],
-   "gallery_pos": 8,
-   "w": 810,
-   "h": 1080
-  },
-  {
-   "idx": 9,
-   "src": "zrodla/google/09-laweta-z-malym-autem-na-poboczu-pabianice.jpg",
-   "slug": "laweta-z-malym-autem-na-poboczu-pabianice",
-   "roles": [
-    "cta-bg",
-    "galeria-hero"
-   ],
-   "gallery_pos": 9,
-   "w": 810,
-   "h": 1080
   },
   {
    "idx": 10,
    "src": "zrodla/google/10-awaryjna-wymiana-kola-na-miejscu-pabianice.jpg",
    "slug": "awaryjna-wymiana-kola-na-miejscu-pabianice",
-   "roles": [
-    "oferta-opony",
-    "home-svc-4"
-   ],
-   "gallery_pos": 10,
+   "roles": [],
+   "gallery_pos": 4,
    "w": 1080,
    "h": 608
   },
@@ -124,30 +61,9 @@
    "src": "zrodla/google/11-laweta-z-przyczepa-transport-ulica-pabianice.jpg",
    "slug": "laweta-z-przyczepa-transport-ulica-pabianice",
    "roles": [],
-   "gallery_pos": 11,
+   "gallery_pos": 6,
    "w": 1080,
    "h": 608
-  },
-  {
-   "idx": 12,
-   "src": "zrodla/google/12-czerwone-auto-na-lawecie-osiedle-pabianice.jpg",
-   "slug": "czerwone-auto-na-lawecie-osiedle-pabianice",
-   "roles": [],
-   "gallery_pos": 12,
-   "w": 810,
-   "h": 1080
-  },
-  {
-   "idx": 13,
-   "src": "zrodla/google/13-laweta-transport-auta-droga-ekspresowa-pabianice.jpg",
-   "slug": "laweta-transport-auta-droga-ekspresowa-pabianice",
-   "roles": [
-    "oferta-paliwo",
-    "home-svc-5"
-   ],
-   "gallery_pos": 13,
-   "w": 810,
-   "h": 1080
   },
   {
    "idx": 14,
@@ -155,11 +71,75 @@
    "slug": "mobilny-serwis-samochodowy-van-pabianice",
    "roles": [
     "oferta-naprawa",
-    "home-svc-3"
+    "home-svc-3",
+    "oferta-paliwo",
+    "home-svc-5"
    ],
-   "gallery_pos": 14,
+   "gallery_pos": 9,
    "w": 1080,
    "h": 552
+  },
+  {
+   "idx": 15,
+   "src": "zrodla/klient/15-awaria-auta-droga-ekspresowa-laweta-pabianice.jpg",
+   "slug": "awaria-auta-droga-ekspresowa-laweta-pabianice",
+   "roles": [
+    "home-hero",
+    "home-svc-1"
+   ],
+   "gallery_pos": 10,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 16,
+   "src": "zrodla/klient/16-zolta-laweta-z-autem-na-parkingu-pabianice.jpg",
+   "slug": "zolta-laweta-z-autem-na-parkingu-pabianice",
+   "roles": [
+    "cta-bg",
+    "oferta-hero"
+   ],
+   "gallery_pos": 0,
+   "w": 2032,
+   "h": 1144
+  },
+  {
+   "idx": 17,
+   "src": "zrodla/klient/17-auto-zastepcze-audi-pabianice.jpg",
+   "slug": "auto-zastepcze-audi-pabianice",
+   "roles": [
+    "home-oc",
+    "home-svc-8",
+    "oferta-oc"
+   ],
+   "gallery_pos": 1,
+   "w": 2032,
+   "h": 1144
+  },
+  {
+   "idx": 18,
+   "src": "zrodla/klient/18-holowanie-rozbitego-auta-laweta-noca-pabianice.jpg",
+   "slug": "holowanie-rozbitego-auta-laweta-noca-pabianice",
+   "roles": [
+    "galeria-hero",
+    "oferta-holowanie",
+    "home-svc-6"
+   ],
+   "gallery_pos": 7,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 19,
+   "src": "zrodla/klient/19-naprawa-przebitej-opony-na-miejscu-pabianice.jpg",
+   "slug": "naprawa-przebitej-opony-na-miejscu-pabianice",
+   "roles": [
+    "oferta-opony",
+    "home-svc-4"
+   ],
+   "gallery_pos": 11,
+   "w": 2048,
+   "h": 1153
   }
  ]
 }

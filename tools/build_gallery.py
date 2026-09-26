@@ -7,7 +7,9 @@ m = json.load(open(SP + '/manifest.json'))
 alts = json.load(open(SP + '/alts.json'))
 variants = json.load(open(ROOT + '/public_html/assets/img/variants.json'))
 gal = sorted(m['items'], key=lambda x: x['gallery_pos'])
-BIG = {0, 7}; VISIBLE = 10
+# Siatka 4 kolumny: duży kafelek = 2x2, więc liczba komórek N + 3*len(BIG) musi dzielić się przez 4 (bez dziury w ostatnim rzędzie).
+# 12 zdjęć: BIG {0,7,10,11}, wszystkie widoczne. 14 zdjęć: BIG {0,7}, VISIBLE 10 (4 za przyciskiem „Zobacz więcej”).
+BIG = {0, 7, 10, 11}; VISIBLE = 12
 SIZES_BIG = '(max-width:699px) 100vw, 50vw'; SIZES = '(max-width:699px) 50vw, 25vw'
 def srcset(slug, widths, ext): return ', '.join(f'/assets/img/thumbs/{slug}-{w}.{ext} {w}w' for w in widths)
 tiles = []
@@ -24,6 +26,9 @@ p = ROOT + '/public_html/galeria.php'
 s = open(p, encoding='utf-8').read()
 s, n1 = re.subn(r'(<!-- GALLERY:START -->\n).*?(<!-- GALLERY:END -->)', lambda mm: mm.group(1) + ''.join(tiles) + mm.group(2), s, flags=re.S)
 s, n2 = re.subn(r'<span data-more-count>\d+</span>', f'<span data-more-count>{max(0, len(gal) - VISIBLE)}</span>', s)
-assert n1 == 1 and n2 == 1, (n1, n2)
+s, n3 = re.subn(r'data-more-wrap(?: hidden)?>', 'data-more-wrap hidden>' if len(gal) <= VISIBLE else 'data-more-wrap>', s)
+assert n1 == 1 and n2 == 1 and n3 == 1, (n1, n2, n3)
+assert (len(gal) + 3 * len(BIG)) % 4 == 0, 'dziura w ostatnim rzędzie siatki galerii'
+vis = min(VISIBLE, len(gal)); assert (vis + 3 * len({b for b in BIG if b < vis})) % 4 == 0, 'dziura w siatce przed „Zobacz więcej”'
 open(p, 'w', encoding='utf-8').write(s)
 print('tiles', len(tiles), 'hidden', max(0, len(gal) - VISIBLE))

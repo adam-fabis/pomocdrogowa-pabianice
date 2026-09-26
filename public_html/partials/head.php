@@ -34,7 +34,7 @@ $ld[] = [
 $ld[] = [
     '@context' => 'https://schema.org', '@type' => 'Service', '@id' => $BASE . '#obszar-dzialania',
     'name' => 'Całodobowa pomoc drogowa', 'url' => $BASE . 'oferta/',
-    'description' => 'Pomoc drogowa 24/7: holowanie i laweta, naprawa na miejscu, awaryjne odpalanie, wymiana koła i serwis opon, dowóz paliwa, pomoc po kolizji i wypadku, transport pojazdów, auto zastępcze z OC sprawcy — Pabianice, Łódź i okolice, trasy S8, S14, A1.',
+    'description' => 'Pomoc drogowa 24/7: holowanie i laweta, naprawa na miejscu, awaryjne odpalanie, wymiana koła i serwis opon, dowóz paliwa, pomoc po kolizji i wypadku, transport pojazdów, auto zastępcze z OC sprawcy — Pabianice, Łódź i okolice, trasy S8, S14, A1, DK71, DK91.',
     'provider' => ['@id' => $BASE . '#firma'], 'areaServed' => $areaServed,
     'serviceType' => ['Pomoc drogowa', 'Holowanie', 'Laweta', 'Autoholowanie', 'Naprawa na miejscu', 'Awaryjne odpalanie samochodu', 'Wymiana koła', 'Dowóz paliwa', 'Pomoc po kolizji', 'Transport pojazdów', 'Auto zastępcze z OC sprawcy'],
     'hoursAvailable' => $hours,

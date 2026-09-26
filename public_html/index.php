@@ -19,7 +19,7 @@ $path = '/';
 $pageJs = 'assets/js/home.js';
 $faqLd = [
   ['Czy pomoc drogowa działa całodobowo?', 'Tak. Dojeżdżamy 24 godziny na dobę, 7 dni w tygodniu — również w weekendy i święta. Wystarczy zadzwonić: +48 517 574 330.'],
-  ['Jaki obszar obsługujecie?', 'Pabianice i okolice: Łódź, Konstantynów Łódzki, Ksawerów, Rzgów, Dobroń, Łask, Zduńska Wola i inne. Pomagamy też na trasach S8, S14 i A1.'],
+  ['Jaki obszar obsługujecie?', 'Pabianice i okolice: Łódź, Konstantynów Łódzki, Ksawerów, Rzgów, Dobroń, Łask, Zduńska Wola i inne. Pomagamy też na trasach S8, S14, A1, DK71 i DK91.'],
   ['Jak szybko dojedziecie?', 'Czas dojazdu zależy od miejsca zdarzenia — podajemy go od razu w rozmowie. W Pabianicach i najbliższej okolicy zwykle to kilkadziesiąt minut.'],
   ['Ile kosztuje auto zastępcze?', 'Jeśli sprawcą kolizji był ktoś inny, auto zastępcze jest dla Ciebie bezpłatne — rozliczamy się bezpośrednio z ubezpieczycielem sprawcy.'],
   ['Czy da się naprawić auto na miejscu?', 'Często tak — wymiana koła, odpalenie auta czy dowóz paliwa odbywają się na miejscu. Gdy naprawa nie jest możliwa, holujemy lawetą.'],
@@ -56,11 +56,11 @@ include __DIR__ . '/partials/header.php';
 ?>
   <!-- HERO -->
   <section id="top" style="position:relative;overflow:hidden;background:#141414;scroll-margin-top:var(--navh)">
-    <?php echo pd_picture('hero/' . pd_slug('home-hero'), 'Laweta z samochodem na drodze ekspresowej', 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5', '100vw', true); ?>
+    <?php echo pd_picture('hero/' . pd_slug('home-hero'), 'Żółta laweta przy aucie po awarii na drodze ekspresowej', 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5', '100vw', true); ?>
     <div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,20,20,.55) 0%,rgba(20,20,20,.8) 100%)"></div>
     <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(52px,10vw,84px) 20px 48px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px">
       <div style="font-size:14px;letter-spacing:4px;font-weight:700;color:#f5c518">CZYNNE 24/7 · PABIANICE I OKOLICE</div>
-      <h1 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(40px,6vw,68px);line-height:1;text-wrap:balance">Całodobowa pomoc drogowa<br>— Pabianice i okolice</h1>
+      <h1 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(40px,6vw,68px);line-height:1;text-wrap:balance"><span style="color:#f5c518">Całodobowa <span style="white-space:nowrap">Pomoc Drogowa</span></span><br>— Pabianice i okolice</h1>
       <p style="margin:0;max-width:640px;font-size:18px;line-height:1.55;color:#ddd;text-wrap:pretty">Złapałeś gumę, auto nie odpala albo potrzebujesz lawety? Dojeżdżamy o każdej porze dnia i nocy — wiele usterek usuwamy na miejscu.</p>
       <a href="<?php echo $PHONE_HREF; ?>" class="hov-big press" style="font-family:'Barlow Condensed';font-weight:800;font-size:clamp(56px,10vw,120px);line-height:1;color:#fff;background:#111;padding:4px 32px 8px;border:5px solid #f5c518;box-shadow:12px 12px 0 rgba(0,0,0,.6);margin:14px 0 6px;transition:background-color .2s,color .2s,border-color .2s,transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s"><?php echo $PHONE_SHORT; ?></a>
       <a href="#zakres" style="color:#f5c518;font-weight:700;font-size:16px;text-decoration:underline">Zobacz zakres pomocy →</a>
@@ -103,7 +103,7 @@ include __DIR__ . '/partials/header.php';
           <?php endforeach; ?>
         </div>
         <div style="font-size:12px;letter-spacing:2px;font-weight:700;color:#999;margin-top:6px">POMAGAMY TAKŻE NA TRASACH:</div>
-        <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">S8</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">S14</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">A1</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">DK71</span></div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">S8</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">S14</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">A1</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">DK71</span><span style="background:#111;color:#f5c518;font-weight:800;padding:6px 12px;font-size:15px">DK91</span></div>
       </div>
       <div style="display:flex;flex-direction:column;gap:0">
         <div style="position:relative;height:420px;border:3px solid #333;overflow:hidden;background:#2a2a2a">
@@ -136,7 +136,7 @@ include __DIR__ . '/partials/header.php';
   <!-- AUTO ZASTĘPCZE -->
   <section aria-labelledby="oc-h" style="background:#f5c518;color:#111">
     <div style="max-width:1200px;margin:0 auto;padding:clamp(52px,9vw,72px) 20px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:center">
-      <?php echo pd_picture(pd_slug('home-oc'), 'Transport samochodu lawetą', 'width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:4px solid #111', '(max-width:760px) 100vw, 50vw'); ?>
+      <?php echo pd_picture(pd_slug('home-oc'), 'Samochód zastępczy Audi A4', 'width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:4px solid #111', '(max-width:760px) 100vw, 50vw'); ?>
       <div style="display:flex;flex-direction:column;gap:16px">
         <div style="font-size:13px;letter-spacing:3px;font-weight:800">BEZPŁATNIE · Z OC SPRAWCY</div>
         <h2 id="oc-h" style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:clamp(34px,7vw,52px);line-height:1">Auto zastępcze<br>z OC sprawcy</h2>

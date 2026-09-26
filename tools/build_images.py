@@ -1,46 +1,56 @@
 #!/usr/bin/env python3
 """Generuje public_html/assets/img/<slug>.jpg (max 1600) + AVIF/WebP {480,800,1200,1600},
 thumbs/<slug>.jpg (800) + {400,800}, hero/<slug>.jpg (1920) + {960,1440,1920}, variants.json, manifest.json.
-Źródło: zrodla/google/NN-<slug>.jpg (pobrane przez fetch_google_photos.py). Wszystkie zdjęcia trafiają do galerii
-(gallery_pos = idx). Listy szerokości są ograniczone do szerokości źródła (zdjęcia z Google mają max 1080 px),
-więc hero dostaje np. {960, 1080}. Pliki aktualne (mtime >= źródło) są pomijane."""
+Źródła: zrodla/google/NN-<slug>.jpg (fetch_google_photos.py) i zrodla/klient/NN-<slug>.jpg (prepare_client_photos.py).
+Wszystkie zdjęcia trafiają do galerii w kolejności GALLERY_ORDER. Listy szerokości są ograniczone do szerokości źródła
+(zdjęcia z Google mają max 1080 px), więc hero dostaje np. {960, 1080}. Pliki aktualne (mtime >= źródło) są pomijane.
+Zdjęcia ze starą białą lawetą (klient nie ma jej od ~2024) leżą w zrodla/archiwum-biala-laweta/ i nie są budowane."""
 import os, re, json, glob
-from PIL import Image, ImageOps
+import io
+from PIL import Image, ImageOps, ImageCms
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SP = os.path.join(ROOT, 'tools')
-SRC = os.path.join(ROOT, 'zrodla/google')
+SRCS = [os.path.join(ROOT, 'zrodla/google'), os.path.join(ROOT, 'zrodla/klient')]
 OUT = os.path.join(ROOT, 'public_html/assets/img')
-# idx -> role(s). Role z sufiksem -hero dostają dodatkowo wariant hero/.
+# idx -> role(s). Role z sufiksem -hero dostają dodatkowo wariant hero/ (4 role hero muszą leżeć na 4 różnych zdjęciach).
 ROLES = {
-    1: ['home-hero'],
     2: ['home-about', 'kontakt-hero'],
-    3: ['oferta-hero', 'oferta-holowanie', 'home-svc-6'],
-    4: ['oferta-transport', 'home-svc-7'],
-    5: ['oferta-oc', 'home-svc-8'],
-    6: ['oferta-akumulator', 'home-svc-1'],
+    4: ['oferta-transport', 'home-svc-7'],   # tymczasowo: klient ma przysłać zdjęcie „Transport pojazdów”
+    6: ['oferta-akumulator'],
     7: ['oferta-kolizja', 'home-svc-2'],
-    8: ['home-oc'],
-    9: ['cta-bg', 'galeria-hero'],
-    10: ['oferta-opony', 'home-svc-4'],
-    13: ['oferta-paliwo', 'home-svc-5'],
-    14: ['oferta-naprawa', 'home-svc-3'],
+    14: ['oferta-naprawa', 'home-svc-3', 'oferta-paliwo', 'home-svc-5'],   # paliwo tymczasowo: klient ma przysłać zdjęcie
+    15: ['home-hero', 'home-svc-1'],
+    16: ['cta-bg', 'oferta-hero'],
+    17: ['home-oc', 'home-svc-8', 'oferta-oc'],
+    18: ['galeria-hero', 'oferta-holowanie', 'home-svc-6'],
+    19: ['oferta-opony', 'home-svc-4'],
 }
+# Kolejność kafelków w galerii (idx). Duże kafelki i liczba widocznych: BIG/VISIBLE w build_gallery.py.
+GALLERY_ORDER = [16, 17, 6, 4, 10, 2, 11, 18, 7, 14, 15, 19]
 FULL_WIDTHS = [480, 800, 1200, 1600]; THUMB_WIDTHS = [400, 800]; HERO_WIDTHS = [960, 1440, 1920]
 AVIF_Q, AVIF_SPEED, WEBP_Q, WEBP_METHOD = 55, 6, 78, 6
 
-files = sorted(glob.glob(SRC + '/*.jpg'))
-assert len(files) == 14, f'oczekiwano 14 zdjęć w {SRC}, jest {len(files)}'
+files = sorted((p for d in SRCS for p in glob.glob(d + '/*.jpg')), key=os.path.basename)
 items = []
 for p in files:
-    m = re.match(r'(\d+)-(.+)\.jpg$', os.path.basename(p))
+    m = re.match(r'(\d+)-(.+)\.jpg$', os.path.basename(p)); assert m, f'nazwa źródła musi mieć postać NN-slug.jpg: {p}'
     idx, slug = int(m.group(1)), m.group(2)
-    items.append({'idx': idx, 'src': os.path.relpath(p, ROOT), 'slug': slug, 'roles': ROLES.get(idx, []), 'gallery_pos': idx})
-assert len({it['slug'] for it in items}) == 14, 'zduplikowany slug'
+    items.append({'idx': idx, 'src': os.path.relpath(p, ROOT), 'slug': slug, 'roles': ROLES.get(idx, [])})
+idxs = [it['idx'] for it in items]
+assert sorted(idxs) == sorted(GALLERY_ORDER), f'źródła {sorted(idxs)} != GALLERY_ORDER {sorted(GALLERY_ORDER)}'
+assert set(ROLES) <= set(idxs), f'role bez zdjęcia: {set(ROLES) - set(idxs)}'
+assert len({it['slug'] for it in items}) == len(items), 'zduplikowany slug'
+for it in items: it['gallery_pos'] = GALLERY_ORDER.index(it['idx'])
 
 class LazyImage:
     def __init__(self, src): self.src = src; self._im = None
     def get(self):
-        if self._im is None: self._im = ImageOps.exif_transpose(Image.open(self.src)).convert('RGB')
+        if self._im is None:
+            im = ImageOps.exif_transpose(Image.open(self.src))
+            icc = im.info.get('icc_profile')   # np. Display P3 z telefonu klienta; wyjście bez profilu = sRGB
+            if icc:
+                im = ImageCms.profileToProfile(im, ImageCms.ImageCmsProfile(io.BytesIO(icc)), ImageCms.createProfile('sRGB'), outputMode='RGB')
+            self._im = im.convert('RGB')
         return self._im
 
 def up_to_date(path, src_mtime): return os.path.exists(path) and os.path.getmtime(path) >= src_mtime
