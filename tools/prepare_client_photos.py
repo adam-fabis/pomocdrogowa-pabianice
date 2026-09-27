@@ -13,7 +13,8 @@ PHOTOS = [
      [(1414, 444, 1486, 470)]),                              # Skoda klienta
     (16, 'download (2).jpg', 'zolta-laweta-z-autem-na-parkingu-pabianice',
      [(1654, 464, 1740, 496), (1616, 392, 1660, 418)]),      # Opel i SUV na parkingu
-    (17, 'download (1).jpg', 'auto-zastepcze-audi-pabianice', []),
+    (17, 'download (1).jpg', 'auto-zastepcze-audi-pabianice',
+     [(522, 562, 652, 628)]),                                # Audi (dla spójności z resztą zdjęć)
     (18, '57ac0e8b-39de-42a3-937c-bc1d054b7b6d.jpg', 'holowanie-rozbitego-auta-laweta-noca-pabianice', []),
     (19, 'eac5c4c9-33e5-4ef9-b55a-260c4f6b425c 1.jpg', 'naprawa-przebitej-opony-na-miejscu-pabianice', []),  # wersja bez ludzi z przodu
 ]

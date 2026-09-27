@@ -20,6 +20,8 @@ Wymagania: PHP 8.x, Python 3 + Pillow (z AVIF), Node (dla zrzutów: Playwright),
 1. Nowe źródła do `zrodla/klient/` jako `NN-<slug>.jpg` (dopisz do `PHOTOS` w `prepare_client_photos.py` i uruchom); NN unikalne w obu katalogach.
 2. Przypisz role w `ROLES` i pozycję w `GALLERY_ORDER` (`build_images.py`), popraw `alts.json`, `BIG`/`VISIBLE` (`build_gallery.py`)
    i liczby zdjęć w `check.sh` (sekcje `images`, `galeria`).
+   Brakujące zdjęcie (rola bez pliku): usuń rolę z `ROLES`, dopisz do `$PD_PENDING` w `partials/config.php` (zaślepka
+   „Zdjęcie wkrótce”) i zmniejsz liczbę ról w `check.sh`; gdy zdjęcie przyjdzie — odwrotnie.
 3. `python3 tools/build_images.py && python3 tools/build_gallery.py`
 4. `tools/check.sh all`
 

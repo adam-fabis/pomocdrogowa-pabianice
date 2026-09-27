@@ -53,6 +53,21 @@ function pd_picture(string $key, string $alt, string $imgStyle, string $sizes = 
         . '</picture>';
 }
 
+/** Role, których zdjęcia klient jeszcze nie przysłał (nie ma ich w roles.json) — pd_role_picture() pokazuje zaślepkę. */
+$PD_PENDING = ['home-svc-7', 'oferta-transport']; // Transport pojazdów: czeka na zdjęcie T6 przy czerwonym budynku
+
+/** Zdjęcie roli albo zaślepka „Zdjęcie wkrótce” w tym samym wymiarze ($imgStyle: aspect-ratio, ramka). */
+function pd_role_picture(string $role, string $alt, string $imgStyle, string $sizes): string {
+    global $PD_PENDING;
+    if (!in_array($role, $PD_PENDING, true)) { return pd_picture(pd_slug($role), $alt, $imgStyle, $sizes); }
+    return '<div role="img" aria-label="' . htmlspecialchars("$alt — zdjęcie wkrótce", ENT_QUOTES) . '" style="' . $imgStyle
+        . ';display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;box-sizing:border-box;color:#f5c518;'
+        . 'background:repeating-linear-gradient(135deg,#1d1d1d 0 18px,#242424 18px 36px)">'
+        . '<svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">'
+        . '<path d="M3 7h4l2-3h6l2 3h4v13H3z"/><circle cx="12" cy="13" r="4"/></svg>'
+        . '<span style="font-size:13px;letter-spacing:3px;font-weight:700">ZDJĘCIE WKRÓTCE</span></div>';
+}
+
 /** Slug zdjęcia o danej roli (assets/img/roles.json, generowany przez tools/build_images.py). */
 function pd_slug(string $role): string {
     static $roles = null;

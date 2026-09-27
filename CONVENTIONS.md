@@ -39,7 +39,8 @@ include __DIR__ . '/partials/header.php';
 
 - `config.php`: stałe (`$PHONE`, `$PHONE_HREF`, `$PHONE_SHORT`, `$ADDR1/2`, `$GMAPS_PLACE`, `$GREVIEWS`, `$FB`, `$HQ`),
   `$IS_PROD` (host === `www.pomocdrogowa-pabianice.pl`), `$BASE`, `$canonical`, nagłówek `X-Robots-Tag` gdy nie produkcja,
-  `pd_picture($key, $alt, $imgStyle, $sizes='100vw', $eager=false, $extra='')`, `pd_slug($rola)`.
+  `pd_picture($key, $alt, $imgStyle, $sizes='100vw', $eager=false, $extra='')`, `pd_slug($rola)`,
+  `pd_role_picture($rola, …)` (karty usług: zdjęcie albo zaślepka „Zdjęcie wkrótce” dla ról z `$PD_PENDING`).
 - `head.php`: inline `<script>` dodaje klasę `js` na `<html>` (bez JS: FAQ rozwinięte, wszystkie kafelki galerii widoczne, przycisk „więcej” ukryty); meta, canonical (zawsze produkcja), `noindex` gdy `!$IS_PROD`, preload hero (AVIF srcset) + 2 fontów,
   CSS inline (`readfile main.css`), JSON-LD `AutomotiveBusiness`, `Service`, `BreadcrumbList` (podstrony), `FAQPage` (home).
   Otwiera `<body>` i główny `<div>`.

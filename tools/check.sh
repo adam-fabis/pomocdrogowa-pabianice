@@ -89,7 +89,7 @@ for k,d in v.items():
     for w in d['widths']:
         for e in ('avif','webp'): assert os.path.exists(f'public_html/assets/img/{k}-{w}.{e}'), f'{k}-{w}.{e}'"
   check "alts.json ma 12 wpisów" python3 -c "import json; assert len(json.load(open('tools/alts.json')))==12"
-  check "roles.json ma 23 role" python3 -c "import json; assert len(json.load(open('public_html/assets/img/roles.json')))==23"
+  check "roles.json ma 21 ról (+2 zaślepki \$PD_PENDING)" python3 -c "import json; assert len(json.load(open('public_html/assets/img/roles.json')))==21"
   check "manifest.json: 12 items, role hero x4" python3 -c "
 import json; m=json.load(open('tools/manifest.json'))['items']
 assert len(m)==12; assert sum(1 for i in m if any(r.endswith('-hero') for r in i['roles']))==4"

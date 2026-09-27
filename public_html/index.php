@@ -124,7 +124,7 @@ include __DIR__ . '/partials/header.php';
     <div class="svc-grid">
       <?php foreach ($services as $i => [$t, $d, $role]): ?>
       <div style="background:#2a2a2a;display:flex;flex-direction:column;color:#f2f2f2;border-bottom:4px solid #f5c518">
-        <div style="position:relative"><?php echo pd_picture(pd_slug($role), $t, 'width:100%;aspect-ratio:16/10;object-fit:cover;display:block', '(max-width:559px) 100vw, (max-width:999px) 50vw, 25vw'); ?><div style="position:absolute;left:0;bottom:0;background:#f5c518;color:#111;font-family:'Barlow Condensed';font-weight:800;font-size:22px;padding:4px 12px;line-height:1.1"><?php echo sprintf('%02d', $i + 1); ?></div></div>
+        <div style="position:relative"><?php echo pd_role_picture($role, $t, 'width:100%;aspect-ratio:16/10;object-fit:cover;display:block', '(max-width:559px) 100vw, (max-width:999px) 50vw, 25vw'); ?><div style="position:absolute;left:0;bottom:0;background:#f5c518;color:#111;font-family:'Barlow Condensed';font-weight:800;font-size:22px;padding:4px 12px;line-height:1.1"><?php echo sprintf('%02d', $i + 1); ?></div></div>
         <div style="padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px">
         <h3 style="margin:0;font-family:'Barlow Condensed';font-weight:800;font-size:26px;line-height:1.05"><?php echo $t; ?></h3>
         <div style="font-size:15px;color:#aaa;line-height:1.45"><?php echo $d; ?></div></div>

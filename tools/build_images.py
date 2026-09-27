@@ -15,7 +15,7 @@ OUT = os.path.join(ROOT, 'public_html/assets/img')
 # idx -> role(s). Role z sufiksem -hero dostają dodatkowo wariant hero/ (4 role hero muszą leżeć na 4 różnych zdjęciach).
 ROLES = {
     2: ['home-about', 'kontakt-hero'],
-    4: ['oferta-transport', 'home-svc-7'],   # tymczasowo: klient ma przysłać zdjęcie „Transport pojazdów”
+    4: [],   # oferta-transport, home-svc-7: zaślepka ($PD_PENDING w config.php) do czasu zdjęcia od klienta
     6: ['oferta-akumulator'],
     7: ['oferta-kolizja', 'home-svc-2'],
     14: ['oferta-naprawa', 'home-svc-3', 'oferta-paliwo', 'home-svc-5'],   # paliwo tymczasowo: klient ma przysłać zdjęcie

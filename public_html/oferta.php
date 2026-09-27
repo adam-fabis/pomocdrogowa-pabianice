@@ -47,7 +47,7 @@ include __DIR__ . '/partials/header.php';
     <?php foreach ($services as $i => [$id, $t, $d, $b, $role]): ?>
     <article id="<?php echo $id; ?>" class="svc-row<?php if ($i % 2) echo ' is-rev'; ?>">
       <div style="flex:1 1 0;min-width:0;position:relative">
-        <?php echo pd_picture(pd_slug($role), $t, 'width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:3px solid #333', '(max-width:819px) 100vw, 50vw'); ?>
+        <?php echo pd_role_picture($role, $t, 'width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:3px solid #333', '(max-width:819px) 100vw, 50vw'); ?>
         <div style="position:absolute;left:0;top:0;background:#f5c518;color:#111;font-family:'Barlow Condensed';font-weight:800;font-size:28px;padding:6px 14px;line-height:1"><?php echo sprintf('%02d', $i + 1); ?></div>
       </div>
       <div style="flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:16px">
