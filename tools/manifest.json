@@ -25,24 +25,10 @@
    "idx": 6,
    "src": "zrodla/google/06-holowanie-auta-po-awarii-z-osiedla-pabianice.jpg",
    "slug": "holowanie-auta-po-awarii-z-osiedla-pabianice",
-   "roles": [
-    "oferta-akumulator"
-   ],
-   "gallery_pos": 2,
+   "roles": [],
+   "gallery_pos": 9,
    "w": 1080,
    "h": 608
-  },
-  {
-   "idx": 7,
-   "src": "zrodla/google/07-zaladunek-auta-na-lawete-noca-pabianice.jpg",
-   "slug": "zaladunek-auta-na-lawete-noca-pabianice",
-   "roles": [
-    "oferta-kolizja",
-    "home-svc-2"
-   ],
-   "gallery_pos": 8,
-   "w": 720,
-   "h": 960
   },
   {
    "idx": 10,
@@ -58,7 +44,7 @@
    "src": "zrodla/google/11-laweta-z-przyczepa-transport-ulica-pabianice.jpg",
    "slug": "laweta-z-przyczepa-transport-ulica-pabianice",
    "roles": [],
-   "gallery_pos": 6,
+   "gallery_pos": 8,
    "w": 1080,
    "h": 608
   },
@@ -68,11 +54,10 @@
    "slug": "mobilny-serwis-samochodowy-van-pabianice",
    "roles": [
     "oferta-naprawa",
-    "home-svc-3",
     "oferta-paliwo",
     "home-svc-5"
    ],
-   "gallery_pos": 9,
+   "gallery_pos": 15,
    "w": 1080,
    "h": 552
   },
@@ -84,7 +69,7 @@
     "home-hero",
     "home-svc-1"
    ],
-   "gallery_pos": 10,
+   "gallery_pos": 14,
    "w": 2048,
    "h": 1153
   },
@@ -122,7 +107,7 @@
     "oferta-holowanie",
     "home-svc-6"
    ],
-   "gallery_pos": 7,
+   "gallery_pos": 10,
    "w": 2048,
    "h": 1153
   },
@@ -134,7 +119,71 @@
     "oferta-opony",
     "home-svc-4"
    ],
+   "gallery_pos": 12,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 20,
+   "src": "zrodla/klient/20-holowanie-rozbitego-audi-po-kolizji-pabianice.jpg",
+   "slug": "holowanie-rozbitego-audi-po-kolizji-pabianice",
+   "roles": [
+    "oferta-kolizja",
+    "home-svc-2"
+   ],
+   "gallery_pos": 7,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 21,
+   "src": "zrodla/klient/21-transport-dwoch-aut-laweta-z-przyczepa-pabianice.jpg",
+   "slug": "transport-dwoch-aut-laweta-z-przyczepa-pabianice",
+   "roles": [
+    "oferta-transport",
+    "home-svc-7"
+   ],
    "gallery_pos": 11,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 22,
+   "src": "zrodla/klient/22-awaryjne-odpalanie-autobusu-mobilny-serwis-pabianice.jpg",
+   "slug": "awaryjne-odpalanie-autobusu-mobilny-serwis-pabianice",
+   "roles": [
+    "home-svc-3"
+   ],
+   "gallery_pos": 2,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 23,
+   "src": "zrodla/klient/23-rozruch-autobusu-boosterem-pomoc-drogowa-pabianice.jpg",
+   "slug": "rozruch-autobusu-boosterem-pomoc-drogowa-pabianice",
+   "roles": [
+    "oferta-akumulator"
+   ],
+   "gallery_pos": 13,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 24,
+   "src": "zrodla/klient/24-booster-podlaczony-do-akumulatorow-autobusu-pabianice.jpg",
+   "slug": "booster-podlaczony-do-akumulatorow-autobusu-pabianice",
+   "roles": [],
+   "gallery_pos": 6,
+   "w": 2048,
+   "h": 1153
+  },
+  {
+   "idx": 25,
+   "src": "zrodla/klient/25-van-pomocy-drogowej-przy-autobusie-pabianice.jpg",
+   "slug": "van-pomocy-drogowej-przy-autobusie-pabianice",
+   "roles": [],
+   "gallery_pos": 16,
    "w": 2048,
    "h": 1153
   }

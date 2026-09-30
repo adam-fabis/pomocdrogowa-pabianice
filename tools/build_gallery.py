@@ -8,8 +8,8 @@ alts = json.load(open(SP + '/alts.json'))
 variants = json.load(open(ROOT + '/public_html/assets/img/variants.json'))
 gal = sorted(m['items'], key=lambda x: x['gallery_pos'])
 # Siatka 4 kolumny: duży kafelek = 2x2, więc liczba komórek N + 3*len(BIG) musi dzielić się przez 4 (bez dziury w ostatnim rzędzie).
-# 12 zdjęć: BIG {0,7,10,11}, wszystkie widoczne. 14 zdjęć: BIG {0,7}, VISIBLE 10 (4 za przyciskiem „Zobacz więcej”).
-BIG = {0, 7, 10, 11}; VISIBLE = 12
+# 17 zdjęć: BIG {0,7,10,11,14} (32 komórki = 8 rzędów), wszystkie widoczne. 12 zdjęć: BIG {0,7,10,11}.
+BIG = {0, 7, 10, 11, 14}; VISIBLE = 17
 SIZES_BIG = '(max-width:699px) 100vw, 50vw'; SIZES = '(max-width:699px) 50vw, 25vw'
 def srcset(slug, widths, ext): return ', '.join(f'/assets/img/thumbs/{slug}-{w}.{ext} {w}w' for w in widths)
 tiles = []

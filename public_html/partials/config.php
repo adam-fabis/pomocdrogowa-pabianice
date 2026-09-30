@@ -54,7 +54,7 @@ function pd_picture(string $key, string $alt, string $imgStyle, string $sizes = 
 }
 
 /** Role, których zdjęcia klient jeszcze nie przysłał (nie ma ich w roles.json) — pd_role_picture() pokazuje zaślepkę. */
-$PD_PENDING = ['home-svc-7', 'oferta-transport']; // Transport pojazdów: czeka na zdjęcie T6 przy czerwonym budynku
+$PD_PENDING = [];
 
 /** Zdjęcie roli albo zaślepka „Zdjęcie wkrótce” w tym samym wymiarze ($imgStyle: aspect-ratio, ramka). */
 function pd_role_picture(string $role, string $alt, string $imgStyle, string $sizes): string {

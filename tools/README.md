@@ -26,4 +26,5 @@ Wymagania: PHP 8.x, Python 3 + Pillow (z AVIF), Node (dla zrzutów: Playwright),
 4. `tools/check.sh all`
 
 Zdjęcia z wizytówki Google mają max 1080 px (portrety 810 px); zdjęcia od klienta ~2048 px. Zdjęcia ze starą białą lawetą
-(klient nie ma jej od ~2024) są w `zrodla/archiwum-biala-laweta/` i nie trafiają na stronę. `zrodla/` jest poza gitem.
+(klient nie ma jej od ~2024) są w `zrodla/archiwum-biala-laweta/`, zdjęcie z lawetą konkurencji w `zrodla/archiwum-konkurencja/` —
+nie trafiają na stronę. `zrodla/` jest poza gitem.

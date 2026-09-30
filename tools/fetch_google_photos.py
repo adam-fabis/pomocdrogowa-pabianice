@@ -7,10 +7,10 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'zrodla/google')
 PHOTOS = [  # (idx, google_id, slug) — slug musi być zgodny z nazwami plików, które czyta build_images.py
     # 1, 3, 5, 8, 9, 12, 13 usunięte: stara biała laweta (pliki w zrodla/archiwum-biala-laweta/)
+    # 7 usunięte: laweta konkurencji (zgłoszenie klienta 2026-09-30, plik w zrodla/archiwum-konkurencja/)
     (2, 'AF1QipMv1TCeNhEn7CsgdXJ8HbEe-ug58zUUvaXUlpMC', 'zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice'),
     (4, 'AF1QipNxSBvqzk0MvD3v3z-K-M2_fPR08xxLUrvz5cv6', 'transport-quada-na-lawecie-pabianice'),
     (6, 'AF1QipOhg9yQtUQb0wI4jMKIpNABYi1o758Xv0dhyVUz', 'holowanie-auta-po-awarii-z-osiedla-pabianice'),
-    (7, 'AF1QipO3xxEQ2QUWqHNvawCpDGmIp-zbr9nG7JyX4HBX', 'zaladunek-auta-na-lawete-noca-pabianice'),
     (10, 'AF1QipO6uXMIkJtD7I1DQ-P4ZBrFWaJNLWplPSPBNF18', 'awaryjna-wymiana-kola-na-miejscu-pabianice'),
     (11, 'AF1QipPNQ_Vl7A6VJy9VQYt0VJ4j0VskjFPRj8-YAYSF', 'laweta-z-przyczepa-transport-ulica-pabianice'),
     (14, 'AF1QipOHdjErDhgeuPOzcloXnD7w3A34Mc2y4CaZGlrk', 'mobilny-serwis-samochodowy-van-pabianice'),

@@ -74,25 +74,25 @@ section_scaffold() {
 
 section_images() {
   echo "[images]"
-  eq "12 zdjęć źródłowych (google + klient)" "$(ls zrodla/google/*.jpg zrodla/klient/*.jpg 2>/dev/null | wc -l | tr -d ' ')" 12
+  eq "17 zdjęć źródłowych (google + klient)" "$(ls zrodla/google/*.jpg zrodla/klient/*.jpg 2>/dev/null | wc -l | tr -d ' ')" 17
   check "każde źródło >= 700px" python3 -c "
 from PIL import Image; import glob
 for p in glob.glob('zrodla/google/*.jpg')+glob.glob('zrodla/klient/*.jpg'): assert Image.open(p).width>=700, p"
-  check "variants.json: 12 full + 12 thumbs + 4 hero" python3 -c "
+  check "variants.json: 17 full + 17 thumbs + 4 hero" python3 -c "
 import json; v=json.load(open('public_html/assets/img/variants.json'))
 full=[k for k in v if '/' not in k]; th=[k for k in v if k.startswith('thumbs/')]; he=[k for k in v if k.startswith('hero/')]
-assert (len(full),len(th),len(he))==(12,12,4), (len(full),len(th),len(he))"
+assert (len(full),len(th),len(he))==(17,17,4), (len(full),len(th),len(he))"
   check "każdy wariant istnieje na dysku" python3 -c "
 import json,os; v=json.load(open('public_html/assets/img/variants.json'))
 for k,d in v.items():
     assert os.path.exists(f'public_html/assets/img/{k}.jpg'), k
     for w in d['widths']:
         for e in ('avif','webp'): assert os.path.exists(f'public_html/assets/img/{k}-{w}.{e}'), f'{k}-{w}.{e}'"
-  check "alts.json ma 12 wpisów" python3 -c "import json; assert len(json.load(open('tools/alts.json')))==12"
-  check "roles.json ma 21 ról (+2 zaślepki \$PD_PENDING)" python3 -c "import json; assert len(json.load(open('public_html/assets/img/roles.json')))==21"
-  check "manifest.json: 12 items, role hero x4" python3 -c "
+  check "alts.json ma 17 wpisów" python3 -c "import json; assert len(json.load(open('tools/alts.json')))==17"
+  check "roles.json ma 23 role" python3 -c "import json; assert len(json.load(open('public_html/assets/img/roles.json')))==23"
+  check "manifest.json: 17 items, role hero x4" python3 -c "
 import json; m=json.load(open('tools/manifest.json'))['items']
-assert len(m)==12; assert sum(1 for i in m if any(r.endswith('-hero') for r in i['roles']))==4"
+assert len(m)==17; assert sum(1 for i in m if any(r.endswith('-hero') for r in i['roles']))==4"
   check "assets/img < 60 MB" bash -c "[ \$(du -sm public_html/assets/img | cut -f1) -lt 60 ]"
 }
 
@@ -194,12 +194,12 @@ section_galeria() {
   lint_all; start_server
   local out=.superpowers/p_galeria.html
   page_common galeria /galeria/ "$out"
-  eq "galeria: 12 data-shot" "$(grep -c 'data-shot=' "$out")" 12
+  eq "galeria: 17 data-shot" "$(grep -c 'data-shot=' "$out")" 17
   eq "galeria: 0 gal-more, przycisk ukryty" "$(grep -c 'class="gal-cell gal-more"' "$out")" 0
   check "galeria: data-more-wrap hidden" bash -c "grep -q 'data-more-wrap hidden>' '$out'"
   check "galeria: bez atrybutu hidden na kafelkach" bash -c "! grep -q 'data-shot=\"[0-9]*\"[^>]* hidden' '$out'"
   check "html.js + FAQ/galeria bez JS w CSS" bash -c "grep -q \"classList.add('js')\" '$out' && grep -q '\.js \.faq-wrap' '$out' && grep -q 'html:not(.js) \[data-more-wrap\]' '$out'"
-  eq "galeria: 4 is-big" "$(grep -c 'class="gal-cell is-big"' "$out")" 4
+  eq "galeria: 5 is-big" "$(grep -c 'class="gal-cell is-big"' "$out")" 5
   eq "galeria: bez preload hero" "$(grep -c 'rel="preload" as="image"' "$out")" 0
   check "galeria: lightbox" bash -c "grep -q 'data-lightbox' '$out' && grep -q 'data-lbprev' '$out' && grep -q 'data-more' '$out'"
   check "galeria: BreadcrumbList" bash -c "jsonld_types '$out' | grep -q 'BreadcrumbList=1'"

@@ -4,7 +4,8 @@ thumbs/<slug>.jpg (800) + {400,800}, hero/<slug>.jpg (1920) + {960,1440,1920}, v
 Źródła: zrodla/google/NN-<slug>.jpg (fetch_google_photos.py) i zrodla/klient/NN-<slug>.jpg (prepare_client_photos.py).
 Wszystkie zdjęcia trafiają do galerii w kolejności GALLERY_ORDER. Listy szerokości są ograniczone do szerokości źródła
 (zdjęcia z Google mają max 1080 px), więc hero dostaje np. {960, 1080}. Pliki aktualne (mtime >= źródło) są pomijane.
-Zdjęcia ze starą białą lawetą (klient nie ma jej od ~2024) leżą w zrodla/archiwum-biala-laweta/ i nie są budowane."""
+Zdjęcia ze starą białą lawetą (klient nie ma jej od ~2024) leżą w zrodla/archiwum-biala-laweta/ i nie są budowane,
+zdjęcie z lawetą konkurencji (dawne 07) — w zrodla/archiwum-konkurencja/."""
 import os, re, json, glob
 import io
 from PIL import Image, ImageOps, ImageCms
@@ -15,18 +16,19 @@ OUT = os.path.join(ROOT, 'public_html/assets/img')
 # idx -> role(s). Role z sufiksem -hero dostają dodatkowo wariant hero/ (4 role hero muszą leżeć na 4 różnych zdjęciach).
 ROLES = {
     2: ['home-about', 'kontakt-hero'],
-    4: [],   # oferta-transport, home-svc-7: zaślepka ($PD_PENDING w config.php) do czasu zdjęcia od klienta
-    6: ['oferta-akumulator'],
-    7: ['oferta-kolizja', 'home-svc-2'],
-    14: ['oferta-naprawa', 'home-svc-3', 'oferta-paliwo', 'home-svc-5'],   # paliwo tymczasowo: klient ma przysłać zdjęcie
+    14: ['oferta-naprawa', 'oferta-paliwo', 'home-svc-5'],   # paliwo tymczasowo: klient ma przysłać zdjęcie
     15: ['home-hero', 'home-svc-1'],
     16: ['cta-bg', 'oferta-hero'],
     17: ['home-oc', 'home-svc-8', 'oferta-oc'],
     18: ['galeria-hero', 'oferta-holowanie', 'home-svc-6'],
     19: ['oferta-opony', 'home-svc-4'],
+    20: ['oferta-kolizja', 'home-svc-2'],
+    21: ['oferta-transport', 'home-svc-7'],
+    22: ['home-svc-3'],
+    23: ['oferta-akumulator'],
 }
 # Kolejność kafelków w galerii (idx). Duże kafelki i liczba widocznych: BIG/VISIBLE w build_gallery.py.
-GALLERY_ORDER = [16, 17, 6, 4, 10, 2, 11, 18, 7, 14, 15, 19]
+GALLERY_ORDER = [16, 17, 22, 4, 10, 2, 24, 20, 11, 6, 18, 21, 19, 23, 15, 14, 25]
 FULL_WIDTHS = [480, 800, 1200, 1600]; THUMB_WIDTHS = [400, 800]; HERO_WIDTHS = [960, 1440, 1920]
 AVIF_Q, AVIF_SPEED, WEBP_Q, WEBP_METHOD = 55, 6, 78, 6
 

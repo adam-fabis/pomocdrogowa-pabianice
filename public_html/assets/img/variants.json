@@ -28,6 +28,26 @@
    1080
   ]
  },
+ "awaryjne-odpalanie-autobusu-mobilny-serwis-pabianice": {
+  "h": 901,
+  "w": 1600,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
+ "booster-podlaczony-do-akumulatorow-autobusu-pabianice": {
+  "h": 901,
+  "w": 1600,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
  "hero/awaria-auta-droga-ekspresowa-laweta-pabianice": {
   "h": 1081,
   "w": 1920,
@@ -72,6 +92,16 @@
    1080
   ]
  },
+ "holowanie-rozbitego-audi-po-kolizji-pabianice": {
+  "h": 901,
+  "w": 1600,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
  "holowanie-rozbitego-auta-laweta-noca-pabianice": {
   "h": 901,
   "w": 1600,
@@ -110,6 +140,16 @@
    1600
   ]
  },
+ "rozruch-autobusu-boosterem-pomoc-drogowa-pabianice": {
+  "h": 901,
+  "w": 1600,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
  "thumbs/auto-zastepcze-audi-pabianice": {
   "h": 450,
   "w": 800,
@@ -134,7 +174,31 @@
    800
   ]
  },
+ "thumbs/awaryjne-odpalanie-autobusu-mobilny-serwis-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/booster-podlaczony-do-akumulatorow-autobusu-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
  "thumbs/holowanie-auta-po-awarii-z-osiedla-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/holowanie-rozbitego-audi-po-kolizji-pabianice": {
   "h": 450,
   "w": 800,
   "widths": [
@@ -174,6 +238,22 @@
    800
   ]
  },
+ "thumbs/rozruch-autobusu-boosterem-pomoc-drogowa-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
+ "thumbs/transport-dwoch-aut-laweta-z-przyczepa-pabianice": {
+  "h": 450,
+  "w": 800,
+  "widths": [
+   400,
+   800
+  ]
+ },
  "thumbs/transport-quada-na-lawecie-pabianice": {
   "h": 450,
   "w": 800,
@@ -182,12 +262,12 @@
    800
   ]
  },
- "thumbs/zaladunek-auta-na-lawete-noca-pabianice": {
-  "h": 800,
-  "w": 600,
+ "thumbs/van-pomocy-drogowej-przy-autobusie-pabianice": {
+  "h": 450,
+  "w": 800,
   "widths": [
    400,
-   600
+   800
   ]
  },
  "thumbs/zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice": {
@@ -206,6 +286,16 @@
    800
   ]
  },
+ "transport-dwoch-aut-laweta-z-przyczepa-pabianice": {
+  "h": 901,
+  "w": 1600,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ]
+ },
  "transport-quada-na-lawecie-pabianice": {
   "h": 608,
   "w": 1080,
@@ -215,12 +305,14 @@
    1080
   ]
  },
- "zaladunek-auta-na-lawete-noca-pabianice": {
-  "h": 960,
-  "w": 720,
+ "van-pomocy-drogowej-przy-autobusie-pabianice": {
+  "h": 901,
+  "w": 1600,
   "widths": [
    480,
-   720
+   800,
+   1200,
+   1600
   ]
  },
  "zolta-laweta-pomoc-drogowa-lukasz-rogowski-pabianice": {
