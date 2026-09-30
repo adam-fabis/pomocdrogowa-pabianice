@@ -28,7 +28,7 @@ ROLES = {
     23: ['oferta-akumulator'],
 }
 # Kolejność kafelków w galerii (idx). Duże kafelki i liczba widocznych: BIG/VISIBLE w build_gallery.py.
-GALLERY_ORDER = [16, 17, 22, 4, 10, 2, 24, 20, 11, 6, 18, 21, 19, 23, 15, 14, 25]
+GALLERY_ORDER = [16, 22, 17, 4, 25, 2, 24, 20, 11, 6, 18, 23, 19, 14, 10, 21, 15]
 FULL_WIDTHS = [480, 800, 1200, 1600]; THUMB_WIDTHS = [400, 800]; HERO_WIDTHS = [960, 1440, 1920]
 AVIF_Q, AVIF_SPEED, WEBP_Q, WEBP_METHOD = 55, 6, 78, 6
 

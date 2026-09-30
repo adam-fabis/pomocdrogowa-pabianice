@@ -35,7 +35,7 @@
    "src": "zrodla/google/10-awaryjna-wymiana-kola-na-miejscu-pabianice.jpg",
    "slug": "awaryjna-wymiana-kola-na-miejscu-pabianice",
    "roles": [],
-   "gallery_pos": 4,
+   "gallery_pos": 14,
    "w": 1080,
    "h": 608
   },
@@ -57,7 +57,7 @@
     "oferta-paliwo",
     "home-svc-5"
    ],
-   "gallery_pos": 15,
+   "gallery_pos": 13,
    "w": 1080,
    "h": 552
   },
@@ -69,7 +69,7 @@
     "home-hero",
     "home-svc-1"
    ],
-   "gallery_pos": 14,
+   "gallery_pos": 16,
    "w": 2048,
    "h": 1153
   },
@@ -94,7 +94,7 @@
     "home-svc-8",
     "oferta-oc"
    ],
-   "gallery_pos": 1,
+   "gallery_pos": 2,
    "w": 2032,
    "h": 1144
   },
@@ -143,7 +143,7 @@
     "oferta-transport",
     "home-svc-7"
    ],
-   "gallery_pos": 11,
+   "gallery_pos": 15,
    "w": 2048,
    "h": 1153
   },
@@ -154,7 +154,7 @@
    "roles": [
     "home-svc-3"
    ],
-   "gallery_pos": 2,
+   "gallery_pos": 1,
    "w": 2048,
    "h": 1153
   },
@@ -165,7 +165,7 @@
    "roles": [
     "oferta-akumulator"
    ],
-   "gallery_pos": 13,
+   "gallery_pos": 11,
    "w": 2048,
    "h": 1153
   },
@@ -183,7 +183,7 @@
    "src": "zrodla/klient/25-van-pomocy-drogowej-przy-autobusie-pabianice.jpg",
    "slug": "van-pomocy-drogowej-przy-autobusie-pabianice",
    "roles": [],
-   "gallery_pos": 16,
+   "gallery_pos": 4,
    "w": 2048,
    "h": 1153
   }
