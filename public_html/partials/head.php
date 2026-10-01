@@ -63,6 +63,7 @@ $e = fn($s) => htmlspecialchars($s, ENT_QUOTES);
 <meta name="robots" content="noindex, nofollow">
 <?php endif; ?>
 <meta name="description" content="<?php echo $e($desc); ?>">
+<meta name="google-site-verification" content="N4e0qElpfiHjq0KMaEMrfzmC6HV_CN7sSGS1-WxjYNI">
 <link rel="canonical" href="<?php echo $e($canonical); ?>">
 <?php if ($preloadHero): ?>
 <link rel="preload" as="image" type="image/avif" fetchpriority="high" imagesrcset="<?php echo $e($heroSrcset); ?>" imagesizes="100vw">
