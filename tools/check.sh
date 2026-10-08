@@ -120,9 +120,9 @@ section_core() {
   check "robots (dev) Disallow: /" bash -c "fetch $B/robots.txt | grep -q '^Disallow: /$'"
   check "X-Robots-Tag noindex (dev)" bash -c "curl -sI $B/ | grep -qi 'x-robots-tag: noindex'"
   check "meta noindex (dev)" bash -c "fetch $B/ | grep -q 'name=\"robots\" content=\"noindex'"
-  check "robots (prod host) Allow: /" bash -c "curl -s -H 'Host: www.pomocdrogowa-pabianice.pl' $B/robots.txt | grep -q '^Allow: /$'"
-  check "brak noindex (prod host)" bash -c "! curl -s -H 'Host: www.pomocdrogowa-pabianice.pl' $B/ | grep -q noindex"
-  check "canonical -> produkcja (dev host)" bash -c "fetch $B/ | grep -q 'rel=\"canonical\" href=\"https://www.pomocdrogowa-pabianice.pl/\"'"
+  check "robots (prod host) Allow: /" bash -c "curl -s -H 'Host: pomocdrogowa-pabianice.pl' $B/robots.txt | grep -q '^Allow: /$'"
+  check "brak noindex (prod host)" bash -c "! curl -s -H 'Host: pomocdrogowa-pabianice.pl' $B/ | grep -q noindex"
+  check "canonical -> produkcja (dev host)" bash -c "fetch $B/ | grep -q 'rel=\"canonical\" href=\"https://pomocdrogowa-pabianice.pl/\"'"
   check "sitemap: 4 url" bash -c "[ \$(fetch $B/sitemap.xml | grep -c '<loc>') -eq 4 ]"
   check "404 ma nawigację" bash -c "fetch $B/nie-ma | grep -q 'data-nav'"
   stop_server

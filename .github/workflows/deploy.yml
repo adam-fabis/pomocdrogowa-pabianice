@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: production
-      url: https://www.pomocdrogowa-pabianice.pl/
+      url: https://pomocdrogowa-pabianice.pl/
     steps:
       - name: Sprawdź sekrety FTP
         id: cfg
@@ -86,7 +86,7 @@ jobs:
         run: |
           # LiteSpeed SEOhost bywa ostry z limitem (429), więc kilka prób z przerwą.
           for i in 1 2 3 4 5; do
-            code=$(curl -s -o /dev/null -w '%{http_code}' "https://www.pomocdrogowa-pabianice.pl/?deploy=${GITHUB_SHA}")
+            code=$(curl -s -o /dev/null -w '%{http_code}' "https://pomocdrogowa-pabianice.pl/?deploy=${GITHUB_SHA}")
             echo "próba $i: HTTP $code"
             [ "$code" = "200" ] && exit 0
             sleep 20

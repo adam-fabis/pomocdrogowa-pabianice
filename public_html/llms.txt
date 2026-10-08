@@ -9,7 +9,7 @@
 
 ## Strony
 
-- [Strona główna](https://www.pomocdrogowa-pabianice.pl/): o firmie, obszar działania, zakres pomocy, opinie, FAQ
-- [Oferta](https://www.pomocdrogowa-pabianice.pl/oferta/): 8 usług ze szczegółami
-- [Galeria](https://www.pomocdrogowa-pabianice.pl/galeria/): zdjęcia z realizacji
-- [Kontakt](https://www.pomocdrogowa-pabianice.pl/kontakt/): telefon, adres, mapa dojazdu
+- [Strona główna](https://pomocdrogowa-pabianice.pl/): o firmie, obszar działania, zakres pomocy, opinie, FAQ
+- [Oferta](https://pomocdrogowa-pabianice.pl/oferta/): 8 usług ze szczegółami
+- [Galeria](https://pomocdrogowa-pabianice.pl/galeria/): zdjęcia z realizacji
+- [Kontakt](https://pomocdrogowa-pabianice.pl/kontakt/): telefon, adres, mapa dojazdu

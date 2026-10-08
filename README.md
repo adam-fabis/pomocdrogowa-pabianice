@@ -1,6 +1,6 @@
 # pomocdrogowa-pabianice
 
-Strona www.pomocdrogowa-pabianice.pl (Pomoc Drogowa Łukasz Rogowski) — PHP bez frameworka, dark design z Claude Design.
+Strona pomocdrogowa-pabianice.pl (Pomoc Drogowa Łukasz Rogowski) — PHP bez frameworka, dark design z Claude Design.
 
 - `public_html/` — kod strony (jedyne, co idzie na serwer)
 - `design/` — źródła designu (`*.dc.html`) i logo

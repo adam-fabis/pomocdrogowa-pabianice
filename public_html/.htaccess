@@ -13,11 +13,11 @@ AddType font/woff2 .woff2
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
-  # https + www — tylko dla domeny produkcyjnej (na innych hostach bez zmian, bez pętli)
+  # https + bez www — tylko dla domeny produkcyjnej (na innych hostach bez zmian, bez pętli)
   RewriteCond %{HTTP_HOST} ^(www\.)?pomocdrogowa-pabianice\.pl$ [NC]
   RewriteCond %{HTTPS} !=on [OR]
-  RewriteCond %{HTTP_HOST} !^www\. [NC]
-  RewriteRule ^(.*)$ https://www.pomocdrogowa-pabianice.pl/$1 [R=301,L]
+  RewriteCond %{HTTP_HOST} ^www\. [NC]
+  RewriteRule ^(.*)$ https://pomocdrogowa-pabianice.pl/$1 [R=301,L]
 
   # partiale tylko przez include; pliki ukryte 403 (poza .well-known dla SSL)
   RewriteRule ^partials/ - [F,L]

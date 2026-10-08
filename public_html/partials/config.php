@@ -4,7 +4,7 @@ if (!defined('PD_APP')) { http_response_code(403); exit; } // tylko przez includ
  * Stałe projektu + środowisko. Include jako pierwszy partial w każdej stronie.
  * Środowisko rozpoznawane po hoście: produkcja = $PROD_HOST, wszystko inne (staging, podgląd) = noindex.
  */
-$PROD_HOST = 'www.pomocdrogowa-pabianice.pl';
+$PROD_HOST = 'pomocdrogowa-pabianice.pl';
 $IS_PROD = (($_SERVER['HTTP_HOST'] ?? '') === $PROD_HOST) || getenv('PD_FORCE_PROD') === '1'; // PD_FORCE_PROD=1 tylko do lokalnego Lighthouse (php -S)
 $BASE = 'https://' . $PROD_HOST . '/';
 $SITE_NAME = 'Pomoc Drogowa Łukasz Rogowski';
