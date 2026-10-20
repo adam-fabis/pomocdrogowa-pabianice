@@ -123,6 +123,7 @@ img{max-width:100%}
 picture>img{height:auto}
 picture>source{display:none} /* przy picture{display:contents} <source> stawałby się elementem gridu/flexa (pusta kolumna) */ /* atrybut height (CLS) nie może blokować aspect-ratio; hero ma inline height:100% */
 button{font:inherit;color:inherit}
+.btn-link{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline} /* przycisk wyglądający jak link (np. „Ustawienia cookies” — CookieYes .cky-banner-element) */
 a:focus-visible,button:focus-visible{outline:2px solid #f5c518;outline-offset:2px}
 ::selection{background:#f5c518;color:#111}
 @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(58,211,107,.7)}70%{box-shadow:0 0 0 10px rgba(58,211,107,0)}100%{box-shadow:0 0 0 0 rgba(58,211,107,0)}}
@@ -265,7 +266,8 @@ body.lb-open{overflow:hidden}
 .pol ul{margin:0 0 14px;padding-left:22px}
 .pol li{margin-bottom:6px}
 .pol b{color:#f2f2f2}
-.pol a{text-decoration:underline;text-underline-offset:2px;font-weight:700}
+.pol a,.pol .btn-link{text-decoration:underline;text-underline-offset:2px;font-weight:700;color:#f5c518}
+.pol .btn-link:hover{color:#fff}
 .pol code{font-size:.92em;background:#2a2a2a;color:#f2f2f2;padding:1px 5px}
 .pol .pol-date{font-size:13px;font-weight:700;letter-spacing:1px;color:#999}
 .pol .pol-box{margin:0 0 16px;padding:18px 20px 4px;background:#262626;border-left:4px solid #f5c518}

@@ -172,7 +172,7 @@ include __DIR__ . '/partials/header.php';
       <li><b>reklamowe</b> – np. <code>_gcl_au</code> (Google Ads, 90 dni); używane wyłącznie przy prowadzonych kampaniach reklamowych.</li>
     </ul>
     <p>Do czasu wyrażenia zgody narzędzia Google nie zapisują analitycznych ani reklamowych plików cookies. Mogą jednak przesyłać sygnały o odwiedzinach strony bez plików cookies i bez identyfikatora użytkownika (tryb uzyskiwania zgody Google, Consent Mode) – opis w pkt 3 lit. i.</p>
-    <p>Zgodę możesz zmienić lub wycofać w każdej chwili, korzystając z linku <a href="#" class="cky-banner-element">Ustawienia cookies</a> w stopce strony, a także w ustawieniach swojej przeglądarki. Zablokowanie plików cookies niezbędnych może utrudnić korzystanie ze strony.</p>
+    <p>Zgodę możesz zmienić lub wycofać w każdej chwili, korzystając z przycisku <button type="button" class="cky-banner-element btn-link">Ustawienia cookies</button> (także w stopce strony) lub w ustawieniach swojej przeglądarki. Zablokowanie plików cookies niezbędnych może utrudnić korzystanie ze strony.</p>
 
     <h2>9. Mapa</h2>
     <p>Mapy na stronie korzystają z OpenStreetMap. Przy wyświetleniu mapy przeglądarka pobiera fragmenty mapy z serwerów OpenStreetMap Foundation, które otrzymują adres IP użytkownika. Mapa nie zapisuje plików cookies. Zasady przetwarzania danych przez OpenStreetMap Foundation opisuje jej <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank" rel="noopener">polityka prywatności</a>.</p>

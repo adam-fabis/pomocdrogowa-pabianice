@@ -231,7 +231,7 @@ section_polityka() {
   check "polityka: BreadcrumbList" bash -c "jsonld_types '$out' | grep -q 'BreadcrumbList=1'"
   check "polityka: NIP administratora" bash -c "grep -q '7312064539' '$out'"
   check "stopka: link do polityki" bash -c "fetch $B/ | grep -q 'href=\"/polityka-prywatnosci/\"'"
-  check "stopka: Ustawienia cookies (CookieYes)" bash -c "fetch $B/ | grep -q 'cky-banner-element'"
+  check "stopka: Ustawienia cookies (CookieYes)" bash -c "fetch $B/ | grep -q 'button type=\"button\" class=\"cky-banner-element'"
   stop_server
 }
 
