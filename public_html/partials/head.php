@@ -2,7 +2,7 @@
 if (!defined('PD_APP')) { http_response_code(403); exit; }
 /**
  * <head> + otwarcie <body>. Wymaga (ustawione przez stronę przed include config.php):
- *   $page      home|oferta|galeria|kontakt|404
+ *   $page      home|oferta|galeria|kontakt|polityka|404
  *   $title     tytuł (<= 60 znaków)
  *   $desc      meta description
  *   $path      '/', '/oferta/', ...  (canonical = $BASE . path)
@@ -41,7 +41,7 @@ $ld[] = [
     'availableChannel' => ['@type' => 'ServiceChannel', 'servicePhone' => ['@type' => 'ContactPoint', 'telephone' => '+48517574330', 'contactType' => 'Pomoc drogowa']],
 ];
 if ($page !== 'home' && $page !== '404') {
-    $bn = ['oferta' => 'Oferta', 'galeria' => 'Galeria', 'kontakt' => 'Kontakt'];
+    $bn = ['oferta' => 'Oferta', 'galeria' => 'Galeria', 'kontakt' => 'Kontakt', 'polityka' => 'Polityka prywatności'];
     $ld[] = ['@context' => 'https://schema.org', '@type' => 'BreadcrumbList', 'itemListElement' => [
         ['@type' => 'ListItem', 'position' => 1, 'name' => 'Strona główna', 'item' => $BASE],
         ['@type' => 'ListItem', 'position' => 2, 'name' => $bn[$page] ?? 'Strona', 'item' => $canonical]]];
@@ -56,6 +56,7 @@ $e = fn($s) => htmlspecialchars($s, ENT_QUOTES);
 <html lang="pl">
 <head>
 <meta charset="utf-8">
+<?php if ($IS_PROD): // GTM (CookieYes, GA4) tylko na produkcji — staging i podgląd nie zaśmiecają statystyk ?>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -63,6 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TT537MFM');</script>
 <!-- End Google Tag Manager -->
+<?php endif; ?>
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title><?php echo $e($title); ?></title>
@@ -99,7 +101,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <?php endforeach; ?>
 </head>
 <body>
+<?php if ($IS_PROD): ?>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TT537MFM" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+<?php endif; ?>
 <div style="min-height:100vh;background:#1f1f1f;overflow-x:clip">

@@ -35,8 +35,8 @@ rm -rf "$TMP"
 
 URL="https://$SUBDOMAIN"
 sleep 5
-for u in / /oferta/ /galeria/ /kontakt/ /robots.txt /sitemap.xml /nie-ma; do
-  printf '%-14s %s\n' "$u" "$(curl -s -o /dev/null -w '%{http_code}' "$URL$u")"
+for u in / /oferta/ /galeria/ /kontakt/ /polityka-prywatnosci/ /robots.txt /sitemap.xml /nie-ma; do
+  printf '%-24s %s\n' "$u" "$(curl -s -o /dev/null -w '%{http_code}' "$URL$u")"
 done
 curl -sI "$URL/" | grep -i 'x-robots-tag' || echo "UWAGA: brak X-Robots-Tag"
 echo "✓ Staging: $URL"

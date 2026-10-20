@@ -23,7 +23,7 @@ $canonical = $BASE . ltrim($path, '/');
 $preloadHero = $preloadHero ?? true;
 // nginx (staging) wykonuje /oferta.php bezpośrednio — przekieruj na ładny URL (na Apache robi to .htaccess; po rewrite REQUEST_URI = /oferta/)
 $pdReq = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
-if (isset($page) && in_array($page, ['home', 'oferta', 'galeria', 'kontakt'], true) && preg_match('#\.php$#', $pdReq) && !headers_sent()) {
+if (isset($page) && in_array($page, ['home', 'oferta', 'galeria', 'kontakt', 'polityka'], true) && preg_match('#\.php$#', $pdReq) && !headers_sent()) {
     header('Location: ' . $path, true, 301); exit;
 }
 if (!$IS_PROD && !headers_sent()) { header('X-Robots-Tag: noindex, nofollow'); }

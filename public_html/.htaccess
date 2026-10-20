@@ -30,12 +30,12 @@ AddType font/woff2 .woff2
   # stare adresy .php i wersje bez ukośnika -> 301 na ładne URL-e
   RewriteCond %{THE_REQUEST} \s/index\.php[?\s]
   RewriteRule ^index\.php$ / [R=301,L]
-  RewriteCond %{THE_REQUEST} \s/(oferta|galeria|kontakt)\.php[?\s]
-  RewriteRule ^(oferta|galeria|kontakt)\.php$ /$1/ [R=301,L]
-  RewriteRule ^(oferta|galeria|kontakt)$ /$1/ [R=301,L]
+  RewriteCond %{THE_REQUEST} \s/(oferta|galeria|kontakt|polityka-prywatnosci)\.php[?\s]
+  RewriteRule ^(oferta|galeria|kontakt|polityka-prywatnosci)\.php$ /$1/ [R=301,L]
+  RewriteRule ^(oferta|galeria|kontakt|polityka-prywatnosci)$ /$1/ [R=301,L]
 
   # ładne URL-e -> pliki PHP
-  RewriteRule ^(oferta|galeria|kontakt)/$ $1.php [L]
+  RewriteRule ^(oferta|galeria|kontakt|polityka-prywatnosci)/$ $1.php [L]
 
   # wszystko inne, co nie jest plikiem/katalogiem -> index.php (dispatcher zwróci 404)
   RewriteCond %{REQUEST_FILENAME} !-f

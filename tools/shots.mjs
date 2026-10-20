@@ -3,7 +3,7 @@
 import { chromium } from 'playwright';
 import fs from 'node:fs';
 const port = process.argv[2] || '8080';
-const paths = process.argv.slice(3).length ? process.argv.slice(3) : ['/', '/oferta/', '/galeria/', '/kontakt/'];
+const paths = process.argv.slice(3).length ? process.argv.slice(3) : ['/', '/oferta/', '/galeria/', '/kontakt/', '/polityka-prywatnosci/'];
 const widths = [390, 1280];
 fs.mkdirSync('../shots', { recursive: true });
 const browser = await chromium.launch();

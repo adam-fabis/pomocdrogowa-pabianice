@@ -4,10 +4,10 @@ define('PD_APP', true); // strażnik: partials/*.php działają tylko przez incl
 // na Apache .htaccess mapuje ładne URL-e bezpośrednio, więc ten blok widzi tylko "/".
 $reqPath = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
 if ($reqPath !== '/' && $reqPath !== '/index.php') {
-    if (preg_match('#^/(oferta|galeria|kontakt)/$#', $reqPath, $m)) { require __DIR__ . "/{$m[1]}.php"; return; }
+    if (preg_match('#^/(oferta|galeria|kontakt|polityka-prywatnosci)/$#', $reqPath, $m)) { require __DIR__ . "/{$m[1]}.php"; return; }
     if ($reqPath === '/robots.txt') { require __DIR__ . '/robots.php'; return; }
     if ($reqPath === '/sitemap.xml') { require __DIR__ . '/sitemap.php'; return; }
-    if (preg_match('#^/(oferta|galeria|kontakt)(\.php)?$#', $reqPath, $m)) { header("Location: /{$m[1]}/", true, 301); return; }
+    if (preg_match('#^/(oferta|galeria|kontakt|polityka-prywatnosci)(\.php)?$#', $reqPath, $m)) { header("Location: /{$m[1]}/", true, 301); return; }
     require __DIR__ . '/404.php'; return;
 }
 if ($reqPath === '/index.php') { header('Location: /', true, 301); return; }

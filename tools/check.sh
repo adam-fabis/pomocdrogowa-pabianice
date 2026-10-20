@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Smoke test projektu: php -l, node --check, routing/noindex przez php -S + router.php, ślady DC, istnienie plików.
-# Użycie: tools/check.sh [scaffold|images|core|partials|home|oferta|galeria|kontakt|all]
+# Użycie: tools/check.sh [scaffold|images|core|partials|home|oferta|galeria|kontakt|polityka|all]
 set -u
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
@@ -123,7 +123,9 @@ section_core() {
   check "robots (prod host) Allow: /" bash -c "curl -s -H 'Host: pomocdrogowa-pabianice.pl' $B/robots.txt | grep -q '^Allow: /$'"
   check "brak noindex (prod host)" bash -c "! curl -s -H 'Host: pomocdrogowa-pabianice.pl' $B/ | grep -q noindex"
   check "canonical -> produkcja (dev host)" bash -c "fetch $B/ | grep -q 'rel=\"canonical\" href=\"https://pomocdrogowa-pabianice.pl/\"'"
-  check "sitemap: 4 url" bash -c "[ \$(fetch $B/sitemap.xml | grep -c '<loc>') -eq 4 ]"
+  check "sitemap: 5 url" bash -c "[ \$(fetch $B/sitemap.xml | grep -c '<loc>') -eq 5 ]"
+  check "GTM tylko na produkcji (dev bez gtm.js)" bash -c "! fetch $B/ | grep -q 'GTM-TT537MFM'"
+  check "GTM na produkcji (prod host)" bash -c "curl -s -H 'Host: pomocdrogowa-pabianice.pl' $B/ | grep -q 'GTM-TT537MFM'"
   check "404 ma nawigację" bash -c "fetch $B/nie-ma | grep -q 'data-nav'"
   stop_server
 }
@@ -219,8 +221,22 @@ section_kontakt() {
   stop_server
 }
 
+section_polityka() {
+  echo "[polityka]"
+  lint_all; start_server
+  local B="http://127.0.0.1:$PORT" out=.superpowers/p_polityka.html
+  page_common polityka /polityka-prywatnosci/ "$out"
+  eq "polityka: GET /polityka-prywatnosci 301" "$(code $B/polityka-prywatnosci)" 301
+  eq "polityka: GET /polityka-prywatnosci.php 301" "$(code $B/polityka-prywatnosci.php)" 301
+  check "polityka: BreadcrumbList" bash -c "jsonld_types '$out' | grep -q 'BreadcrumbList=1'"
+  check "polityka: NIP administratora" bash -c "grep -q '7312064539' '$out'"
+  check "stopka: link do polityki" bash -c "fetch $B/ | grep -q 'href=\"/polityka-prywatnosci/\"'"
+  check "stopka: Ustawienia cookies (CookieYes)" bash -c "fetch $B/ | grep -q 'cky-banner-element'"
+  stop_server
+}
+
 section_all() {
-  section_scaffold; section_images; section_core; section_partials; section_home; section_oferta; section_galeria; section_kontakt
+  section_scaffold; section_images; section_core; section_partials; section_home; section_oferta; section_galeria; section_kontakt; section_polityka
   echo "[global]"
   eq "brak śladów DC w public_html" "$(grep -rlE --include='*.php' --include='*.js' --include='*.css' --include='*.txt' --include='.htaccess' '\{\{|<sc-|<x-dc|<helmet|hint-placeholder|support\.js|fonts\.googleapis|lh3\.googleusercontent|dc-import|_ds_bundle|unpkg' public_html | wc -l | tr -d ' ')" 0
   eq "workflow bez 'tuszyn'" "$(grep -ci tuszyn .github/workflows/deploy.yml)" 0
@@ -229,7 +245,7 @@ section_all() {
 
 case "${1:-all}" in
   scaffold) section_scaffold ;; images) section_images ;; core) section_core ;; partials) section_partials ;;
-  home) section_home ;; oferta) section_oferta ;; galeria) section_galeria ;; kontakt) section_kontakt ;; all) section_all ;;
+  home) section_home ;; oferta) section_oferta ;; galeria) section_galeria ;; kontakt) section_kontakt ;; polityka) section_polityka ;; all) section_all ;;
   *) echo "unknown section $1"; exit 2 ;;
 esac
 echo "----"
