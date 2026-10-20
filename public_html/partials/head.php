@@ -64,6 +64,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TT537MFM');</script>
 <!-- End Google Tag Manager -->
+<link rel="preconnect" href="https://cdn-cookieyes.com"><!-- baner CookieYes (przez GTM) bywa elementem LCP, np. na polityce -->
 <?php endif; ?>
 <script>document.documentElement.classList.add('js')</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
