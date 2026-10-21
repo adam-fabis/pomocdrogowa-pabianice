@@ -273,4 +273,4 @@ body.lb-open{overflow:hidden}
 .pol .pol-box{margin:0 0 16px;padding:18px 20px 4px;background:#262626;border-left:4px solid #f5c518}
 /* ── Baner CookieYes (wstrzykiwany przez GTM; plan Free nie pozwala zmienić kolorów ani pozycji w panelu, stąd nadpisania z !important na inline style) ── */
 .cky-notice-btn-wrapper .cky-btn-reject{color:#d0d0d0!important;border-color:#d0d0d0!important;background-color:transparent!important} /* „Odrzuć” jak „Dostosuj” — dalej na pierwszym ekranie */
-@media (min-width:441px){.cky-consent-container.cky-box-bottom-left{left:calc(50% - 220px)!important}} /* wyśrodkowany box 440px; ≤440px CookieYes daje pełną szerokość */
+.cky-consent-container.cky-box-bottom-left{left:50%!important;top:50%!important;right:auto!important;bottom:auto!important;transform:translate(-50%,-50%)!important;max-width:calc(100% - 32px);max-height:calc(100vh - 32px);overflow-y:auto} /* box na środku ekranu (obie osie), z marginesem 16px na małych ekranach */
